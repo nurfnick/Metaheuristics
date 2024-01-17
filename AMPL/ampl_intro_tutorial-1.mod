@@ -69,6 +69,7 @@ solve; #solve the LP problem
 #Example of simply displaying
 display purchase; #Display the purchase variable
 display budget; #Display the budget parameter
+display profit;
 
 expand yearly_budget["y2020"]; #Show the yearly_budget constraint at y2020 index 
 
