@@ -1,0 +1,28 @@
+data;
+
+set bondName := A B C D E;
+#set bondType := Muni Ag G G Muni;
+set govAndAg := B C D;
+
+param numberBonds :=5;
+
+param yearsToMaturity :=
+A		9
+B		15
+C		4
+D		3
+E		2;
+
+param afterTaxYield :=
+A		0.043
+B		0.027
+C		0.025
+D		0.022
+E		0.045;
+
+param qualityControl :=
+A		2
+B		2
+C		1
+D		1
+E		5;
