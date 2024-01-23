@@ -10,22 +10,22 @@
 \newtheorem{example}{Example}
 
 
-\author{}
-\title{}
+\author{Group 3}
+\title{Homework 1 Advanced Analytics and Metaheuristics}
 
 \begin{document}
-%\maketitle
-{\Large
-%Change Document name to: Graded Homework 1\_Jacob\_Nicholas
-\noindent NAME:  Nicholas Jacob\\ 
-STUDENT ID: \# 113578513\\
-HOMEWORK NUMBER: 1\\
-COURSE: DSA 5113 Advanced Analytics and Metaheuristics\\ 
-SECTION: ONLINE\\SEMESTER: Spring 2024\\
-INSTRUCTOR:  DR. Charles Nicholson\\
- SCORE:}
-
-\newpage
+\maketitle
+%{\Large
+%%Change Document name to: Graded Homework 1\_Jacob\_Nicholas
+%\noindent NAME:  Nicholas Jacob\\ 
+%STUDENT ID: \# 113578513\\
+%HOMEWORK NUMBER: 1\\
+%COURSE: DSA 5113 Advanced Analytics and Metaheuristics\\ 
+%SECTION: ONLINE\\SEMESTER: Spring 2024\\
+%INSTRUCTOR:  DR. Charles Nicholson\\
+% SCORE:}
+%
+%\newpage
 \begin{enumerate}
 \item To examine this story, I will create a table.  I will assume that a sinister lying creature always lies (even though we know this too not be true eg. politicians).  So really this lays out two circumstances with two options in each.  
 
@@ -175,8 +175,7 @@ tions 1.1 and 1.2, but with a quite different story behind it.
 \item You are in charge of an advertising campaign for a new product, with a budget of \$1 million.
 You can advertise on TV or in magazines. One minute of TV time costs \$20,000 and reaches 1.8
 million potential customers; a magazine page costs \$10,000 and reaches 1 million. You must sign
-up for at least 10 minutes of TV time. How should you spend your budget to maximize your audience? Formulate the problem in AMPL and solve it. Check the solution by hand using at least one
-of the approaches described in Section 1.1.
+up for at least 10 minutes of TV time. How should you spend your budget to maximize your audience? Formulate the problem in AMPL and solve it. Check the solution by hand using at least one of the approaches described in Section 1.1.
 
 \item It takes creative talent to create effective advertising; in your organization, it takes three
 person-weeks to create a magazine page, and one person-week to create a TV minute. You have
@@ -187,6 +186,44 @@ requires only 1 person-day of time. How does this medium affect your solutions?
 \item How does the solution change if you have to sign up for at least two magazine pages? A maximum of 120 minutes of radio?
 \end{enumerate}
 \end{quote}
+
+\begin{enumerate}
+\item 
+
+\begin{tikzpicture}
+\draw[help lines] (-0.5,-0.5) grid (10.5,10.5);
+\draw[thick][<->](0,10.5)--(0,-0.5);
+\draw (0,10.5) node[above]{Magazine Pages};
+\draw[thick][<->](10.5,0)--(-.5,0);
+\draw (10.5,0) node[right]{TV Minutes};
+\draw (0,1) node[left]{10};
+\draw (0,2) node[left]{20};
+\draw (0,3) node[left]{30};
+\draw (0,4) node[left]{40};
+\draw (0,5) node[left]{50};
+\draw (0,6) node[left]{60};
+\draw (0,7) node[left]{70};
+\draw (0,8) node[left]{80};
+\draw (0,9) node[left]{90};
+\draw (0,10) node[left]{100};
+\draw (1,0) node[below]{5};
+\draw (2,0) node[below]{10};
+\draw (3,0) node[below]{15};
+\draw (4,0) node[below]{20};
+\draw (5,0) node[below]{25};
+\draw (6,0) node[below]{30};
+\draw (7,0) node[below]{35};
+\draw (8,0) node[below]{40};
+\draw (9,0) node[below]{45};
+\draw (10,0) node[below]{50};
+\draw[thick] (2,10.5)--(2,-.50);
+\draw[thick] (0,10)--(10,0);
+\draw [nodes=draw, circle, inner sep=1.5pt]
+    (2,8) node [] {$(10,80)$}
+	(2,0) node []{$(10,0)$}
+	(10,0) node [] {$(50,0)$};
+\end{tikzpicture}
+\end{enumerate}
 
 \end{enumerate}
 
