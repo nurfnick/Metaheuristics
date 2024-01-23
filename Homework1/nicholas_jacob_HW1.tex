@@ -188,7 +188,17 @@ requires only 1 person-day of time. How does this medium affect your solutions?
 \end{quote}
 
 \begin{enumerate}
-\item 
+\item We begin by stating the objective function to maximize, eyeballs:
+\[
+z = 1.8 x + 1y
+\]
+Where $x$ is minutes of TV time, $y$ is pages in a magazine and $z$ is million viewers.  Next we set the two constraints, at least 10 minutes of TV and no more than \$1 million spent.
+\[
+\begin{array}{l}
+x\geq 10\\
+20 000 x + 10 000 y \leq 1 000 000
+\end{array}
+\]
 
 \begin{tikzpicture}
 \draw[help lines] (-0.5,-0.5) grid (10.5,10.5);
@@ -223,6 +233,15 @@ requires only 1 person-day of time. How does this medium affect your solutions?
 	(2,0) node []{$(10,0)$}
 	(10,0) node [] {$(50,0)$};
 \end{tikzpicture}
+
+We see the corner points of the feasible set as possible solutions.  We are left to find the maximum:
+
+\begin{tabular}{c|c|c}
+Point& z & Optimizer\\\hline
+$(10,80)$& 18+80 = 98&Max\\
+$(10,0)$& 18+0 = 18&Min\\
+$(50,0)$& 90+0 = 90&
+\end{tabular}
 \end{enumerate}
 
 \end{enumerate}
