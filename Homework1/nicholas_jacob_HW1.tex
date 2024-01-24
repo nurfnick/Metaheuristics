@@ -257,7 +257,7 @@ x_{radio} \leq 120
 \]
 \includegraphics{outputp3d2.png}
 
-We should not that viewership numbers are high with this model and there are no fractional pages or minutes required to achieve this solution
+We should note that viewership numbers are high with this model and there are no fractional pages or minutes required to achieve this solution
 \end{enumerate}
 
 \item We'll repeat the question here
@@ -290,6 +290,27 @@ rate of 150 tons per hour. Explain how you could modify the data, without changi
 incorporate this new stage.
 \end{enumerate}
 \end{quote}
+
+\begin{enumerate}
+\item To make the constraint from a less than to equal, we simply change the constraint in AMPL to $==$ instead of $<=$.  We see a screen shot of this in the code base:
+
+\includegraphics[width = \textwidth]{outputp4a1.png}
+
+We see that the output agrees with the values reported in the text.
+
+\includegraphics{outputp4a2.png}
+
+The reason for this agreement even with a new condition is that we were already using all available hours.  It did not matter that we required equality as it was already achieved in the optimizer.
+\item Adding the constraint of max\_weight will result in an extra constraint.  Using the language of text, we will require that
+\[
+\sum_{p \in PROD}Make[p] \leq max\_weight
+\]
+When added to our model we see the following results
+
+\includegraphics{outputp4b.png}
+
+We note that the objective has dropped with this production schedule and there are still more than 13 tons left that could have been assembled in this new weight limit scenario.  We can also see that the original optimizer was over this weight limit which is why we now have a new result.
+\end{enumerate}
 
 \end{enumerate}
 
