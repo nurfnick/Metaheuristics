@@ -218,7 +218,78 @@ $(10,80)$& 18+80 = 98&Max\\
 $(10,0)$& 18+0 = 18&Min\\
 $(50,0)$& 90+0 = 90&
 \end{tabular}
+We repeat the same system in AMPL and arrive at the same solution
+
+\includegraphics{outputp3a.png}
+\item For this part, we repeat the exercise adding the additional requirement of creative time
+\[
+1x+3y\leq 100
+\]
+We see this changes our maximum, to 92 million people.
+
+\includegraphics{outputp3b.png}
+
+\item For the next question we add radio into the advertising mix.  This will add a new variable and change all the constraints and objective.  We also note that the 2D graphical method will no longer be available to us to check our solution.
+\[
+z =  1.8 x_{TV} + 1x_{magazine} + 0.25x_{radio}
+\]
+\[
+\begin{array}{l}
+x_{TV}\geq 10\\
+20 000 x_{TV} + 10 000 x_{magazine} + 2 000 x_{radio} \leq 1 000 000\\
+1x_{TV}+3x_{magazine} + 1 x_{radio} + \leq 100
+\end{array}
+\]
+We change notation here too, applying subscripts to be more descriptive of our vector $x$.
+
+\includegraphics{outputp3c.png}
+
+We should take a moment to examine this solution.  It slightly increases our total number of customers 93.89 million but includes no magazine advertizing.  It also requires fractional time in TV and radio.  While these are possible it is not known to the authors if this is available in the Ad world.
+\item To add the condition of at lease two pages of magazine, we add the condition
+\[
+x_{magazine}\geq 2
+\]
+\includegraphics{outputp3d1.png}
+
+We can add the requirement of no more that 120 minutes of radio but that will not change the results.  We include that constraint for completeness and rerun similar code to above.
+\[
+x_{radio} \leq 120
+\]
+\includegraphics{outputp3d2.png}
+
+We should not that viewership numbers are high with this model and there are no fractional pages or minutes required to achieve this solution
 \end{enumerate}
+
+\item We'll repeat the question here
+\begin{quote}
+The steel model of this chapter can be further modified to reflect various changes in production requirements. For each part below, explain the modifications to Figures 1-6a and 1-6b that
+would be required to achieve the desired changes. (Make each change separately, rather than accumulating the changes from one part to the next.)
+
+\begin{enumerate}
+\item How would you change the constraints so that total hours used by all products must equal the total hours available for each stage? Solve the linear program with this change, and verify that you
+get the same results. Explain why, in this case, there is no difference in the solution.
+\item How would you add to the model to restrict the total weight of all products to be less than a
+new parameter, max\_weight? Solve the linear program for a weight limit of 6500 tons, and
+explain how this extra restriction changes the results.
+\item The incentive system for mill managers may tend to encourage them to produce as many tons as
+possible. How would you change the objective function to maximize total tons? For the data of
+our example, does this make a difference to the optimal solution?
+\item Suppose that instead of the lower bounds represented by commit[p] in our model, we want to
+require that each product represent a certain share of the total tons produced. In the algebraic notation of Figure 1-1, this new constraint might be represented as
+\[
+X_j \geq s_j\sum_{k\in P} X_k, \forall j \in P
+\]
+where s j is the minimum share associated with project j. How would you change the AMPL model
+to use this constraint in place of the lower bounds commit[p]? If the minimum shares are 0.4 for
+bands and plate, and 0.1 for coils, what is the solution?
+Verify that if you change the minimum shares to 0.5 for bands and plate, and 0.1 for coils, the lin-
+ear program gives an optimal solution that produces nothing, at zero profit. Explain why this
+makes sense.
+\item Suppose there is an additional finishing stage for plates only, with a capacity of 20 hours and a
+rate of 150 tons per hour. Explain how you could modify the data, without changing the model, to
+incorporate this new stage.
+\end{enumerate}
+\end{quote}
 
 \end{enumerate}
 

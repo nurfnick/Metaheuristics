@@ -45,5 +45,5 @@ radio 	1;
 solve;
 
 display time;
-display totalFunds;
+display eyeBalls;
 display creativeManHours;

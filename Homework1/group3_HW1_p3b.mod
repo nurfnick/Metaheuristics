@@ -41,4 +41,4 @@ mag		3;
 solve;
 
 display time;
-display totalFunds;
+display eyeBalls;
