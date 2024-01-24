@@ -11,6 +11,7 @@ param numberBonds; #total number of bonds
 param yearsToMaturity {bondName};
 param afterTaxYield {bondName};
 param qualityControl {bondName};
+param beforeTaxYield {bondName};
 
 var invest{bondName} >= 0;
 
