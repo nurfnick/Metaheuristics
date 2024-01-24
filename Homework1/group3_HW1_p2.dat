@@ -26,3 +26,10 @@ B		2
 C		1
 D		1
 E		5;
+
+param beforeTaxYield :=
+A		0.043
+B		0.054
+C		0.05	
+D		0.044
+E		0.045;

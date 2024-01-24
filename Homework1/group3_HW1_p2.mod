@@ -3,7 +3,6 @@ option solver cplex
 ;
 
 set bondName;
-#set bondType;
 set govAndAg;
 
 

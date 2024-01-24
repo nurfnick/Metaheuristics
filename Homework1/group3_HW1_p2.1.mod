@@ -12,11 +12,15 @@ param numberBonds; #total number of bonds
 param yearsToMaturity {bondName};
 param afterTaxYield {bondName};
 param qualityControl {bondName};
+param beforeTaxYield {bondName};
 
 var invest{bondName} >= 0;
 var borrowedFunds >=0, <= 1000000;
 
-maximize returnOnInvestmentWithBorrowing: sum {b in bondName} afterTaxYield[b]*invest[b]- 0.0275*borrowedFunds;
+#maximize returnOnInvestmentWithBorrowing: sum {b in bondName} afterTaxYield[b]*invest[b]- 0.0275*borrowedFunds;
+
+maximize returnOnInvestmentWithBorrowAndTaxes: sum {b in bondName} beforeTaxYield[b]*invest[b] -0.055*borrowedFunds- 0.5*((sum {c in govAndAg} beforeTaxYield[c]*invest[c])-0.055*borrowedFunds);
+
 
 subject to totalSumInvestedWithBorrowing: sum {b in bondName}invest[b]-borrowedFunds <= 10000000;
 subject to GovAndAg: sum {b in govAndAg}invest[b]>= 4000000;
