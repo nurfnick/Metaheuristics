@@ -36,7 +36,8 @@ data group3_HW1_p2.dat;
 solve;
 
 printf "Solution: \n"; #print the return on investment and the total investment in each bond
-printf "Return on Investment: %g\n", returnOnInvestment;
+printf "Return on Investment: %g\n", returnOnInvestmentWithBorrowAndTaxes;
+printf "Amount Borrowed: %g\n", borrowedFunds;
 printf "Investment in Each Bond = \n";
 display invest;
 
