@@ -23,7 +23,7 @@ subject to GovAndAg: sum {b in govAndAg}invest[b]>= 4000000; #constraint that th
 #subject to yearsToMaturityAverage: (sum {b in bondName} invest[b]*yearsToMaturity[b])/(numberBonds*(sum{b in bondName} invest[b]))<= 5;
 #subject to qualityControlAverageSimplified: (sum {b in bondName} invest[b]*qualityControl[b])/(numberBonds*10000000)<= 1.4;
 #subject to yearsToMaturityAverageSimplified: (sum {b in bondName} invest[b]*yearsToMaturity[b])/(numberBonds*10000000)<= 5;
-subject to qualityControlAverageLinear: (sum {b in bondName} invest[b]*qualityControl[b]) -(1.4*(sum {b in bondName} invest[b]))<= 0; #constraint that average quality of portfolio max not exceed 1.4
+subject to qualityControlAverageLinear: (sum {b in bondName} invest[b]*qualityControl[b]) -(1.4*(sum {b in bondName} invest[b]))<= 0; #constraint that average quality of portfolio may not exceed 1.4
 subject to yearsToMaturityAverageLinear: (sum {b in bondName} invest[b]*yearsToMaturity[b])-(5*(sum{b in bondName} invest[b]))<= 0; #constraint that average yield to maturity may not exceed 5 years
 
 data group3_HW1_p2.dat; #connect to data file
