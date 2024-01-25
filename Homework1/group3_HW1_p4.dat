@@ -14,3 +14,8 @@ coils 30 500 4000
 plate 29 750 3500 ;
 
 param avail := reheat 35 roll 40 ;
+
+param percent:=
+bands		0.5
+plate		0.5
+coils		0.1;

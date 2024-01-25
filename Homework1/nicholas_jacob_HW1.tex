@@ -281,10 +281,7 @@ X_j \geq s_j\sum_{k\in P} X_k, \forall j \in P
 \]
 where s j is the minimum share associated with project j. How would you change the AMPL model
 to use this constraint in place of the lower bounds commit[p]? If the minimum shares are 0.4 for
-bands and plate, and 0.1 for coils, what is the solution?
-Verify that if you change the minimum shares to 0.5 for bands and plate, and 0.1 for coils, the lin-
-ear program gives an optimal solution that produces nothing, at zero profit. Explain why this
-makes sense.
+bands and plate, and 0.1 for coils, what is the solution?  Verify that if you change the minimum shares to 0.5 for bands and plate, and 0.1 for coils, the linear program gives an optimal solution that produces nothing, at zero profit. Explain why this makes sense.
 \item Suppose there is an additional finishing stage for plates only, with a capacity of 20 hours and a
 rate of 150 tons per hour. Explain how you could modify the data, without changing the model, to
 incorporate this new stage.
@@ -310,8 +307,66 @@ When added to our model we see the following results
 \includegraphics{outputp4b.png}
 
 We note that the objective has dropped with this production schedule and there are still more than 13 tons left that could have been assembled in this new weight limit scenario.  We can also see that the original optimizer was over this weight limit which is why we now have a new result.
-\end{enumerate}
 
+\item To examine this question, we change the objective function.  We now which to maximize the total weight produced rather than the profit.  The new objective is simply
+\[
+z = \sum_{i\in PROD} x_i
+\]
+We make this the sole objective in the system in AMPL and provide the Total\_Profit for comparison.
+
+\includegraphics{outputp4c.png}
+
+We note that the profit has dropped (as expected) but the total weight did not actually change from the original result, both are 7000 tonnes.
+
+\item To tackle this question, we first restate the question in our own terms.  Here we desire not a baseline production but a baseline production percentage.  In reality what we desire is a minimum percentage of the total to be in each product.  We will make this a separate constraint called Production\_Percentage and eliminate the commit minimums.  We write the percentage as a new param and write the constraint as 
+\[
+\text{subject to percentage} \{p \in PROD\}: Make[p] \geq percent[p]*\left(sum \{r \in PROD\} Make[r]\right);
+\]
+Output is included below and shows that constraint decreases the optimal profit.
+
+\includegraphics{outputp4d.png}
+
+If we change the percentages to 50\% for two products and 10\% for the remaining we indeed produce nothing.  Afterall the only way give 110\% is to have started with nothing...
+
+\includegraphics{outputp4d1.png}
+
+\item Something, something add hours and change a rate... \LaTeX 
+
+\hrule
+
+\end{enumerate}
+\item We restate the question here:
+
+\begin{quote}
+Consider the bond-portfolio problem formulated in Section 1.3 (in this assignment question 2). Reformulate the problem restricting the bonds available only to bonds A and D. Further add a constraint that the holdings of municipal bonds must be less than or equal to \$3 million.
+\begin{enumerate}
+\item What is the optimal solution?
+\item What is the shadow price on the municipal limit?
+\item How much can the municipal limit be relaxed before it becomes a nonbinding constraint?
+\item Below what interest rate is it favorable to borrow funds to increase the overall size of the portfolio?
+\item Why is this rate less than the earnings rate on the portfolio as a whole?
+\end{enumerate}
+\end{quote}
+\begin{enumerate}
+\item Since bond $A$ was the only remaining Municipal bond, the only new constraint is
+\[
+invest[A] \leq 3 000 000
+\]
+We copy/pasta the data file from question 2 and delete all mentions to bond $E$ as well.  Output is shown below.
+
+\includegraphics{outputp5a.png}
+
+\item To find the shadow price on the municipal limit we simply increase the limit by \$1 and see how the optimal value changes.  This change in the optimal value is the shadow price.  We see in the output below some interesting features by this slight change.  First off, the objective (profit) has increased by \$0.003 but the investment strategy changed the amount invested in Bond $C$ decreasing it by \$10.  We are unsure where that extra money was to be invested due to other outputs expressed in scientific notation.  This shadow price was also observed to be the same if we added another dollar to the constraint or subtracted a dollar!
+
+\includegraphics{outputp5b.png}
+\item To see how much this municipal constraint can be relaxed before becoming non-binding, we simply increased the limit to \$4 000 000.  When we run the code with that limit, we see that we do not achieve that limit but instead have a limit in bond $A$ of \$ 3 333 330.  We wonder if the actual value should be \$ 3 333 333.3$\overline{3}$.
+
+\includegraphics{outputp5c.png}
+
+\item Something about tax rates....
+
+\item Because of constraints on ratings and time to maturity. 
+\end{enumerate}
 \end{enumerate}
 
 
