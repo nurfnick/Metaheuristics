@@ -42,6 +42,7 @@ solve;
 
 printf "Solution: \n"; #print the total audience and amount of pages/minutes purchased in each type of media
 printf "Total Audience in Millions of Viewers: %g\n", eyeBalls;
+printf "Creative Person-Weeks Left Over: %g\n", creativeManHours;
 printf "Amount of Advertising Purchased per Type of Media: \n" ;
 display time;
 
