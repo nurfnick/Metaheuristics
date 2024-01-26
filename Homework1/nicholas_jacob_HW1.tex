@@ -359,6 +359,10 @@ We copy/pasta the data file from question 2 and delete all mentions to bond $E$ 
 \item To find the shadow price on the municipal limit we simply increase the limit by \$1 and see how the optimal value changes.  This change in the optimal value is the shadow price.  We see in the output below some interesting features by this slight change.  First off, the objective (profit) has increased by \$0.003 but the investment strategy changed the amount invested in Bond $C$ decreasing it by \$10.  We are unsure where that extra money was to be invested due to other outputs expressed in scientific notation.  This shadow price was also observed to be the same if we added another dollar to the constraint or subtracted a dollar!
 
 \includegraphics{outputp5b.png}
+
+We note that after videos dropped explaining how to compute shadow limit with AMPL, we repeated this exercise using the cplex\_options 'sensitivity' and found the same result presented below.
+
+\includegraphics{outputp5bwOption.png}
 \item To see how much this municipal constraint can be relaxed before becoming non-binding, we simply increased the limit to \$4 000 000.  When we run the code with that limit, we see that we do not achieve that limit but instead have a limit in bond $A$ of \$ 3 333 330.  We wonder if the actual value should be \$ 3 333 333.3$\overline{3}$.
 
 \includegraphics{outputp5c.png}
