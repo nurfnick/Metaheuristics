@@ -1,0 +1,18 @@
+#AMPL data for "Enterprising Youths" problem DSA/ISE 5113
+
+data;
+
+set I := 1 2 3 4 5 6 7 8;
+
+param:   v,   w,   vol,   a  :=
+    1   55   25     4    20   
+    2   35    2     1    15   
+    3   65    4     2    20    
+    4   15    3     1    30 
+    5   80   20     8    30 
+    6   85    8     4    15 
+    7   50   15     6    25  
+    8   45   30     8    10 ; 
+
+param WEIGHT := 500;
+param VOLUME := 300;
