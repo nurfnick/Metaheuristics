@@ -26,6 +26,10 @@ data group3_HW1_p4.dat;
 
 solve;
 
+printf "Solution: \n";
+
+printf "Number of Each Type of Part to Make: \n";
 display Make;
 
+printf "Total Profit when Maximizing Weight: \n";
 display sum {p in PROD} profit[p] * Make[p];
