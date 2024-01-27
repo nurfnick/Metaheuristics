@@ -23,6 +23,9 @@ data group3_HW1_p4.dat;
 
 solve;
 
+printf "Solution: \n";
+
+printf "Number of Each Type of Part to Make: \n";
 display Make;
 
-display weightLimit;
+printf "Lbs Left Over in Weight Limit: %g\n", weightLimit ;
