@@ -28,4 +28,4 @@ printf "Solution: \n";
 printf "Number of Each Type of Part to Make: \n";
 display Make;
 
-printf "Lbs Left Over in Weight Limit: %g\n", weightLimit ;
+printf "Tons Left Over in Weight Limit: %g\n", weightLimit ;
