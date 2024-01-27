@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2023.5.31)  23 JAN 2024 19:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2023.5.31)  27 JAN 2024 16:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -616,7 +616,7 @@ LaTeX Font Info:    Try loading font information for U+wasy on input line 29.
 (/usr/share/texlive/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 )
-Overfull \hbox (2.38464pt too wide) in paragraph at lines 54--57
+Overfull \hbox (2.38464pt too wide) in paragraph at lines 53--56
 \OT1/cmr/m/n/10.95 well as their re-spec-tive qual-ity rat-ings, ma-tu-ri-ties,
  and yields,
  []
@@ -624,7 +624,7 @@ Overfull \hbox (2.38464pt too wide) in paragraph at lines 54--57
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (167.79498pt too wide) in paragraph at lines 58--66
+Overfull \hbox (45.80199pt too wide) in paragraph at lines 58--66
 [][] 
  []
 
@@ -634,40 +634,244 @@ Missing character: There is no ™ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
-[2] [3] [4]
-Overfull \hbox (97.65175pt too wide) in paragraph at lines 235--236
+[2]
+<outputp2a.png, id=32, 383.18156pt x 216.81pt>
+File: outputp2a.png Graphic file (type png)
+<use outputp2a.png>
+Package pdftex.def Info: outputp2a.png  used on input line 121.
+(pdftex.def)             Requested size: 383.18062pt x 216.80946pt.
+
+Overfull \hbox (74.6457pt too wide) in paragraph at lines 121--122
 [][] 
  []
 
-[5] [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 251.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 251.
- (./nicholas_jacob_HW1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 251.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 251.
+
+Overfull \hbox (67.59386pt too wide) in alignment at lines 125--130
+ [][][] []
+ []
+
+[3 <./outputp2a.png>]
+Overfull \hbox (0.85367pt too wide) in paragraph at lines 138--140
+\OT1/cmr/m/n/10.95 The rest of the con-straints re-main un-changed. Run-ning it
+ through
+ []
+
+<outputp2b.png, id=38, 361.35pt x 216.81pt>
+File: outputp2b.png Graphic file (type png)
+<use outputp2b.png>
+Package pdftex.def Info: outputp2b.png  used on input line 141.
+(pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
+
+Overfull \hbox (52.81421pt too wide) in paragraph at lines 141--142
+[][] 
+ []
+
+[4 <./outputp2b.png>]
+Overfull \hbox (97.65175pt too wide) in paragraph at lines 211--212
+[][] 
+ []
+
+[5]
+<outputp3a.png, id=53, 365.11406pt x 216.05719pt>
+File: outputp3a.png Graphic file (type png)
+<use outputp3a.png>
+Package pdftex.def Info: outputp3a.png  used on input line 223.
+(pdftex.def)             Requested size: 365.11316pt x 216.05664pt.
+
+Overfull \hbox (56.57825pt too wide) in paragraph at lines 223--224
+[][] 
+ []
+
+[6]
+<outputp3b.png, id=58, 362.85562pt x 188.20313pt>
+File: outputp3b.png Graphic file (type png)
+<use outputp3b.png>
+Package pdftex.def Info: outputp3b.png  used on input line 230.
+(pdftex.def)             Requested size: 362.85474pt x 188.20265pt.
+
+Overfull \hbox (54.31982pt too wide) in paragraph at lines 230--231
+[][] 
+ []
+
+[7 <./outputp3a.png> <./outputp3b.png>]
+<outputp3c.png, id=66, 368.1253pt x 208.52907pt>
+File: outputp3c.png Graphic file (type png)
+<use outputp3c.png>
+Package pdftex.def Info: outputp3c.png  used on input line 245.
+(pdftex.def)             Requested size: 368.1244pt x 208.52855pt.
+
+Overfull \hbox (59.5895pt too wide) in paragraph at lines 245--246
+[][] 
+ []
+
+<outputp3d1.png, id=67, 367.3725pt x 196.48407pt>
+File: outputp3d1.png Graphic file (type png)
+<use outputp3d1.png>
+Package pdftex.def Info: outputp3d1.png  used on input line 252.
+(pdftex.def)             Requested size: 367.37158pt x 196.48358pt.
+
+Overfull \hbox (58.83667pt too wide) in paragraph at lines 251--253
+[] 
+ []
+
+[8 <./outputp3c.png>]
+<outputp3d2.png, id=73, 360.59718pt x 220.57407pt>
+File: outputp3d2.png Graphic file (type png)
+<use outputp3d2.png>
+Package pdftex.def Info: outputp3d2.png  used on input line 258.
+(pdftex.def)             Requested size: 360.5963pt x 220.57352pt.
+
+Overfull \hbox (52.06139pt too wide) in paragraph at lines 257--259
+[] 
+ []
+
+[9 <./outputp3d1.png> <./outputp3d2.png>] [10]
+<outputp4a1.png, id=88, 513.41812pt x 343.2825pt>
+File: outputp4a1.png Graphic file (type png)
+<use outputp4a1.png>
+Package pdftex.def Info: outputp4a1.png  used on input line 294.
+(pdftex.def)             Requested size: 360.0pt x 240.70467pt.
+
+Overfull \hbox (51.46509pt too wide) in paragraph at lines 294--295
+[][] 
+ []
+
+<outputp4a2.png, id=89, 361.35pt x 219.82124pt>
+File: outputp4a2.png Graphic file (type png)
+<use outputp4a2.png>
+Package pdftex.def Info: outputp4a2.png  used on input line 298.
+(pdftex.def)             Requested size: 361.34912pt x 219.8207pt.
+
+Overfull \hbox (52.81421pt too wide) in paragraph at lines 298--299
+[][] 
+ []
+
+[11 <./outputp4a1.png>]
+<outputp4b.png, id=96, 360.59718pt x 195.73125pt>
+File: outputp4b.png Graphic file (type png)
+<use outputp4b.png>
+Package pdftex.def Info: outputp4b.png  used on input line 307.
+(pdftex.def)             Requested size: 360.5963pt x 195.73076pt.
+
+Overfull \hbox (52.06139pt too wide) in paragraph at lines 307--308
+[][] 
+ []
+
+[12 <./outputp4a2.png> <./outputp4b.png>]
+<outputp4c.png, id=102, 362.10281pt x 199.49532pt>
+File: outputp4c.png Graphic file (type png)
+<use outputp4c.png>
+Package pdftex.def Info: outputp4c.png  used on input line 317.
+(pdftex.def)             Requested size: 362.10191pt x 199.49481pt.
+
+Overfull \hbox (53.567pt too wide) in paragraph at lines 317--318
+[][] 
+ []
+
+
+Overfull \hbox (115.25816pt too wide) detected at line 324
+[]\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 p \OMS/cmsy/m/n/10.95 2 \OML/cmm/m/i
+t/10.95 PROD\OMS/cmsy/m/n/10.95 g \OT1/cmr/m/n/10.95 : \OML/cmm/m/it/10.95 Make
+\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 ] \OMS/cmsy/m/n/10.
+95 ^^U \OML/cmm/m/it/10.95 percent\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 p\OT1
+/cmr/m/n/10.95 ] \OMS/cmsy/m/n/10.95 ^^C [] \OT1/cmr/m/n/10.95 ;
+ []
+
+[13 <./outputp4c.png>]
+<outputp4d.png, id=110, 363.60844pt x 239.39438pt>
+File: outputp4d.png Graphic file (type png)
+<use outputp4d.png>
+Package pdftex.def Info: outputp4d.png  used on input line 327.
+(pdftex.def)             Requested size: 363.60754pt x 239.39378pt.
+
+Overfull \hbox (55.07263pt too wide) in paragraph at lines 327--328
+[][] 
+ []
+
+<outputp4d1.png, id=111, 359.84438pt x 231.86626pt>
+File: outputp4d1.png Graphic file (type png)
+<use outputp4d1.png>
+Package pdftex.def Info: outputp4d1.png  used on input line 331.
+(pdftex.def)             Requested size: 359.84349pt x 231.86568pt.
+
+Overfull \hbox (51.30858pt too wide) in paragraph at lines 331--332
+[][] 
+ []
+
+[14 <./outputp4d.png>] [15 <./outputp4d1.png>]
+<outputp5a.png, id=124, 363.60844pt x 213.79875pt>
+File: outputp5a.png Graphic file (type png)
+<use outputp5a.png>
+Package pdftex.def Info: outputp5a.png  used on input line 359.
+(pdftex.def)             Requested size: 363.60754pt x 213.79822pt.
+
+Overfull \hbox (55.07263pt too wide) in paragraph at lines 359--360
+[][] 
+ []
+
+<outputp5b.png, id=125, 361.35pt x 237.13594pt>
+File: outputp5b.png Graphic file (type png)
+<use outputp5b.png>
+Package pdftex.def Info: outputp5b.png  used on input line 363.
+(pdftex.def)             Requested size: 361.34912pt x 237.13535pt.
+
+Overfull \hbox (52.81421pt too wide) in paragraph at lines 363--364
+[][] 
+ []
+
+[16 <./outputp5a.png>]
+<outputp5bwOption.png, id=135, 362.10281pt x 172.39406pt>
+File: outputp5bwOption.png Graphic file (type png)
+<use outputp5bwOption.png>
+Package pdftex.def Info: outputp5bwOption.png  used on input line 367.
+(pdftex.def)             Requested size: 362.10191pt x 172.39363pt.
+
+Overfull \hbox (53.567pt too wide) in paragraph at lines 367--368
+[][] 
+ []
+
+<outputp5c.png, id=136, 361.35pt x 217.5628pt>
+File: outputp5c.png Graphic file (type png)
+<use outputp5c.png>
+Package pdftex.def Info: outputp5c.png  used on input line 370.
+(pdftex.def)             Requested size: 361.34912pt x 217.56227pt.
+
+Overfull \hbox (52.81421pt too wide) in paragraph at lines 370--371
+[][] 
+ []
+
+[17 <./outputp5b.png> <./outputp5bwOption.png>] [18 <./outputp5c.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 380.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 380.
+
+(./nicholas_jacob_HW1.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 380.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 380.
 Package rerunfilecheck Info: File `nicholas_jacob_HW1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 251.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 380.
  ) 
 Here is how much of TeX's memory you used:
- 16172 strings out of 492982
- 302403 string characters out of 6134896
- 365281 words of memory out of 5000000
- 19454 multiletter control sequences out of 15000+600000
- 10986 words of font info for 43 fonts, out of 8000000 for 9000
+ 16305 strings out of 492982
+ 304246 string characters out of 6134896
+ 366281 words of memory out of 5000000
+ 19527 multiletter control sequences out of 15000+600000
+ 11845 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,7n,54p,636b,718s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,9n,54p,786b,718s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb>
-Output written on nicholas_jacob_HW1.pdf (6 pages, 92870 bytes).
+ype1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy8.pfb>
+Output written on nicholas_jacob_HW1.pdf (18 pages, 261620 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
- 20 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 193 PDF objects out of 1000 (max. 8388607)
+ 145 compressed objects within 2 object streams
+ 59 named destinations out of 1000 (max. 500000)
+ 98 words of extra memory for PDF output out of 10000 (max. 10000000)
 

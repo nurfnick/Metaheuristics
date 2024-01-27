@@ -330,9 +330,11 @@ If we change the percentages to 50\% for two products and 10\% for the remaining
 
 \includegraphics{outputp4d1.png}
 
-\item We can make these changes in the data file only without affecting the model file by adding a few elements. First, we would add a new element to the "stage" set called "finish". Then, we would add a new column to the "rate" parameter for "finish", with values of zero for coil and band and a value of 150 for plate. We would also add "finish" to the "avail" parameter with a value of 20. \LaTeX 
+\item We can make these changes in the data file only without affecting the model file by adding a few elements. First, we would add a new element to the ``stage" set called ``finish". Then, we would add a new column to the ``rate" parameter for ``finish", with values of zero for coil and band and a value of 150 for plate. We would also add ``finish" to the ``avail" parameter with a value of 20.
 
-\hrule
+We could also just simply change the market demand for plates.  Currently the demand is 3500 but with this new finishing requirement only 3000 can be made.  If you simply reduce the market data for this one entry, we will get an equivalent result.
+
+
 
 \end{enumerate}
 \item We restate the question here:
