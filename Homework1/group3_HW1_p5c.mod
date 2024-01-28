@@ -26,12 +26,4 @@ data group3_HW1_p5.dat;
 
 solve;
 
-display invest;
-display returnOnInvestment;
-display totalSumInvested;
-/*
-display returnOnInvestment;
-display totalSumInvested;
-display GovAndAg;
-display qualityControlAverageLinear;
-display yearsToMaturityAverageLinear;*/
+display municipalLimit municipalLimit.up municipalLimit.down;

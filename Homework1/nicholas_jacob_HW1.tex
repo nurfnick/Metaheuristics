@@ -10,7 +10,7 @@
 \newtheorem{example}{Example}
 
 
-\author{Group 3:  Hannah Jensen, Nicholas Jacob, Amarachi Akawuaku}
+\author{Group 3:  Hannah Jensen, Nicholas Jacob, Amarachi Akawuaku, Robert Donkoh}
 \title{Homework 1 Advanced Analytics and Metaheuristics}
 
 \begin{document}
@@ -71,7 +71,8 @@ The bank places the following policy limitations on the portfolio manager’s ac
 number on this scale means a high-quality bond.)
 \item  The average years to maturity of the portfolio must not exceed 5 years.
 \end{enumerate}
-
+ 
+Here are the questions we answer below:
 \begin{enumerate}
 \item Assuming that the objective of the portfolio manager is to maximize after-tax earnings and that the tax rate is 50 percent, what bonds should he purchase? 
 \item If it became possible to borrow up to \$1 million at 5.5 percent before taxes, how should his selection be changed?
@@ -237,27 +238,27 @@ z =  1.8 x_{TV} + 1x_{magazine} + 0.25x_{radio}
 \begin{array}{l}
 x_{TV}\geq 10\\
 20 000 x_{TV} + 10 000 x_{magazine} + 2 000 x_{radio} \leq 1 000 000\\
-1x_{TV}+3x_{magazine} + 1 x_{radio} + \leq 100
+1x_{TV}+3x_{magazine} + \frac{1}{7} x_{radio} + \leq 100
 \end{array}
 \]
 We change notation here too, applying subscripts to be more descriptive of our vector $x$.
 
 \includegraphics{outputp3c.png}
 
-We should take a moment to examine this solution.  It slightly increases our total number of customers 93.89 million but includes no magazine advertizing.  It also requires fractional time in TV and radio.  While these are possible it is not known to the authors if this is available in the Ad world.
+We see an increase in viewers and note that there is a lot of slack in the creative hours.
+
 \item To add the condition of at lease two pages of magazine, we add the condition
 \[
 x_{magazine}\geq 2
 \]
-\includegraphics{outputp3d1.png}
 
-We can add the requirement of no more that 120 minutes of radio but that will not change the results.  We include that constraint for completeness and rerun similar code to above.
+and 
 \[
 x_{radio} \leq 120
 \]
-\includegraphics{outputp3d2.png}
+\includegraphics{outputp3d.png}
 
-We should note that viewership numbers are high with this model and there are no fractional pages or minutes required to achieve this solution
+We should note that viewership numbers are high with this model but there is a strangeness of fractional magazine pages and TV minutes.  Both seem plausible but we doubt the prices remain consistent if you start slicing up the page or the minute. 
 \end{enumerate}
 
 \item We'll repeat the question here
@@ -306,7 +307,7 @@ When added to our model we see the following results
 
 \includegraphics{outputp4b.png}
 
-We note that the objective has dropped with this production schedule and there are still more than 13 tons left that could have been assembled in this new weight limit scenario.  We can also see that the original optimizer was over this weight limit which is why we now have a new result.
+We note that the objective has dropped with this production schedule.  We can also see that the original optimizer was over this weight limit which is why we now have a new result.
 
 \item To examine this question, we change the objective function.  We now which to maximize the total weight produced rather than the profit.  The new objective is simply
 \[
@@ -330,9 +331,7 @@ If we change the percentages to 50\% for two products and 10\% for the remaining
 
 \includegraphics{outputp4d1.png}
 
-\item We can make these changes in the data file only without affecting the model file by adding a few elements. First, we would add a new element to the ``stage" set called ``finish". Then, we would add a new column to the ``rate" parameter for ``finish", with values of zero for coil and band and a value of 150 for plate. We would also add ``finish" to the ``avail" parameter with a value of 20.
-
-We could also just simply change the market demand for plates.  Currently the demand is 3500 but with this new finishing requirement only 3000 can be made.  If you simply reduce the market data for this one entry, we will get an equivalent result.
+\item We could also just simply change the market demand for plates.  Currently the demand is 3500 but with this new finishing requirement only 3000 can be made.  If you simply reduce the market data for this one entry, we will get an equivalent result if we added the finishing constraint.
 
 
 
@@ -354,7 +353,7 @@ Consider the bond-portfolio problem formulated in Section 1.3 (in this assignmen
 \[
 invest[A] \leq 3 000 000
 \]
-We copy/pasta the data file from question 2 and delete all mentions to bond $E$ as well.  Output is shown below.
+We copy/pasta the data file from question 2 and delete all mentions to bond $B$, $C$, and $E$ as well.  Output is shown below.
 
 \includegraphics{outputp5a.png}
 
@@ -362,16 +361,21 @@ We copy/pasta the data file from question 2 and delete all mentions to bond $E$ 
 
 \includegraphics{outputp5b.png}
 
-We note that after videos dropped explaining how to compute shadow limit with AMPL, we repeated this exercise using the cplex\_options 'sensitivity' and found the same result presented below.
+We note that after videos dropped explaining how to compute shadow limit with AMPL, we repeated this exercise using the cplex\_options `sensitivity' and found the same result presented below.
 
 \includegraphics{outputp5bwOption.png}
+
 \item To see how much this municipal constraint can be relaxed before becoming non-binding, we simply increased the limit to \$4 000 000.  When we run the code with that limit, we see that we do not achieve that limit but instead have a limit in bond $A$ of \$ 3 333 330.  We wonder if the actual value should be \$ 3 333 333.3$\overline{3}$.
 
 \includegraphics{outputp5c.png}
 
-\item Something about tax rates....
+\item Considering a 50\% tax rate and deducting you interest from your total tax liability, we see that at 4.4\% we would not take the loan but at any rate below we would.  We get this from the after-tax return on bond D as the limit on Municipal bonds has been met.  We state this as 
+\[
+r<4.4\%
+\]
+We iterated in AMPL to see this appears to be the cuttoff point in our model.
 
-\item Because of constraints on ratings and time to maturity. 
+\item We see the return on the entire investment package at 2.83\%.  We don't like the question and refuse to answer. 
 \end{enumerate}
 \end{enumerate}
 

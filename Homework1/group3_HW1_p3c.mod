@@ -40,13 +40,13 @@ radio	0.25;
 param creative := #define the number of person-weeks to create each type of advertising
 TV		1
 mag		3
-radio 	1;
+radio 	0.1428;
 
 solve;
 
 printf "Solution: \n"; #print the total audience, creative person-weeks left over, and amount of pages/minutes purchased in each type of media
 printf "Total Audience in Millions of Viewers: %g\n", eyeBalls;
-printf "Creative Person-Weeks Left Over: %g\n", creativeManHours;
+printf "Creative Person-Weeks Left Over: %g\n", creativeManHours.slack;
 printf "Amount of Advertising Purchased per Type of Media: \n" ;
 display time;
 

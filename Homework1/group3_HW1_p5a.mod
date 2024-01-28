@@ -28,10 +28,5 @@ solve;
 
 display invest;
 display returnOnInvestment;
-/*
-display returnOnInvestment;
-display totalSumInvested;
-display GovAndAg;
-display qualityControlAverageLinear;
-display yearsToMaturityAverageLinear;*/
+
 

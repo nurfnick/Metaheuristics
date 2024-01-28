@@ -8,6 +8,7 @@ param avail {STAGE} >= 0; # hours available/week in each stage
 param profit {PROD}; # profit per ton
 param commit {PROD} >= 0; # lower limit on tons sold in week
 param market {PROD} >= 0; # upper limit on tons sold in week
+param percent {PROD};
 
 var Make {p in PROD} >= commit[p], <= market[p]; # tons produced
 
@@ -28,4 +29,4 @@ printf "Solution: \n";
 printf "Number of Each Type of Part to Make: \n";
 display Make;
 
-printf "Tons Left Over in Weight Limit: %g\n", weightLimit ;
+printf "Tons Left Over in Weight Limit: %g\n", weightLimit.slack ;
