@@ -27,6 +27,8 @@ data group3_HW1_p4.dat;
 
 solve;
 
+printf "Number of Each Type of Part to Make: \n";
 display Make;
 
+printf "Number of Hours Used by Each Product \n";
 display Time;
