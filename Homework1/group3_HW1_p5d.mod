@@ -16,7 +16,7 @@ param beforeTaxYield {bondName};
 var invest{bondName} >= 0;
 var borrowedFunds >=0, <= 1000000;
 
-maximize returnOnInvestment: sum {b in bondName} afterTaxYield[b]*invest[b]-.02175*borrowedFunds ;
+maximize returnOnInvestment: sum {b in bondName} afterTaxYield[b]*invest[b]-.022*borrowedFunds ;
 
 subject to totalSumInvested: sum {b in bondName}invest[b] <= 10000000 +borrowedFunds;
 subject to GovAndAg: sum {b in govAndAg}invest[b]>= 4000000;

@@ -357,13 +357,12 @@ We copy/pasta the data file from question 2 and delete all mentions to bond $B$,
 
 \includegraphics[width = .9\textwidth]{outputp5a.png}
 
-\item To find the shadow price on the municipal limit we simply increase the limit by \$1 and see how the optimal value changes.  This change in the optimal value is the shadow price.  We see in the output below some interesting features by this slight change.  First off, the objective (profit) has increased by \$0.003 but the investment strategy changed the amount invested in Bond $C$ decreasing it by \$10.  We are unsure where that extra money was to be invested due to other outputs expressed in scientific notation.  This shadow price was also observed to be the same if we added another dollar to the constraint or subtracted a dollar!
+\item To find the shadow price on the municipal limit we simply increase the limit by \$1 and see how the optimal value changes.  This change in the optimal value is the shadow price.  We see in the output below some interesting features by this slight change.  First off, the objective (profit) has increased by \$0.021 but the investment strategy changed too, the new dollar was invested in the Municipal Bond A.
 
 \includegraphics[width = .9\textwidth]{outputp5b.png}
 
-We note that after videos dropped explaining how to compute shadow limit with AMPL, we repeated this exercise using the cplex\_options `sensitivity' and found the same result presented below.
+We note that after videos dropped explaining how to compute shadow limit with AMPL, we repeated this exercise using the cplex\_options `sensitivity' and found the same result presented above as well.
 
-\includegraphics[width = .9\textwidth]{outputp5bwOption.png}
 
 \item To see how much this municipal constraint can be relaxed before becoming non-binding, we simply increased the limit to \$4 000 000.  When we run the code with that limit, we see that we do not achieve that limit but instead have a limit in bond $A$ of \$ 3 333 330.  We wonder if the actual value should be \$ 3 333 333.3$\overline{3}$.
 
@@ -375,7 +374,15 @@ r<4.4\%
 \]
 We iterated in AMPL to see this appears to be the cuttoff point in our model.
 
-\item We see the return on the entire investment package at 2.83\%.  We don't like the question and refuse to answer. 
+Here is the 4.4\% (with 50\% tax rate)
+
+\includegraphics[width = .9\textwidth]{outputp5d.png}
+
+Here is the output with 4.3\%
+
+\includegraphics[width = .9\textwidth]{outputp5d2.png}
+
+\item We see the return on the entire investment package at 2.83\%.    We don't see this rate as lower than the the overall rate but in actuality in our model we used 2.2\% as after tax yield. Because we assume a 50\% tax rate and that we can deduct our interest paid from our tax liability.  We wonder if this was what was meant by being lower in the question.
 \end{enumerate}
 \end{enumerate}
 

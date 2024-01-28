@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2023.5.31)  28 JAN 2024 15:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2023.5.31)  28 JAN 2024 17:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -798,53 +798,63 @@ Overfull \hbox (15.46289pt too wide) in paragraph at lines 358--359
 [][] 
  []
 
-[14 <./outputp5a.png>]
-<outputp5b.png, id=137, 361.35pt x 237.13594pt>
+<outputp5b.png, id=125, 603.25375pt x 369.38pt>
 File: outputp5b.png Graphic file (type png)
 <use outputp5b.png>
 Package pdftex.def Info: outputp5b.png  used on input line 362.
-(pdftex.def)             Requested size: 323.9978pt x 212.62431pt.
+(pdftex.def)             Requested size: 323.9978pt x 198.3857pt.
 
 Overfull \hbox (15.46289pt too wide) in paragraph at lines 362--363
 [][] 
  []
 
-<outputp5bwOption.png, id=138, 362.10281pt x 172.39406pt>
-File: outputp5bwOption.png Graphic file (type png)
-<use outputp5bwOption.png>
-Package pdftex.def Info: outputp5bwOption.png  used on input line 366.
-(pdftex.def)             Requested size: 323.9978pt x 154.25357pt.
-
-Overfull \hbox (15.46289pt too wide) in paragraph at lines 366--367
-[][] 
- []
-
-<outputp5c.png, id=139, 361.35pt x 217.5628pt>
+[14 <./outputp5a.png>]
+<outputp5c.png, id=138, 601.24625pt x 374.39874pt>
 File: outputp5c.png Graphic file (type png)
 <use outputp5c.png>
-Package pdftex.def Info: outputp5c.png  used on input line 370.
-(pdftex.def)             Requested size: 323.9978pt x 195.07437pt.
+Package pdftex.def Info: outputp5c.png  used on input line 369.
+(pdftex.def)             Requested size: 323.9978pt x 201.76099pt.
 
-Overfull \hbox (15.46289pt too wide) in paragraph at lines 370--371
+Overfull \hbox (15.46289pt too wide) in paragraph at lines 369--370
 [][] 
  []
 
-[15 <./outputp5b.png> <./outputp5bwOption.png>] [16 <./outputp5c.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 384.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 384.
+[15 <./outputp5b.png> <./outputp5c.png>]
+<outputp5d.png, id=146, 599.23875pt x 362.35374pt>
+File: outputp5d.png Graphic file (type png)
+<use outputp5d.png>
+Package pdftex.def Info: outputp5d.png  used on input line 379.
+(pdftex.def)             Requested size: 323.9978pt x 195.92244pt.
 
-(./nicholas_jacob_HW1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 384.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 384.
+Overfull \hbox (15.46289pt too wide) in paragraph at lines 379--380
+[][] 
+ []
+
+<outputp5d2.png, id=147, 598.235pt x 369.38pt>
+File: outputp5d2.png Graphic file (type png)
+<use outputp5d2.png>
+Package pdftex.def Info: outputp5d2.png  used on input line 383.
+(pdftex.def)             Requested size: 323.9978pt x 200.05403pt.
+
+Overfull \hbox (15.46289pt too wide) in paragraph at lines 383--384
+[][] 
+ []
+
+[16 <./outputp5d.png>] [17 <./outputp5d2.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 391.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 391.
+ (./nicholas_jacob_HW1.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 391.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 391.
 Package rerunfilecheck Info: File `nicholas_jacob_HW1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 384.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 391.
  ) 
 Here is how much of TeX's memory you used:
- 16298 strings out of 492982
- 304138 string characters out of 6134896
+ 16304 strings out of 492982
+ 304199 string characters out of 6134896
  365315 words of memory out of 5000000
- 19523 multiletter control sequences out of 15000+600000
+ 19527 multiletter control sequences out of 15000+600000
  11845 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,9n,54p,786b,718s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -858,10 +868,10 @@ ype1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmsy8.pfb>
-Output written on nicholas_jacob_HW1.pdf (16 pages, 616834 bytes).
+Output written on nicholas_jacob_HW1.pdf (17 pages, 679629 bytes).
 PDF statistics:
- 199 PDF objects out of 1000 (max. 8388607)
- 143 compressed objects within 2 object streams
- 57 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 208 PDF objects out of 1000 (max. 8388607)
+ 146 compressed objects within 2 object streams
+ 58 named destinations out of 1000 (max. 500000)
+ 98 words of extra memory for PDF output out of 10000 (max. 10000000)
 

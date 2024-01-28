@@ -1,5 +1,6 @@
 reset;
 option solver cplex;
+option cplex_options 'sensitivity';
 
 set bondName;
 set govAndAg;
@@ -26,4 +27,5 @@ data group3_HW1_p5.dat;
 
 solve;
 
-display municipalLimit municipalLimit.up municipalLimit.down;
+display municipalLimit, municipalLimit.up, municipalLimit.down;
+display invest;
