@@ -119,7 +119,7 @@ This simplifies to
 \]
 With all of this we code it into AMPL and arrive at the output: 
 
-\includegraphics{outputp2a.png}
+\includegraphics[width = .9\textwidth]{outputp2a.png}
 
 \item 
 For the second part of the problem, we add the additional condition that we can take out a loan of up to 1 million at 5.5\%.  This will change our objective function in significant ways and add an extra variable $x_{loan}$.  We examine the new objective, we will use the before tax rates and recognize that Municipal bonds grow tax free.  We also note that our total interest is subtracted from our tax liability
@@ -139,7 +139,7 @@ Of course there are the restrictions on the loan too
 \]
 The rest of the constraints remain unchanged.  Running it through AMPL arrives at the solution:
 
-\includegraphics{outputp2b.png}
+\includegraphics[width = .9\textwidth]{outputp2b.png}
 
 \end{enumerate}
 
@@ -221,14 +221,14 @@ $(50,0)$& 90+0 = 90&
 \end{tabular}
 We repeat the same system in AMPL and arrive at the same solution
 
-\includegraphics{outputp3a.png}
+\includegraphics[width = .9\textwidth]{outputp3a.png}
 \item For this part, we repeat the exercise adding the additional requirement of creative time
 \[
 1x+3y\leq 100
 \]
 We see this changes our maximum, to 92 million people.
 
-\includegraphics{outputp3b.png}
+\includegraphics[width = .9\textwidth]{outputp3b.png}
 
 \item For the next question we add radio into the advertising mix.  This will add a new variable and change all the constraints and objective.  We also note that the 2D graphical method will no longer be available to us to check our solution.
 \[
@@ -243,7 +243,7 @@ x_{TV}\geq 10\\
 \]
 We change notation here too, applying subscripts to be more descriptive of our vector $x$.
 
-\includegraphics{outputp3c.png}
+\includegraphics[width = .9\textwidth]{outputp3c.png}
 
 We see an increase in viewers and note that there is a lot of slack in the creative hours.
 
@@ -256,7 +256,7 @@ and
 \[
 x_{radio} \leq 120
 \]
-\includegraphics{outputp3d.png}
+\includegraphics[width = .9\textwidth]{outputp3d.png}
 
 We should note that viewership numbers are high with this model but there is a strangeness of fractional magazine pages and TV minutes.  Both seem plausible but we doubt the prices remain consistent if you start slicing up the page or the minute. 
 \end{enumerate}
@@ -292,11 +292,11 @@ incorporate this new stage.
 \begin{enumerate}
 \item To make the constraint from a less than to equal, we simply change the constraint in AMPL to $==$ instead of $<=$.  We see a screen shot of this in the code base:
 
-\includegraphics[width = \textwidth]{outputp4a1.png}
+\includegraphics[width = .9\textwidth]{outputp4a1.png}
 
 We see that the output agrees with the values reported in the text.
 
-\includegraphics{outputp4a2.png}
+\includegraphics[width = .9\textwidth]{outputp4a2.png}
 
 The reason for this agreement even with a new condition is that we were already using all available hours.  It did not matter that we required equality as it was already achieved in the optimizer.
 \item Adding the constraint of max\_weight will result in an extra constraint.  Using the language of text, we will require that
@@ -305,7 +305,7 @@ The reason for this agreement even with a new condition is that we were already 
 \]
 When added to our model we see the following results
 
-\includegraphics{outputp4b.png}
+\includegraphics[width = .9\textwidth]{outputp4b.png}
 
 We note that the objective has dropped with this production schedule.  We can also see that the original optimizer was over this weight limit which is why we now have a new result.
 
@@ -315,21 +315,21 @@ z = \sum_{i\in PROD} x_i
 \]
 We make this the sole objective in the system in AMPL and provide the Total\_Profit for comparison.
 
-\includegraphics{outputp4c.png}
+\includegraphics[width = .9\textwidth]{outputp4c.png}
 
 We note that the profit has dropped (as expected) but the total weight did not actually change from the original result, both are 7000 tonnes.
 
 \item To tackle this question, we first restate the question in our own terms.  Here we desire not a baseline production but a baseline production percentage.  In reality what we desire is a minimum percentage of the total to be in each product.  We will make this a separate constraint called Production\_Percentage and eliminate the commit minimums.  We write the percentage as a new param and write the constraint as 
-\[
-\text{subject to percentage} \{p \in PROD\}: Make[p] \geq percent[p]*\left(sum \{r \in PROD\} Make[r]\right);
-\]
+\begin{eqnarray*}
+\text{subject to }&\text{percentage} \{p \in PROD\}:\\ &Make[p] \geq percent[p]*\left(sum \{r \in PROD\} Make[r]\right);
+\end{eqnarray*}
 Output is included below and shows that constraint decreases the optimal profit.
 
-\includegraphics{outputp4d.png}
+\includegraphics[width = .9\textwidth]{outputp4d.png}
 
 If we change the percentages to 50\% for two products and 10\% for the remaining we indeed produce nothing.  Afterall the only way give 110\% is to have started with nothing...
 
-\includegraphics{outputp4d1.png}
+\includegraphics[width = .9\textwidth]{outputp4d1.png}
 
 \item We could also just simply change the market demand for plates.  Currently the demand is 3500 but with this new finishing requirement only 3000 can be made.  If you simply reduce the market data for this one entry, we will get an equivalent result if we added the finishing constraint.
 
@@ -355,19 +355,19 @@ invest[A] \leq 3 000 000
 \]
 We copy/pasta the data file from question 2 and delete all mentions to bond $B$, $C$, and $E$ as well.  Output is shown below.
 
-\includegraphics{outputp5a.png}
+\includegraphics[width = .9\textwidth]{outputp5a.png}
 
 \item To find the shadow price on the municipal limit we simply increase the limit by \$1 and see how the optimal value changes.  This change in the optimal value is the shadow price.  We see in the output below some interesting features by this slight change.  First off, the objective (profit) has increased by \$0.003 but the investment strategy changed the amount invested in Bond $C$ decreasing it by \$10.  We are unsure where that extra money was to be invested due to other outputs expressed in scientific notation.  This shadow price was also observed to be the same if we added another dollar to the constraint or subtracted a dollar!
 
-\includegraphics{outputp5b.png}
+\includegraphics[width = .9\textwidth]{outputp5b.png}
 
 We note that after videos dropped explaining how to compute shadow limit with AMPL, we repeated this exercise using the cplex\_options `sensitivity' and found the same result presented below.
 
-\includegraphics{outputp5bwOption.png}
+\includegraphics[width = .9\textwidth]{outputp5bwOption.png}
 
 \item To see how much this municipal constraint can be relaxed before becoming non-binding, we simply increased the limit to \$4 000 000.  When we run the code with that limit, we see that we do not achieve that limit but instead have a limit in bond $A$ of \$ 3 333 330.  We wonder if the actual value should be \$ 3 333 333.3$\overline{3}$.
 
-\includegraphics{outputp5c.png}
+\includegraphics[width = .9\textwidth]{outputp5c.png}
 
 \item Considering a 50\% tax rate and deducting you interest from your total tax liability, we see that at 4.4\% we would not take the loan but at any rate below we would.  We get this from the after-tax return on bond D as the limit on Municipal bonds has been met.  We state this as 
 \[

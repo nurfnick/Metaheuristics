@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2023.5.31)  27 JAN 2024 18:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2023.5.31)  28 JAN 2024 15:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -640,13 +640,13 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
 [2]
-<outputp2a.png, id=32, 383.18156pt x 216.81pt>
+<outputp2a.png, id=32, 472.76625pt x 237.88875pt>
 File: outputp2a.png Graphic file (type png)
 <use outputp2a.png>
 Package pdftex.def Info: outputp2a.png  used on input line 122.
-(pdftex.def)             Requested size: 383.18062pt x 216.80946pt.
+(pdftex.def)             Requested size: 323.9978pt x 163.03265pt.
 
-Overfull \hbox (74.6457pt too wide) in paragraph at lines 122--123
+Overfull \hbox (15.46289pt too wide) in paragraph at lines 122--123
 [][] 
  []
 
@@ -661,13 +661,13 @@ Overfull \hbox (0.85367pt too wide) in paragraph at lines 139--141
  through
  []
 
-<outputp2b.png, id=38, 361.35pt x 216.81pt>
+<outputp2b.png, id=40, 471.7625pt x 245.91875pt>
 File: outputp2b.png Graphic file (type png)
 <use outputp2b.png>
 Package pdftex.def Info: outputp2b.png  used on input line 142.
-(pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
+(pdftex.def)             Requested size: 323.9978pt x 168.8961pt.
 
-Overfull \hbox (52.81421pt too wide) in paragraph at lines 142--143
+Overfull \hbox (15.46289pt too wide) in paragraph at lines 142--143
 [][] 
  []
 
@@ -677,165 +677,159 @@ Overfull \hbox (97.65175pt too wide) in paragraph at lines 212--213
  []
 
 [5]
-<outputp3a.png, id=53, 365.11406pt x 216.05719pt>
+<outputp3a.png, id=56, 473.77pt x 209.78375pt>
 File: outputp3a.png Graphic file (type png)
 <use outputp3a.png>
 Package pdftex.def Info: outputp3a.png  used on input line 224.
-(pdftex.def)             Requested size: 365.11316pt x 216.05664pt.
+(pdftex.def)             Requested size: 323.9978pt x 143.4705pt.
 
-Overfull \hbox (56.57825pt too wide) in paragraph at lines 224--225
+Overfull \hbox (15.46289pt too wide) in paragraph at lines 224--225
 [][] 
  []
 
 [6]
-<outputp3b.png, id=58, 362.85562pt x 188.20313pt>
+<outputp3b.png, id=61, 471.7625pt x 209.78375pt>
 File: outputp3b.png Graphic file (type png)
 <use outputp3b.png>
 Package pdftex.def Info: outputp3b.png  used on input line 231.
-(pdftex.def)             Requested size: 362.85474pt x 188.20265pt.
+(pdftex.def)             Requested size: 323.9978pt x 144.0787pt.
 
-Overfull \hbox (54.31982pt too wide) in paragraph at lines 231--232
+Overfull \hbox (15.46289pt too wide) in paragraph at lines 231--232
+[][] 
+ []
+
+<outputp3c.png, id=62, 605.26125pt x 309.155pt>
+File: outputp3c.png Graphic file (type png)
+<use outputp3c.png>
+Package pdftex.def Info: outputp3c.png  used on input line 246.
+(pdftex.def)             Requested size: 323.9978pt x 165.49298pt.
+
+Overfull \hbox (15.46289pt too wide) in paragraph at lines 246--247
 [][] 
  []
 
 [7 <./outputp3a.png> <./outputp3b.png>]
-<outputp3c.png, id=66, 605.26125pt x 309.155pt>
-File: outputp3c.png Graphic file (type png)
-<use outputp3c.png>
-Package pdftex.def Info: outputp3c.png  used on input line 246.
-(pdftex.def)             Requested size: 605.25975pt x 309.15424pt.
-
-Overfull \hbox (296.72484pt too wide) in paragraph at lines 246--247
-[][] 
- []
-
-<outputp3d.png, id=68, 600.2425pt x 320.19624pt>
+<outputp3d.png, id=73, 471.7625pt x 214.8025pt>
 File: outputp3d.png Graphic file (type png)
 <use outputp3d.png>
 Package pdftex.def Info: outputp3d.png  used on input line 259.
-(pdftex.def)             Requested size: 600.24103pt x 320.19545pt.
+(pdftex.def)             Requested size: 323.9978pt x 147.52557pt.
 
-Overfull \hbox (291.70612pt too wide) in paragraph at lines 258--260
+Overfull \hbox (15.46289pt too wide) in paragraph at lines 258--260
 [] 
  []
 
-[8 <./outputp3c.png>] [9 <./outputp3d.png>]
-<outputp4a1.png, id=83, 513.41812pt x 343.2825pt>
+[8 <./outputp3c.png> <./outputp3d.png>] [9]
+<outputp4a1.png, id=92, 513.41812pt x 343.2825pt>
 File: outputp4a1.png Graphic file (type png)
 <use outputp4a1.png>
 Package pdftex.def Info: outputp4a1.png  used on input line 295.
-(pdftex.def)             Requested size: 360.0pt x 240.70467pt.
+(pdftex.def)             Requested size: 323.9978pt x 216.63577pt.
 
-Overfull \hbox (51.46509pt too wide) in paragraph at lines 295--296
+Overfull \hbox (15.46289pt too wide) in paragraph at lines 295--296
 [][] 
  []
 
-[10]
-<outputp4a2.png, id=94, 361.35pt x 219.82124pt>
+<outputp4a2.png, id=93, 361.35pt x 219.82124pt>
 File: outputp4a2.png Graphic file (type png)
 <use outputp4a2.png>
 Package pdftex.def Info: outputp4a2.png  used on input line 299.
-(pdftex.def)             Requested size: 361.34912pt x 219.8207pt.
+(pdftex.def)             Requested size: 323.9978pt x 197.09935pt.
 
-Overfull \hbox (52.81421pt too wide) in paragraph at lines 299--300
+Overfull \hbox (15.46289pt too wide) in paragraph at lines 299--300
 [][] 
  []
 
-[11 <./outputp4a1.png> <./outputp4a2.png>]
-<outputp4b.png, id=99, 599.23875pt x 283.0575pt>
+[10 <./outputp4a1.png> <./outputp4a2.png>]
+<outputp4b.png, id=99, 476.78125pt x 212.795pt>
 File: outputp4b.png Graphic file (type png)
 <use outputp4b.png>
 Package pdftex.def Info: outputp4b.png  used on input line 308.
-(pdftex.def)             Requested size: 599.23729pt x 283.0568pt.
+(pdftex.def)             Requested size: 323.9978pt x 144.61424pt.
 
-Overfull \hbox (290.70238pt too wide) in paragraph at lines 308--309
+Overfull \hbox (15.46289pt too wide) in paragraph at lines 308--309
 [][] 
  []
 
-<outputp4c.png, id=100, 362.10281pt x 199.49532pt>
+<outputp4c.png, id=100, 471.7625pt x 231.86626pt>
 File: outputp4c.png Graphic file (type png)
 <use outputp4c.png>
 Package pdftex.def Info: outputp4c.png  used on input line 318.
-(pdftex.def)             Requested size: 362.10191pt x 199.49481pt.
+(pdftex.def)             Requested size: 323.9978pt x 159.2449pt.
 
-Overfull \hbox (53.567pt too wide) in paragraph at lines 318--319
+Overfull \hbox (15.46289pt too wide) in paragraph at lines 318--319
 [][] 
  []
 
-[12 <./outputp4b.png>]
-Overfull \hbox (115.25816pt too wide) detected at line 325
-[]\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 p \OMS/cmsy/m/n/10.95 2 \OML/cmm/m/i
-t/10.95 PROD\OMS/cmsy/m/n/10.95 g \OT1/cmr/m/n/10.95 : \OML/cmm/m/it/10.95 Make
-\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 ] \OMS/cmsy/m/n/10.
-95 ^^U \OML/cmm/m/it/10.95 percent\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 p\OT1
-/cmr/m/n/10.95 ] \OMS/cmsy/m/n/10.95 ^^C [] \OT1/cmr/m/n/10.95 ;
+[11 <./outputp4b.png>]
+Overfull \hbox (15.05081pt too wide) in alignment at lines 323--325
+ [][][] []
  []
 
-<outputp4d.png, id=108, 363.60844pt x 239.39438pt>
+<outputp4d.png, id=108, 471.7625pt x 259.97125pt>
 File: outputp4d.png Graphic file (type png)
 <use outputp4d.png>
 Package pdftex.def Info: outputp4d.png  used on input line 328.
-(pdftex.def)             Requested size: 363.60754pt x 239.39378pt.
+(pdftex.def)             Requested size: 323.9978pt x 178.54732pt.
 
-Overfull \hbox (55.07263pt too wide) in paragraph at lines 328--329
+Overfull \hbox (15.46289pt too wide) in paragraph at lines 328--329
 [][] 
  []
 
-[13 <./outputp4c.png>]
+[12 <./outputp4c.png>]
 <outputp4d1.png, id=115, 359.84438pt x 231.86626pt>
 File: outputp4d1.png Graphic file (type png)
 <use outputp4d1.png>
 Package pdftex.def Info: outputp4d1.png  used on input line 332.
-(pdftex.def)             Requested size: 359.84349pt x 231.86568pt.
+(pdftex.def)             Requested size: 323.9978pt x 208.78383pt.
 
-Overfull \hbox (51.30858pt too wide) in paragraph at lines 332--333
+Overfull \hbox (15.46289pt too wide) in paragraph at lines 332--333
 [][] 
  []
 
-[14 <./outputp4d.png> <./outputp4d1.png>]
-<outputp5a.png, id=121, 598.235pt x 261.97874pt>
+[13 <./outputp4d.png> <./outputp4d1.png>]
+<outputp5a.png, id=124, 598.235pt x 261.97874pt>
 File: outputp5a.png Graphic file (type png)
 <use outputp5a.png>
 Package pdftex.def Info: outputp5a.png  used on input line 358.
-(pdftex.def)             Requested size: 598.23354pt x 261.9781pt.
+(pdftex.def)             Requested size: 323.9978pt x 141.88614pt.
 
-Overfull \hbox (289.69862pt too wide) in paragraph at lines 358--359
+Overfull \hbox (15.46289pt too wide) in paragraph at lines 358--359
 [][] 
  []
 
-[15]
-<outputp5b.png, id=133, 361.35pt x 237.13594pt>
+[14 <./outputp5a.png>]
+<outputp5b.png, id=137, 361.35pt x 237.13594pt>
 File: outputp5b.png Graphic file (type png)
 <use outputp5b.png>
 Package pdftex.def Info: outputp5b.png  used on input line 362.
-(pdftex.def)             Requested size: 361.34912pt x 237.13535pt.
+(pdftex.def)             Requested size: 323.9978pt x 212.62431pt.
 
-Overfull \hbox (52.81421pt too wide) in paragraph at lines 362--363
+Overfull \hbox (15.46289pt too wide) in paragraph at lines 362--363
 [][] 
  []
 
-[16 <./outputp5a.png>]
-<outputp5bwOption.png, id=140, 362.10281pt x 172.39406pt>
+<outputp5bwOption.png, id=138, 362.10281pt x 172.39406pt>
 File: outputp5bwOption.png Graphic file (type png)
 <use outputp5bwOption.png>
 Package pdftex.def Info: outputp5bwOption.png  used on input line 366.
-(pdftex.def)             Requested size: 362.10191pt x 172.39363pt.
+(pdftex.def)             Requested size: 323.9978pt x 154.25357pt.
 
-Overfull \hbox (53.567pt too wide) in paragraph at lines 366--367
+Overfull \hbox (15.46289pt too wide) in paragraph at lines 366--367
 [][] 
  []
 
-<outputp5c.png, id=141, 361.35pt x 217.5628pt>
+<outputp5c.png, id=139, 361.35pt x 217.5628pt>
 File: outputp5c.png Graphic file (type png)
 <use outputp5c.png>
 Package pdftex.def Info: outputp5c.png  used on input line 370.
-(pdftex.def)             Requested size: 361.34912pt x 217.56227pt.
+(pdftex.def)             Requested size: 323.9978pt x 195.07437pt.
 
-Overfull \hbox (52.81421pt too wide) in paragraph at lines 370--371
+Overfull \hbox (15.46289pt too wide) in paragraph at lines 370--371
 [][] 
  []
 
-[17 <./outputp5b.png> <./outputp5bwOption.png>] [18 <./outputp5c.png>]
+[15 <./outputp5b.png> <./outputp5bwOption.png>] [16 <./outputp5c.png>]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 384.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 384.
 
@@ -847,9 +841,9 @@ Package rerunfilecheck Info: File `nicholas_jacob_HW1.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 384.
  ) 
 Here is how much of TeX's memory you used:
- 16300 strings out of 492982
- 304152 string characters out of 6134896
- 366315 words of memory out of 5000000
+ 16298 strings out of 492982
+ 304138 string characters out of 6134896
+ 365315 words of memory out of 5000000
  19523 multiletter control sequences out of 15000+600000
  11845 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -864,10 +858,10 @@ ype1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmsy8.pfb>
-Output written on nicholas_jacob_HW1.pdf (18 pages, 313910 bytes).
+Output written on nicholas_jacob_HW1.pdf (16 pages, 616834 bytes).
 PDF statistics:
- 201 PDF objects out of 1000 (max. 8388607)
- 149 compressed objects within 2 object streams
- 59 named destinations out of 1000 (max. 500000)
+ 199 PDF objects out of 1000 (max. 8388607)
+ 143 compressed objects within 2 object streams
+ 57 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
