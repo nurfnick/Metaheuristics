@@ -3,10 +3,10 @@ data;
 set products := raisins juice jelly;
 set grapeQuality := A B;
 
-param: 	quality,	poundsPerProduct, 	variableCost, 	sellingPrice :=
-raisins 8			6.75				5.07			8.39
-juice	6			15.5				9.82			16.20
-jelly 	5			19					6.50			14.25;
+param: 	quality,	poundsPerProduct, 	variableCost, 	sellingPrice,	maxDemand :=
+raisins 8			6.75				5.07			8.39			.
+juice	6			15.5				9.82			16.20			205000
+jelly 	5			19					6.50			14.25			290000;
 
 param: 	fruitCost, 		totalWeight, 	rating:=
 A 		0.42			2100000			9
