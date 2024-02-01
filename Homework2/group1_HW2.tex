@@ -78,6 +78,34 @@ So each pound of low quality grapes we use in raisins, we must just at least 3 p
 6.75\frac{3y+z}4 = \$2.52.
 \]
 \item To formulate for AMPL, we ask for the decision variables to be the amount of each type of grape included in our raisins, jelly and juice.  We assume that the cost of the grapes is a fixed ratio based on quality scale points as outlined in \ref{1b} but not that the grape input should still be that fixed ratio when computing the price of our input grapes.  We consider overhead costs to be fixed and for the accounting department to figure out which product to allocate those costs to based on whatever they do in that department.
+
+Our decision variables will be $(a_i,b_i)$ for $i\in\{raisins, juice, jelly\}$.  The objective is to maximize marginal profit (before accounting does their overhead magic).  We compute the number of products produced, $z_i$ as
+\[
+z_i = \frac{a_i+b_i}{poundsPerProduct_i}
+\]
+where $poundsPerProduct_i$ was given in the table.  The fruit cost will be computed as 
+\[
+fruitCost_i = 0.42a_i+0.233333b_i
+\]
+The our objective is
+\[
+\text{maximize: }\sum_{i}\left(sellingPrice_i-variableCost_i\right)\cdot z_i - fruitCost_i 
+\]
+We then have three constraints, quality, demand, and grape availability.  For quality, we get that
+\[
+9a_i+5b_i \geq quality_i(a_i+b_i).
+\]
+Demand constraint is
+\[
+z_i \leq maxDemand_i
+\]
+where the $maxDemand$ for raisins was set to infinity.  For grape availability, we had
+\[
+\sum_i a_i \leq 2 100 000\quad\text{and}\quad\sum_ib_i \leq 6 300 000.
+\]
+We see the output below highlighting the results.
+
+\includegraphics[width = .9\textwidth]{outputp1c.png}
 \end{enumerate}
 \end{enumerate}
 

@@ -1,6 +1,7 @@
 reset;
 
 option solver cplex;
+#option cplex_options 'sensitivity';
 
 set products;
 set grapeQuality;
@@ -16,6 +17,9 @@ param maxDemand{products} default Infinity;
 
 var weight{p in products,q in grapeQuality} >=0;
 
+
+var totalProduct{p in products} = (sum{g in grapeQuality} weight[p,g])/poundsPerProduct[p];
+
 maximize marginalProfit: sum{p in products} 
 						((sellingPrice[p]-variableCost[p])*(sum{g in grapeQuality} weight[p,g])/poundsPerProduct[p]
 						-
@@ -29,4 +33,18 @@ data group1_HW2_p1c.dat;
 
 solve;
 
+printf "\nWeight of Grapes for Each variety";
 display weight;
+
+printf "\nNumber of products produced\n";
+for {p in products} {
+	printf "The company made %s units of %s \n", totalProduct[p],p};
+	
+printf "\nMarginal Profit\n";
+display marginalProfit;
+
+printf "\nLeft Over Grapes\n";
+display weightLimit.slack;
+
+printf "\nquality Points Remaining\n";
+display qualityControl.slack;
