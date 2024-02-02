@@ -1,0 +1,13 @@
+data;
+
+set years:= 2021 2022 2023 2024;
+set projects:= A B C D E;
+
+param startDate: 	A	B	C	D	E:=
+2021				Yes	.	Yes	Yes	.
+2022				.	Yes	.	.	.
+2023				.	.	.	.	Yes;
+
+
+					
+
