@@ -43,7 +43,11 @@ Finally we have the quality constraint:
 \]
 This one should get a small comment as we want the average number of points to be greater than 8 for our raisins.  We code this into our AMPL model and arrive at the following output.
 
+
 \includegraphics[width = .9\textwidth]{outputp1a.png}
+
+Of course we could have done this with equality but this inequality method worked too.
+
 \item To arrive at Bollman's assessment of the price of the grapes, it is important to consider the quality of the inputs.  We see that the entire lot was purchased for \$0.28 per pound but some of the grapes are clearly more valuable.  With the 25\% breakdown of type ``A'' to ``B'' we must account for that.  Moreover we must use the ratings to arrive at the appropriate value per pound of each type, ``A'' is rated 9 and ``B'' is rated 5, the higher the rating the more tha value to the company.  This creates a system of linear equations with $y$ begin price of type ``A'' and $z$ being price of ``B" in cents.  
 \[
 \left\{
@@ -103,9 +107,18 @@ where the $maxDemand$ for raisins was set to infinity.  For grape availability, 
 \[
 \sum_i a_i \leq 2 100 000\quad\text{and}\quad\sum_ib_i \leq 6 300 000.
 \]
-We see the output below highlighting the results.
+We see the output below highlighting the results.\label{1c}
 
 \includegraphics[width = .9\textwidth]{outputp1c.png}
+\item To discover if we should purchase the additional grade $A$ grapes, we examine two differing solutions.  First we run the same model as \ref{1c} but include the shadow price of the constraint on the weightLimit.
+
+\includegraphics[width = .9\textwidth]{outputp1da.png}
+
+Some explanation of the output is needed.  We see that expanding these weight limits would indeed increase our profit.  With type $A$ by \$0.11 and $B$ by \$0.14 but this is not the price we should be willing to buy more at, rather the price of the current grapes plus this price.  So we should be willing to buy more type $A$ grapes at up to \$0.53 and type $B$ at up to \$0.37.  Of course these changes only work with the other fixed and only up to the weightLimit.up displayed in the output.  We can take on 270 000 more of type $A$ with this same change in the increase in our profits and more than 2 000 000 more pounds of type $B$ still creating a profit for any grapes.
+
+Since we decided we could take on more grapes, we also wanted to compute what the optimal purchase would be and what products should be purchased. We expected to only take on the 270 000 pounds of new grapes but that is not what happened.  Instead we took them all on and compeletly changed our production schedule.  Making all the raisins we could and putting everything else into jelly, we net an extra ten million before overhead.
+
+\includegraphics[width=.9\textwidth]{outputp1db.png}
 \end{enumerate}
 \end{enumerate}
 
