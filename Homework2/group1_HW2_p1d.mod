@@ -41,4 +41,5 @@ display weight;
 display extraA;
 display weightLimit;
 display extraGrapes;
+display totalProduct;
 
