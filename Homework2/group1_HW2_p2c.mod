@@ -1,7 +1,7 @@
 reset;
 
 option solver cplex;
-
+#option cplex_options 'sensitivity';
 
 
 set years;
@@ -29,5 +29,4 @@ solve;
 
 display amountInvested;
 
-
- 
+display amountInvested.current, amountInvested.up, amountInvested.down;
