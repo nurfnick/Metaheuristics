@@ -135,9 +135,44 @@ Since we decided we could take on more grapes, we also wanted to compute what th
 \end{enumerate}
 \item Titan's Dealings
 \begin{enumerate}
-\item Model something something...
-\item 
-\item Oppurtunity Costs done with .current on the var.  Also just compute the NPV;s...
+\item To maximize Titan's return on the investment portfolio, we create our decision variable to be the amount invested in each Project, $amountInvested_a$.  We have a max amount that we are allowed to invest in each
+\[
+amountInvested_a \leq maxAmount_a.
+\]
+Then we have the trickiest part of this exercise, the investment constraint.  We start with \$1 000 000.  We use the cash-flow table presented in the email from Sharizi, $returns_{y,a}$ indexed on both year and project.  For 2021, we ask that the amount remaining, $amountNotInvested_y$,
+\begin{eqnarray*}
+amountNotInvested_{2021} =& 1 000 000\\
+& + \displaystyle\sum_{a \in projects} amountInvested_a\cdot returns_{2021,a}\geq 0.
+\end{eqnarray*}
+This constraint requires that we can only invest up to our \$1 000 000.  We should not that all cash-flow in 2021 is negative as we are only investing in that year.  For the remaining three years, we have a similar function just without the initial cash but we allow for held over funds to gain interest
+\begin{eqnarray*}
+amountNotInvested_y =& 1.06 \cdot amountNotInvested_{y-1}\\
++&\displaystyle\sum_{a \in projects} amountInvested_a\cdot returns_{y,a}\geq 0.
+\end{eqnarray*}
+Some cash-flows are positive and some negative but we do not allow for borrowing of funds.  Lastly we succinctly state our objective
+\[
+\text{maximize: }amountNotInvested_{2024}
+\]
+This appears a bit odd as the objective but in year 2024, all returns will come back (no outflows) and this will give us the total returns of all investments.
+
+Some assumptions made here is that there is a 6\% return on all funds held over from year to year.  No other opportunities for projects present themselves.  All funds are withdrawn in 2024.  The cash-flow table is true and accurate.  Inflation will not degrade the value of our funds.  Here is our AMPL output:
+
+\includegraphics[width = .9\textwidth]{output2a.png}
+\item There are two shadow prices within our model.  One associated with the constraint on the positivity of the $amountNotInvested$ and another on the $maxInvestments$.  Both are displayed in the output below.
+
+\includegraphics[width = .9\textwidth]{output2b.png}
+
+We interpret the shadow price of $maxInvestments$ as the additional \$0.095 we would earn for every dollar more we could invest in project $A$.  So this is an additional way we could earn some more funds by moving that cap.  We do however note here that the availability of moving that cap up or down appears to be zero.  We think that is due to the fact that all the dollars were put elsewhere in the year that investment in $A$ was possible.  This shows that simply raising that investment cap will require other changes to the model.  
+
+Next we examine the shadow price of the $maxAvailable$ variable.  The best way to think about this number would be potential gains we could derive by borrowing funds.  In the first year, we could earn 17 cents on any extra dollar included in the model.  We see that \$1 000 000 is in-between our up and down values.  This is because that was the amount we actually had to invest.  We see again there is excellent opportunity to borrow money in 2023 and increase our returns on projects.  We assume any funds borrowed in 2023 will be invested in project $E$ but the shadow price is slightly less than the actual rate of return on the investment $E$.  It would not be prudent to borrow to invest in any other years.  We speculate that these rates might be used as a hurdle rate in future years for evaluating any new project.
+
+
+\item We explore several ways to examine this question.  First we will look at the opportunity cost for each of our decision variables.  This output is presented below by using .current method.
+
+\includegraphics[width = .9\textwidth]{output2c.png}
+
+
+
 \item Let's look at the NPV's and IRR's of each of these investments.  We see the NPV's (with the hurdle rate at 10\%) as follows
 \[
 NPV_F = -1+\frac{0.8}{1.1} +\frac{0.45}{1.1^2} = 0.099
@@ -170,7 +205,7 @@ Arrives at
 \[
 r_G = 20.4\%
 \]
-
+\item 
 \end{enumerate}
 \end{enumerate}
 
