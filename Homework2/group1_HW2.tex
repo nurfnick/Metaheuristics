@@ -140,22 +140,22 @@ Since we decided we could take on more grapes, we also wanted to compute what th
 amountInvested_a \leq maxAmount_a.
 \]
 Then we have the trickiest part of this exercise, the investment constraint.  We start with \$1 000 000.  We use the cash-flow table presented in the email from Sharizi, $returns_{y,a}$ indexed on both year and project.  For 2021, we ask that the amount remaining, $amountNotInvested_y$,
-\begin{eqnarray*}
+\begin{align*}
 amountNotInvested_{2021} =& 1 000 000\\
 & + \displaystyle\sum_{a \in projects} amountInvested_a\cdot returns_{2021,a}\geq 0.
-\end{eqnarray*}
+\end{align*}
 This constraint requires that we can only invest up to our \$1 000 000.  We should not that all cash-flow in 2021 is negative as we are only investing in that year.  For the remaining three years, we have a similar function just without the initial cash but we allow for held over funds to gain interest
-\begin{eqnarray*}
+\begin{align*}
 amountNotInvested_y =& 1.06 \cdot amountNotInvested_{y-1}\\
 +&\displaystyle\sum_{a \in projects} amountInvested_a\cdot returns_{y,a}\geq 0.
-\end{eqnarray*}
+\end{align*}
 Some cash-flows are positive and some negative but we do not allow for borrowing of funds.  Lastly we succinctly state our objective
 \[
 \text{maximize: }amountNotInvested_{2024}
 \]
 This appears a bit odd as the objective but in year 2024, all returns will come back (no outflows) and this will give us the total returns of all investments.
 
-Some assumptions made here is that there is a 6\% return on all funds held over from year to year.  No other opportunities for projects present themselves.  All funds are withdrawn in 2024.  The cash-flow table is true and accurate.  Inflation will not degrade the value of our funds.  Here is our AMPL output:
+Some assumptions made here is that there is a 6\% return on all funds held over from year to year.  No other opportunities for other projects present themselves.  All funds are withdrawn in 2024.  The cash-flow table is true and accurate.  Inflation will not degrade the value of our funds.  Here is our AMPL output:
 
 \includegraphics[width = .9\textwidth]{output2a.png}
 \item There are two shadow prices within our model.  One associated with the constraint on the positivity of the $amountNotInvested$ and another on the $maxInvestments$.  Both are displayed in the output below.
@@ -170,6 +170,24 @@ Next we examine the shadow price of the $maxAvailable$ variable.  The best way t
 \item We explore several ways to examine this question.  First we will look at the opportunity cost for each of our decision variables.  This output is presented below by using .current method.
 
 \includegraphics[width = .9\textwidth]{output2c.png}
+
+These values can be interpreted as the slope of the optimal solution associated with each of these values.  We note that we only invest in the 3 highest slopes as we maximize our return.  We suspect that there is room to change the returns on project $D$ and $E$ as we can see in the up and down values.  We are uncertain about the actual values that we might be able to change returns to based on this output without some more knowledge of this method.
+
+We will next examine $E$ and $D$ at the new payout rates by looking at the hurdle rate of 10\%.  These are 
+\[
+NPV_E = -1+\frac{1.34}{1.1} = 0.218
+\]
+and
+\[
+NPV_D = -1+\frac{1.7}{1.1^3} = 0.277.
+\]
+Both of these $NPV$s, we have not better investment so we suspect that we will continue to contribute to these funds.
+
+Probably should consider IRR here too.
+
+Lastly, we go ahead and change the data file to see what might happen with these new rates of return.  What we observe is that yes we do indeed continue investing into each account in the same fashion but our overall return does drop a bit.
+
+\includegraphics[width = .9\textwidth]{output2ci.png}
 
 
 
@@ -205,7 +223,12 @@ Arrives at
 \[
 r_G = 20.4\%
 \]
-\item 
+\item Adding $F$ into the model we arrive at
+
+
+\includegraphics[width = .9\textwidth]{output2e.png}
+
+We see that some of the moneys that had been invested in fund $D$ in the first year are now instead invested into $F$ but it is honestly a small pittance.  This increases our profitability slightly.  We are unclear how to use the sensitivity to elaborate on this.  Moneys invested in $F$ will also be invested in $E$ so perhaps some compounding allows for this to be more profitable than just sticking with $D$.
 \end{enumerate}
 \end{enumerate}
 
