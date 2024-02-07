@@ -23,11 +23,10 @@ maximize totalReturn: amountNotInvested[2024];
 subject to maxInvestements{a in projects}: amountInvested[a]<= maxAmt[a];
 subject to maxAvailable{y in years}: amountNotInvested[y]>=0;
 
-data group1_HW2_p2a.dat;
+data group1_HW2_p2c.dat;
 
 solve;
 
 display amountInvested;
 
-
- 
+display returns;

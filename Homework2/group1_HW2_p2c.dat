@@ -1,0 +1,20 @@
+data;
+
+set years:= 2021 2022 2023 2024;
+set projects:= A B C D E;
+
+/*param startDate: 	A	B	C	D	E:=
+2021				Yes	.	Yes	Yes	.
+2022				.	Yes	.	.	.
+2023				.	.	.	.	Yes;
+*/
+param returns:		A	B	C	D		E:=
+2021				-1	.	-1	-1		.
+2022				.3	-1	1.1	.		.
+2023				1	.3	.	.		-1
+2024				.	1	.	1.7 	1.34;
+
+param maxAmt:=
+A	500000	
+B	500000	
+E	750000;
