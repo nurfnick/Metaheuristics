@@ -29,7 +29,7 @@
 \begin{enumerate}
 \item Grapes of Wrath
 \begin{enumerate}
-\item Grimes upper bound on grapes used for raisins.  We know that 25\% of the $8.4\times10^6$lb crop was ``A'' quality with the rest being ``B'' grade.  We also know that ``A grapes average 9 points per pound and ``B'' grapes average 5 points per pound.  Raisins require 8 points or higher in quality.  Here we end up with a small LP problem.  First we call $A$ the number of pounds of grade ``A'' grapes and $B$ the number of pounds of grade ``B''.  Our objective is to maximize the total pounds made into grapes:
+\item Grimes upper bound on grapes used for raisins.  We know that 25\% of the $8.4\times10^6$lb crop was ``A'' quality with the rest being ``B'' grade.  We also know that ``A grapes average 9 points per pound and ``B'' grapes average 5 points per pound.  Raisins require 8 points or higher in quality.  Here we end up with a small LP problem.  First we call $A$ the number of pounds of grade ``A'' grapes and $B$ the number of pounds of grade ``B''.  Our objective is to maximize the total pounds made into raisins:
 \[
 \text{maximize totalPounds: }A +B;
 \]
@@ -77,7 +77,7 @@ or
 \[
 a_r\geq 3b_r
 \]
-So each pound of low quality grapes we use in raisins, we must just at least 3 pound of high quality grapes.  We see then that the minimum price for the input grapes is \label{1b}
+So each pound of low quality grapes we use in raisins, we must use at least 3 pound of high quality grapes.  We see then that the minimum price for the input grapes is \label{1b}
 \[
 6.75\frac{3y+z}4 = \$2.52.
 \]
@@ -107,26 +107,25 @@ where the $maxDemand$ for raisins was set to infinity.  For grape availability, 
 \[
 \sum_i a_i \leq 2 100 000\quad\text{and}\quad\sum_ib_i \leq 6 300 000.
 \]
-We see the output below highlighting the results.\label{1c}
+The AMPL solution seen below provides the following values; for i) raisin production was 408,148 whole units, juice was 8,709 whole units of juice, and 290,000 units of jelly, for ii) the maximized contribution to profit was \$1,306,120, for iii) all grapes were utilized of both types, iv) the average quality point count for the raisins, juice, and jelly were 8, 6, and 5 respectively as driven by the quality requirements.\label{1c}
 
 \includegraphics[width = .9\textwidth]{outputp1c.png}
 \item To discover if we should purchase the additional grade $A$ grapes, we examine two differing solutions.  First we run the same model as \ref{1c} but include the shadow price of the constraint on the weightLimit.
 
 \includegraphics[width = .9\textwidth]{outputp1da.png}
 
-Some explanation of the output is needed.  We see that expanding these weight limits would indeed increase our profit.  With type $A$ by \$0.11 and $B$ by \$0.14 but this is not the price we should be willing to buy more at, rather the price of the current grapes plus this price.  So we should be willing to buy more type $A$ grapes at up to \$0.53 and type $B$ at up to \$0.37.  Of course these changes only work with the other fixed and only up to the weightLimit.up displayed in the output.  We can take on 270 000 more of type $A$ with this same change in the increase in our profits and more than 2 000 000 more pounds of type $B$ still creating a profit for any grapes.
-
-Since we decided we could take on more grapes, we also wanted to compute what the optimal purchase would be and what products should be purchased. We expected to only take on the 270 000 pounds of new grapes but that is not what happened.  Instead we took them all on and completely changed our production schedule.  Making all the raisins we could and putting everything else into jelly, we net an extra ten million before overhead.
+\item Based on the shadow price from the above AMPL solution, for grade $A$ grapes, \$0.11 profit increase per pound of grade $A$ grapes, the purchase price of \$0.50 would provide \$0.03 profit per pound of increased amount of grade $A$ grapes.  The other reason to buy the extra grapes is that the shadow price upper limit would mean that the shadow price would be applicable to 270,000 lbs of the 300,000 lbs of extra grapes.  There would be a different shadow price above the limit, but it would only affect 30,000 lbs of the overall 300,000 lbs of extra grapes. 
+\item Based on the original grade $A$ grape price of $0.42 per pound and the shadow price, the maximum purchase price should only go to\ $0.52, providing \$0.01 per pound of additional grade $A$ grape profit.  For grade $B$ grapes the maximum purchase price should only be \$0.35 per pound extra, because the original purchase price was \$0.23 per pound and the shadow price was \$0.13, which would still provide a \$0.01 of profit per pound of extra grade $B$ grape, upto roughly 2,000,000 additional grapes (based on the shadow price upper limit for grade $B$ grapes).
 
 \includegraphics[width=.9\textwidth]{outputp1db.png}
 
 \item 
 \begin{enumerate}
-\item Mr Thomas forgot about the quality constraint and considered type $A$ and $B$ grapes to be the same cost.  We make only raisins in his model and make the largest marginal profit.  You would need for type $A$ or any type to be just slightly less than \$0.50 per pound to purchase.
+\item Mr Thomas forgot about the quality constraint and considered type $A$ and $B$ grapes to be the same cost.  We make only raisins in his model and make the largest marginal profit.  You would need for type $A$ or any type to be just slightly less than \$0.50 per pound to purchase.  His model results in \$473,436 more in profit than that found for part c.  The maximum price for extra grapes per pound should be no more that \$0.70 to maintain \$0.01 per pound profit increase, based on the shadow price for grapes, weightLimit value, seen in the AMPL output below. 
 
 \includegraphics[width=.9\textwidth]{output1ei.png}
-
-\item Ms Bollman considers the fruit cost to be fixed no matter what the actual input are into each product.  So we will use the marginal profit for each product to compute the total marginal profit.  She does consider the restrictions on grape quality.  This model also suggests that she would be willing to pay up to \$0.55 per pound of type $A$ grapes.  The product break down here include all the jelly the market will bear and the rest into juice.
+% completed edit to this point.
+\item Based on Ms Bollman's profit figures, no raisins would be produced, with jelly production at 290,000 units and juice at 186,452 units.  The profit realized from this model would have been \$1,343,161, which is \$37,042 more than the profit realized in part c.  Based on Ms. Bollman's figures, the maximum amount to spend on extra grade $A$ grapes, would be |$0.54 to still have a \$0.01 per pound of extra grapes profit, from the weightLimit term in the AMPL output below. 
 
 \includegraphics[width=.9\textwidth]{output1eii.png}
 
