@@ -10,7 +10,7 @@
 \newtheorem{example}{Example}
 
 
-\author{Group 1:  Thalia Garmendez, Nicholas Jacob, Harshkumar Parmar, Matt Scholelen}
+\author{Group 1:  Thalia Garmendez, Nicholas Jacob,\\ Harshkumar Parmar, Matt Scholelen}
 \title{Homework 2 Advanced Analytics and Metaheuristics}
 
 \begin{document}
@@ -107,24 +107,25 @@ where the $maxDemand$ for raisins was set to infinity.  For grape availability, 
 \[
 \sum_i a_i \leq 2 100 000\quad\text{and}\quad\sum_ib_i \leq 6 300 000.
 \]
-The AMPL solution seen below provides the following values; for 
+The AMPL solution seen below provides the following values;  
 \begin{enumerate}
-\item raisin production was 408,148 whole units, juice was 8,709 whole units of juice, and 290,000 units of jelly, for 
-\item the maximized contribution to profit was \$1,306,120, for 
-\item all grapes were utilized of both types as the slack of the $weightLimit$ was zero, 
-\item the average quality point count for the raisins, juice, and jelly were 8, 6, and 5 respectively as driven by the quality requirements.\label{1c}  We again see this in the slack of the constraint $qualityControl$.
+\item For raisin production was 408,148 whole units, juice was 8,709 whole units of juice, and 290,000 units of jelly.
+\item For the maximized contribution to profit was \$1,306,120.
+\item All grapes were utilized of both types as the slack of the $weightLimit$ was zero.
+\item The average quality point count for the raisins, juice, and jelly were 8, 6, and 5 respectively as driven by the quality requirements.  We again see this in the slack of the constraint $qualityControl$.
 \end{enumerate}
 
-\includegraphics[width = .9\textwidth]{outputp1c.png}
+\includegraphics[width = .9\textwidth]{outputp1c.png} \label{1c}
 \item To discover if we should purchase the additional grade $A$ grapes, we examine two differing solutions.  First we run the same model as \ref{1c} but include the shadow price of the constraint on the weightLimit.
 
 \includegraphics[width = .9\textwidth]{outputp1da.png}
-
+\begin{enumerate}
 \item Based on the shadow price from the above AMPL solution, for grade $A$ grapes, \$0.11 profit increase per pound of grade $A$ grapes, the purchase price of \$0.50 would provide \$0.03 profit per pound of increased amount of grade $A$ grapes.  The other reason to buy the extra grapes is that the shadow price upper limit would mean that the shadow price would be applicable to 270,000 lbs of the 300,000 lbs of extra grapes.  There would be a different shadow price above the limit, but it would only affect 30,000 lbs of the overall 300,000 lbs of extra grapes. 
 \item Based on the original grade $A$ grape price of \$0.42 per pound and the shadow price, the maximum purchase price should only go to\$0.52, providing \$0.01 per pound of additional grade $A$ grape profit.  For grade $B$ grapes the maximum purchase price should only be \$0.35 per pound extra, because the original purchase price was \$0.23 per pound and the shadow price was \$0.13, which would still provide a \$0.01 of profit per pound of extra grade $B$ grape, up to roughly 2,000,000 additional grapes (based on the shadow price upper limit for grade $B$ grapes).
 
 \includegraphics[width=.9\textwidth]{outputp1db.png}
 
+\end{enumerate}
 \item 
 \begin{enumerate}
 \item Mr Thomas forgot about the quality constraint and considered type $A$ and $B$ grapes to be the same cost.  We make only raisins in his model and make the largest marginal profit.  You would need for type $A$ or any type to be just slightly less than \$0.50 per pound to purchase.  His model results in \$473,436 more in profit than that found for part c.  The maximum price for extra grapes per pound should be no more that \$0.70 to maintain \$0.01 per pound profit increase, based on the shadow price for grapes, weightLimit value, seen in the AMPL output below. 
@@ -135,7 +136,7 @@ The AMPL solution seen below provides the following values; for
 
 \includegraphics[width=.9\textwidth]{output1eii.png}
 
-\item While both of our teammates report accurate results under their assumptions, they have forgotten important parts of our model.  Mr Thomas has ignored quality controls and assumed all grapes at the same price point.  Ms Bollman's analysis include accounting for grape quality but when she computes the marginal profit, she does not include the fact that juice made with higher quality grapes will in fact cost our company more.  My model deals with all of these.  It also has a nice balance of products to keep our customers satisfied.  One limitation of our model is the lack of accounting of the overhead costs.  We are unclear if those should be attributed to each product in the way that Mr Thomas has done or if the accounting can be done in other ways to minimize our tax liability.
+\item While both of our teammates report accurate results under their assumptions, they have forgotten important parts of our model.  Mr Thomas has ignored quality controls and assumed all grapes at the same price point.  Ms Bollman's analysis include accounting for grape quality but when she computes the marginal profit, she does not include the fact that juice made with higher quality grapes will in fact cost our company more.  In her analysis the whole price of the grapes our company paid for is not taken into account so the books will not balance later if we use her model.  Our model deals with all of these.  It also has a nice balance of products to keep our customers satisfied.  One limitation of our model is the lack of accounting of the overhead costs.  We are unclear if those should be attributed to each product in the way that Mr Thomas has done or if the accounting can be done in other ways to minimize our tax liability.
 \end{enumerate}
 \end{enumerate}
 \item Titan's Dealings
@@ -146,12 +147,12 @@ amountInvested_a \leq maxAmount_a.
 \]
 Then we have the trickiest part of this exercise, the investment constraint.  We start with \$1 000 000.  We use the cash-flow table presented in the email from Sharizi, $returns_{y,a}$ indexed on both year and project.  For 2021, we ask that the amount remaining, $amountNotInvested_y$,
 \begin{align*}
-amountNotInvested_{2021} =& 1 000 000\\
+amountNot&Invested_{2021} = 1 000 000\\
 & + \displaystyle\sum_{a \in projects} amountInvested_a\cdot returns_{2021,a}\geq 0.
 \end{align*}
 This constraint requires that we can only invest up to our \$1 000 000.  We should not that all cash-flow in 2021 is negative as we are only investing in that year.  For the remaining three years, we have a similar function just without the initial cash but we allow for held over funds to gain interest
 \begin{align*}
-amountNotInvested_y =& 1.06 \cdot amountNotInvested_{y-1}\\
+amountNot&Invested_y = 1.06 \cdot amountNotInvested_{y-1}\\
 +&\displaystyle\sum_{a \in projects} amountInvested_a\cdot returns_{y,a}\geq 0.
 \end{align*}
 Some cash-flows are positive and some negative but we do not allow for borrowing of funds.  Lastly we succinctly state our objective
@@ -186,9 +187,18 @@ and
 \[
 NPV_D = -1+\frac{1.7}{1.1^3} = 0.277.
 \]
-Both of these $NPV$s, we have not better investment so we suspect that we will continue to contribute to these funds.
+With both of these $NPV$s, we have no better investment so we suspect that we will continue to contribute to these funds.
 
-Probably should consider IRR here too.
+Next we consider the $IRR$ for completeness.  To find the $IRR$, we must solve the following equations
+\[
+0 = -1+\frac{1.34}{1+r}
+\]
+and 
+\[
+0 = -1 +\frac{1.7}{(1+r)^3}.
+\]
+
+Thus we get that $IRR_E = 34\%$ and $IRR_D = 19.5\%$.  These both will still be our two highest $IRR$ rates for our company.
 
 Lastly, we go ahead and change the data file to see what might happen with these new rates of return.  What we observe is that yes we do indeed continue investing into each account in the same fashion but our overall return does drop a bit.
 
@@ -228,12 +238,18 @@ Arrives at
 \[
 r_G = 20.4\%
 \]
+
+We believe we would utilize project $F$ since it does slightly better than $A$ but not use $G$ as it ties up the funds the entire time and does worse than $D$.
+
 \item Adding $F$ into the model we arrive at
 
 
 \includegraphics[width = .9\textwidth]{output2e.png}
 
-We see that some of the moneys that had been invested in fund $D$ in the first year are now instead invested into $F$ but it is honestly a small pittance.  This increases our profitability slightly.  We are unclear how to use the sensitivity to elaborate on this.  Moneys invested in $F$ will also be invested in $E$ so perhaps some compounding allows for this to be more profitable than just sticking with $D$.
+We see that some of the moneys that had been invested in fund $D$ in the first year are now instead invested into $F$ but it is honestly a small pittance.  This increases our profitability slightly.  
+
+
+Moneys invested in $F$ will also be invested in $E$ so perhaps some compounding allows for this to be more profitable than just sticking with $D$.  The small decrease in $D$ would suggest that its $IRR$ will fall below that of $F$ so at that point we would most likely invest more into $F$.  We do not think a small tweak on $E$ will change its usage in the model.  We see this in the opportunity analysis and the ability to move that slope downward.  We also note that $E$ allows for funds put into $A$ and $F$ get reinvested in a timely manner.  We see this as a strength for $E$ in our model.
 \end{enumerate}
 \end{enumerate}
 
