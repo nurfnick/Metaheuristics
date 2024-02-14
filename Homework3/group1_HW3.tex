@@ -154,6 +154,101 @@ We look to be purchasing new tires for both the needs of the first two races, 32
 
 \item Dunder Mifflin
 
+ \begin{tikzpicture}[rotate=270,transform shape,
+      mycircle/.style={
+         circle,
+         draw=black,
+         fill=gray,
+         fill opacity = 0.3,
+         text opacity=1,
+         inner sep=0pt,
+         minimum size=30pt,
+         font=\small},
+      myarrow/.style={-Stealth},
+      node distance=1.0cm and 1.0cm
+      ]
+      \node[mycircle] (v0){$v_0$};
+      \node[mycircle,above right=of v0] (g){$g$};
+      \node[mycircle,below right=of v0] (s){$s$};
+      \node[mycircle, right =of g] (vg){$v_g$};
+      \node[mycircle, right =of s] (vs){$v_s$};
+      \node[mycircle, right =of vg] (pgst){$pg_{st}$};
+	\node[mycircle, above =of pgst] (pgu){$pg_u$};
+      \node[mycircle, above =of pgu] (pgsc){$pg_{sc}$};	 
+      \node[mycircle, right =of vs] (pssc){$ps_{sc}$};
+      \node[mycircle, below =of pssc] (psu){$ps_{u}$};
+      \node[mycircle, below =of psu] (psst){$ps_{st}$};	
+      \node[mycircle, right =of pgsc] (pgvsc){$pgv_{sc}$};
+      \node[mycircle, right =of pgu] (pgvu){$pgv_{u}$};
+      \node[mycircle, right =of pgst] (pgvst){$pgv_{st}$};
+      \node[mycircle, right =of pssc] (psvsc){$psv_{sc}$};
+      \node[mycircle, right =of psu] (psvu){$psv_{u}$};
+      \node[mycircle, right =of psst] (psvst){$psv_{st}$};
+
+      \node[mycircle, right =of pgvst] (sc){$sc$};
+      \node[mycircle, below =of sc] (u){$u$};
+      \node[mycircle, below =of u] (st){$st$};
+
+	  \node[mycircle, right =of sc] (isc){$I_{sc}$};
+      \node[mycircle, below =of isc] (iu){$I_u$};
+      \node[mycircle, below =of iu] (ist){$I_{st}$};
+
+	  \node[mycircle, below right =of isc] (tg){$T_{g}$};
+      \node[mycircle, below =of tg] (tfb){$T_{fb}$};
+
+	  \node[mycircle, right =of tg] (dg){$D_{g}$};
+      \node[mycircle, below =of dg] (dfb){$D_{fb}$};
+
+      \node[mycircle, below right =of dg] (v1){$v_{1}$};
+
+
+    \foreach \i/\j/\txt/\p in {% start node/end node/text/position
+      v0/g/0/above,
+	  v0/s/0/above,
+	 vg/pgsc/300/above,
+	vg/pgu/250/above,
+	vg/pgst/275/above,
+	 vs/pssc/300/above,
+	vs/psu/250/above,
+	vs/psst/275/above,
+	pgvsc/sc/300/above,
+	psvsc/sc/300/above,
+	pgvu/u/250/above,
+	psvu/u/250/above,
+	pgvst/st/275/above,
+	psvst/st/275/above,
+isc/tg/8/above,
+isc/tfb/15/above,
+iu/tg/14/above,
+iu/tfb/18/above,
+ist/tg/24/above,
+ist/tfb/20/above,
+dg/v1/0/above,
+dfb/v1/0/above}
+       \draw [myarrow] (\i) -- node[sloped,font=\small,\p] {\txt} (\j);
+
+\draw[->] (18,-1) node[above right,style={-Stealth}]{0} arc  (0:170:9.0) ;
+
+
+\draw[myarrow] (g) -- node[sloped, font = \tiny, above] {$(1700,0,200)$} (vg);
+\draw[myarrow] (s) -- node[sloped, font = \tiny, above] {$(2000,0,100)$} (vs);
+\draw[myarrow] (pgsc) -- node[sloped, font = \tiny, above] {$\mu = 10$} (pgvsc);
+\draw[myarrow] (pgu) -- node[sloped, font = \tiny, above] {$\mu = 10$} (pgvu);
+\draw[myarrow] (pgst) -- node[sloped, font = \tiny, above] {$\mu = 10$} (pgvst);
+\draw[myarrow] (pssc) -- node[sloped, font = \tiny, above] {$\mu = 12$} (psvsc);
+\draw[myarrow] (psu) -- node[sloped, font = \tiny, above] {$\mu = 12$} (psvu);
+\draw[myarrow] (psst) -- node[sloped, font = \tiny, above] {$\mu = 12$} (psvst);
+
+\draw[myarrow] (sc) to [out = 45, in=135] node[sloped, font = \tiny, above] {$(90,0,505)$} (isc);
+\draw[myarrow] (u) to [out = 45, in=135] node[sloped, font = \tiny, above] {$(105,0,465)$} (iu);
+\draw[myarrow] (st) to [out = 45, in=135] node[sloped, font = \tiny, above] {$(115,0,570)$} (ist);
+\draw[myarrow,red] (sc) to [out = -45, in=-135] node[sloped, font = \tiny, above] {$(135,0,100)$} (isc);
+\draw[myarrow,red] (u) to [out = -45, in=-135] node[sloped, font = \tiny, above] {$(157.5,0,100)$} (iu);
+\draw[myarrow,red] (st) to [out = -45, in=-135] node[sloped, font = \tiny, above] {$(172.5,0,100)$} (ist);
+
+\draw[myarrow] (tg) -- node[sloped, font = \tiny, above] {$(0,1000,\infty)$} (dg);
+\draw[myarrow] (tfb) -- node[sloped, font = \tiny, above] {$(0,600,\infty)$} (dfb);
+    \end{tikzpicture}
 \end{enumerate}
 
 
