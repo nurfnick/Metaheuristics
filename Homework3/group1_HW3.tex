@@ -73,7 +73,9 @@
 
 
     \end{tikzpicture}
-\item Here is my flow model:
+\item Race Car Tires
+
+ Here is my flow model:
 
 
  \begin{tikzpicture}[
@@ -268,6 +270,74 @@ Here is my data file:
 Here is my output:
 
 \includegraphics[width = .9\textwidth]{output_p4.png}
+
+\item Mud b Gone
+
+ \begin{tikzpicture}[transform shape,
+      mycircle/.style={
+         circle,
+         draw=black,
+         fill=gray,
+         fill opacity = 0.3,
+         text opacity=1,
+         inner sep=0pt,
+         minimum size=30pt,
+         font=\small},
+      myarrow/.style={-Stealth},
+      node distance=2cm and 2cm
+      ]
+      \node[mycircle] (b1){$b_1$};
+      \node[mycircle, below = of b1] (b2){$b_2$};
+      \node[mycircle, below = of b2] (b3){$b_3$};
+      \node[mycircle, below = of b3] (b4){$b_4$};
+
+
+      \node[mycircle, right = of b1] (p1){$p_1,2500$};
+      \node[mycircle, below = of p1] (p2){$p_2$};
+      \node[mycircle, below = of p2] (p3){$p_3$};
+      \node[mycircle, below = of p3] (p4){$p_4,-2500$};
+
+
+      \node[mycircle, below right = of p2] (sell){$sell$};
+      \node[mycircle, below left = of b2] (supply){$supply$};
+
+
+    \foreach \i/\j/\txt/\p in {% start node/end node/text/position
+	  b1/b2/0/above,
+	b2/b3/0/above,
+	b3/b4/0/above}
+       \draw [myarrow] (\i) -- node[sloped,font=\small,\p] {\txt} (\j);
+
+\draw[myarrow] (supply) -- node[sloped, font = \tiny, above] {$(2.5,0,7500)$} (b1);
+\draw[myarrow] (supply) -- node[sloped, font = \tiny, above] {$(2.5,0,9000)$} (b2);
+\draw[myarrow] (supply) -- node[sloped, font = \tiny, above] {$(3,0,8500)$} (b3);
+\draw[myarrow] (supply) -- node[sloped, font = \tiny, above] {$(3.5,0,9200)$} (b4);
+%
+\draw[myarrow] (p1) -- node[sloped, font = \tiny, above] {$(-38,2000,3000,0)$} (sell);
+\draw[myarrow] (p2) -- node[sloped, font = \tiny, above] {$(-40,2500,3000,0)$} (sell);
+\draw[myarrow] (p3) -- node[sloped, font = \tiny, above] {$(-42,2800,5000,0)$} (sell);
+\draw[myarrow] (p4) -- node[sloped, font = \tiny, above] {$(-42,2500,5000,0)$} (sell);
+%
+\draw[myarrow] (p1) -- node[sloped, font = \tiny, above] {$(1.3,0,3000,0.94)$} (p2);
+\draw[myarrow] (p2) -- node[sloped, font = \tiny, above] {$(1.3,0,3000,0.94)$} (p3);
+\draw[myarrow] (p3) -- node[sloped, font = \tiny, above] {$(1.3,0,3000,0.94)$} (p4);
+%
+\draw[myarrow] (b1) -- node[sloped, font = \tiny, above] {$(11,0,\infty,0.45)$} (p2);
+\draw[myarrow] (b2) -- node[sloped, font = \tiny, above] {$(11,0,\infty,0.45)$} (p3);
+\draw[myarrow] (b3) -- node[sloped, font = \tiny, above] {$(11,0,\infty,0.45)$} (p4);
+%
+\draw[myarrow] (supply) to [out = 90, in=110, looseness = 8] node[sloped, font = \tiny, above] {$\mu = 5$} (supply);
+
+
+    \end{tikzpicture}
+
+Here is my model file:
+
+{\small \VerbatimInput{group1_HW3_p5.mod}}
+
+Here is my data file:
+
+{\small \VerbatimInput{group1_HW3_p5.dat}}
 \end{enumerate}
 
 

@@ -1,0 +1,71 @@
+#MCNFP Problem - data file for problem instance
+#Charles Nicholson, ISE 5113, 2015
+
+#use with MCNFP.txt model
+#note: default arc costs and lower bounds are 0
+#      default arc upper bounds are infinity
+#      default node requirements are 0
+
+
+set NODES :=  	#v0, v1, #virtual nodes at begining and end to get the flow going 
+				g, s, #general and specialist
+				vg, vs, #virtual to get the cost of general and specialist 
+				pgsc, pgu, pgst, pssc, psu, psst, #shipping cost of each employee
+				pgvsc, pgvu, pgvst, psvsc, psvu, psvst, #convert each employee to items
+				sc, u, st, #workers (as items) now at the plants
+				scot, uot, stot # overtime possible
+				isc, iu, ist, #inventory at each plant 
+				tg, tfb, #transport goods to location
+				wp, vp; #virtual pool for customers orders
+
+set ARCS := (s,vs),(g,vg), #hire the workers
+			(s,wp), (g,wp), #unhired workers
+			(wp,s), (wp,g), #flow the unhired workers back to keep the balance
+			(vg,pgsc),(vg,pgu),(vg,pgst),(vs,pssc),(vs,psu),(vs,psst), #move different workers to factories
+			(pgsc,pgvsc),(pgu,pgvu),(pgst,pgvst),(pssc,psvsc),(psu,psvu),(psst,psvst), #convert the workers into items
+			(pgvsc,sc),(psvsc,sc),(pgvu,u),(psvu,u),(pgvst,st),(psvst,st), #more production capacity to each factory
+			(sc,isc),(u,iu),(st,ist), #create the products
+			(sc, scot), (u, uot), (st,stot), #overtime hours making products
+			(scot, isc), (uot,iu), (stot, ist), #overtime products created go to inventory for free
+			(isc,tg), (isc,tfb), (iu, tg), (iu,tfb), (ist,tg), (ist,tfb), #move the product from inventory to customer
+			(tg,vp), (tfb,vp)
+			;
+
+param: b:=
+	g 200
+	s 100
+	tg -1000
+	tfb -600;
+
+param:        c  l u mu:=
+		[s,vs] 			2000  	. 	100 	. #recruit workers
+		[g,vg] 			1700  	. 	200 	.
+		[vg,pgsc] 		300  	. 	. 		. #move workers to factories
+		[vg,pgu] 		250  	. 	. 		.
+		[vg,pgst]		275  	. 	. 		.
+		[vs,pssc] 		300 	.	. 		.
+		[vs,psu] 		250 	. 	. 		.
+		[vs,psst] 		275 	. 	. 		.
+		[pgsc,pgvsc] 	. 		. 	. 		10 #convert workers to items
+		[pgu,pgvu] 		. 		. 	. 		10
+		[pgst,pgvst] 	. 		. 	. 		10
+		[pssc,psvsc] 	. 		. 	. 		12 
+		[psu,psvu] 		. 		. 	. 		12
+		[psst,psvst] 	. 		. 	. 		12
+		[sc,isc] 		90 		. 	505 	. #create the products
+		[u,iu]			105 	. 	465 	. 
+		[st, ist] 		115 	. 	570 	.
+		[sc, scot] 		135 	. 	100 	. #overtime possible
+		[u,uot] 		157.5 	. 	100 	.
+		[st,stot] 		172.5 	. 	100 	.
+		[isc, tg] 		8 		. 	. 		. #move product to customer
+		[isc, tfb] 		15 		. 	. 		. ################################check me
+		[iu, tg] 		14 		. 	. 		.
+		[iu, tfb] 		18 		. 	. 		.
+		[ist, tg] 		24 		. 	. 		.
+		[ist,tfb] 		20 		. 	. 		.
+		[tg,vp]			.		.	.		0
+		[tfb,vp]		.		.	.		0
+		[wp,s]			.		.	.		0
+		[wp,g]			.		.	.		0
+;
