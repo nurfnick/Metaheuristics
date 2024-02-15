@@ -1,0 +1,49 @@
+#MCNFP Problem - data file for problem instance
+#Charles Nicholson, ISE 5113, 2015
+
+#use with MCNFP.txt model
+#note: default arc costs and lower bounds are 0
+#      default arc upper bounds are infinity
+#      default node requirements are 0
+
+
+set NODES :=  	v0, v1, #virtual nodes at begining and end to get the flow going 
+				g, s, #general and specialist
+				vg, vs, #virtual to get the cost of general and specialist 
+				pgsc, pgu, pgst, pssc, psu, psst, #shipping cost of each employee
+				pgvsc, pgvu, pgvst, psvsc, psvu, psvst, #convert each employee to items
+				sc, u, st, #workers (as items) now at the plants
+				isc, iu, ist, #inventory at each plant 
+				tg, tfb, #transport goods to location
+				dg, dfb; #demand at each location.  flow back.
+
+set ARCS := (v0,s),(v0,g), #start the flow
+			(s,vs),(g,vg), #hire the workers
+			(vg,pgsc),(vg,pgu),(vg,pgst),(vs,pssc),(vs,psu),(vs,psst), #move different workers to factories
+			(pgsc,pgvsc),(pgu,pgvu),(pgst,pgvst),(pssc,psvsc),(psu,psvu),(psst,psvst), #convert the workers into items
+			(pgvsc,sc),(psvsc,sc),(pgvu,u),(psvu,u),(pgvst,st),(psvst,st), #more production capacity to each factory
+			##########################
+			(r1,i2),(r1,i3), #race 1 quick and slow fix
+			(r2,i3),(r2,i4), #race 2 quick and slow fix
+			(r3,i4), #race 3 quick fix
+			(v1,v0) #move from virtual to virtual to complete flow
+			;
+
+
+
+param:        c  l u mu:=
+		[p1,i1] 600  . . #purchase new tires each race
+		[p2,i2] 600  . .
+		[p3,i3] 600  . .
+		[p4,i4] 600  . .
+		[i1,r1] .	320 . #minimum tires needed each race
+		[i2,r2] .	240 .
+		[i3,r3] .	400 .
+		[i4,r4] .	520 .
+		[i4,r4] 1   .	.
+		[r1,i2] 250 . 	. #quick fix
+		[r2,i3] 250 .	.
+		[r3,i4] 250 .	.
+		[r1,i3] 95  .	.#slowfix
+		[r2,i4] 95	.	.
+;
