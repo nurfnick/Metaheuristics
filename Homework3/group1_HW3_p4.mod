@@ -4,6 +4,7 @@
 # l[i,j] = 0 and u[i,j] = Infinity.
 #
 # Parameters not specified in the data file will get their default values.
+reset; 
 
 options solver cplex;
 
