@@ -167,9 +167,9 @@ We look to be purchasing new tires for both the needs of the first two races, 32
       myarrow/.style={-Stealth},
       node distance=1.0cm and 1.0cm
       ]
-      \node[mycircle] (v0){$v_0$};
-      \node[mycircle,above right=of v0] (g){$g$};
-      \node[mycircle,below right=of v0] (s){$s$};
+      \node[mycircle] (v0){$wp$};
+      \node[mycircle,above right=of v0] (g){$g, 200$};
+      \node[mycircle,below right=of v0] (s){$s, 100$};
       \node[mycircle, right =of g] (vg){$v_g$};
       \node[mycircle, right =of s] (vs){$v_s$};
       \node[mycircle, right =of vg] (pgst){$pg_{st}$};
@@ -189,22 +189,26 @@ We look to be purchasing new tires for both the needs of the first two races, 32
       \node[mycircle, below =of sc] (u){$u$};
       \node[mycircle, below =of u] (st){$st$};
 
-	  \node[mycircle, right =of sc] (isc){$I_{sc}$};
+	\node[mycircle, right = of sc] (scot) {$scot$};
+      \node[mycircle, below =of scot] (uot){$u$};
+      \node[mycircle, below =of uot] (stot){$stot$};
+
+	  \node[mycircle, right =of scot] (isc){$I_{sc}$};
       \node[mycircle, below =of isc] (iu){$I_u$};
       \node[mycircle, below =of iu] (ist){$I_{st}$};
 
-	  \node[mycircle, below right =of isc] (tg){$T_{g}$};
-      \node[mycircle, below =of tg] (tfb){$T_{fb}$};
+	  \node[mycircle, right =of isc] (tg){$T_{g}, -1000$};
+      \node[mycircle, below =of tg] (tfb){$T_{fb}, -600$};
 
-	  \node[mycircle, right =of tg] (dg){$D_{g}$};
-      \node[mycircle, below =of dg] (dfb){$D_{fb}$};
+	  %\node[mycircle, right =of tg] (dg){$D_{g},-1000$};
+      %\node[mycircle, below =of dg] (dfb){$D_{fb},-600$};
 
-      \node[mycircle, below right =of dg] (v1){$v_{1}$};
+      %\node[mycircle, below right =of dg] (v1){$v_{1}$};
 
 
     \foreach \i/\j/\txt/\p in {% start node/end node/text/position
-      v0/g/0/above,
-	  v0/s/0/above,
+      g/v0/0/above,
+	  s/v0/0/above,
 	 vg/pgsc/300/above,
 	vg/pgu/250/above,
 	vg/pgst/275/above,
@@ -222,12 +226,10 @@ isc/tfb/15/above,
 iu/tg/14/above,
 iu/tfb/18/above,
 ist/tg/24/above,
-ist/tfb/20/above,
-dg/v1/0/above,
-dfb/v1/0/above}
+ist/tfb/20/above}
        \draw [myarrow] (\i) -- node[sloped,font=\small,\p] {\txt} (\j);
 
-\draw[->] (18,-1) node[above right,style={-Stealth}]{0} arc  (0:170:9.0) ;
+%\draw[->] (18,-1) node[above right,style={-Stealth}]{0} arc  (0:170:9.0) ;
 
 
 \draw[myarrow] (g) -- node[sloped, font = \tiny, above] {$(1700,0,200)$} (vg);
@@ -242,13 +244,30 @@ dfb/v1/0/above}
 \draw[myarrow] (sc) to [out = 45, in=135] node[sloped, font = \tiny, above] {$(90,0,505)$} (isc);
 \draw[myarrow] (u) to [out = 45, in=135] node[sloped, font = \tiny, above] {$(105,0,465)$} (iu);
 \draw[myarrow] (st) to [out = 45, in=135] node[sloped, font = \tiny, above] {$(115,0,570)$} (ist);
-\draw[myarrow,red] (sc) to [out = -45, in=-135] node[sloped, font = \tiny, above] {$(135,0,100)$} (isc);
-\draw[myarrow,red] (u) to [out = -45, in=-135] node[sloped, font = \tiny, above] {$(157.5,0,100)$} (iu);
-\draw[myarrow,red] (st) to [out = -45, in=-135] node[sloped, font = \tiny, above] {$(172.5,0,100)$} (ist);
+\draw[myarrow,red] (sc) to [out = -45, in=-135] node[sloped, font = \tiny, above] {$(135,0,100)$} (scot);
+\draw[myarrow,red] (u) to [out = -45, in=-135] node[sloped, font = \tiny, above] {$(157.5,0,100)$} (uot);
+\draw[myarrow,red] (st) to [out = -45, in=-135] node[sloped, font = \tiny, above] {$(172.5,0,100)$} (stot);
+\draw[myarrow,red] (scot) to [out = -45, in=-135] node[sloped, font = \tiny, above] {$0$} (isc);
+\draw[myarrow,red] (uot) to [out = -45, in=-135] node[sloped, font = \tiny, above] {$0$} (iu);
+\draw[myarrow,red] (stot) to [out = -45, in=-135] node[sloped, font = \tiny, above] {$0$} (ist);
 
-\draw[myarrow] (tg) -- node[sloped, font = \tiny, above] {$(0,1000,\infty)$} (dg);
-\draw[myarrow] (tfb) -- node[sloped, font = \tiny, above] {$(0,600,\infty)$} (dfb);
+\draw[myarrow] (v0) to [out = 90, in=180] node[sloped, font = \tiny, above] {$\mu = 0$} (g);
+\draw[myarrow] (v0) to [out = 270, in=180] node[sloped, font = \tiny, above] {$\mu = 0$} (s);
+
+%\draw[myarrow] (tg) -- node[sloped, font = \tiny, above] {$(0,1000,\infty)$} (dg);
+%\draw[myarrow] (tfb) -- node[sloped, font = \tiny, above] {$(0,600,\infty)$} (dfb);
     \end{tikzpicture}
+Here is my model file:
+
+{\small \VerbatimInput{group1_HW3_p4.mod}}
+
+Here is my data file:
+
+{\small \VerbatimInput{group1_HW3_p4.dat}}
+
+Here is my output:
+
+\includegraphics[width = .9\textwidth]{output_p4.png}
 \end{enumerate}
 
 

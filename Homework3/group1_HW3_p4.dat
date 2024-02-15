@@ -63,4 +63,6 @@ param:        c  l u mu:=
 		[iu, tfb] 		18 		. 	. 		.
 		[ist, tg] 		24 		. 	. 		.
 		[ist,tfb] 		20 		. 	. 		.
+		[wp,s]			.		.	.		0
+		[wp,g]			.		.	.		0
 ;
