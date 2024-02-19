@@ -12,7 +12,7 @@
 \newtheorem{example}{Example}
 
 
-\author{Group 1:  Nicholas Jacob}
+\author{Group 1:  Nicholas Jacob, Garrison Kleman, Hannah Jensen}
 \title{Homework 3 Advanced Analytics and Metaheuristics}
 
 \begin{document}
@@ -46,11 +46,14 @@
       \node[mycircle,below=of k1] (k2) {$k_2, 0$};
 	 \node[mycircle,below=of k2] (k3) {$k_3, 0$};
 	 \node[mycircle,below=of k3] (k4) {$k_4, 0$};
-	 \node[mycircle,below right=of k0] (s1) {$s_1, 0$};
+	 \node[mycircle,right=of k1] (s1) {$s_1, 0$};
 	 \node[mycircle,below=of s1] (s2) {$s_2, 0$};
-	\node[mycircle,below=of s2] (s3) {$s_2, 0$};
-	\node[mycircle,below=of s3] (s4) {$s_2, 0$};
-	\node[mycircle,below=of s4] (s5) {$s_2, 0$};
+	\node[mycircle,below=of s2] (s3) {$s_3, 0$};
+	\node[mycircle,below=of s3] (s4) {$s_4, 0$};
+	\node[mycircle,below=of s4] (s5) {$s_5, 0$};
+	
+	 \node[above = of k0](text){Maintain};
+      \node[right = of text] {Sell};
 
       \node[mycircle,right=of s3] (buynew) {$Buy, -1$};
 
@@ -105,6 +108,11 @@
 	 \node[mycircle,below=of r2] (r3) {$R_3$};
 	 \node[mycircle,below=of r3] (r4) {$R_4$};      
       \node[mycircle,right=of r2] (v1) {$v_1$};
+      
+      \node[above = of p1] (p) {Purchase};
+      \node[above = of i1] (i) {Inventory};
+      \node[above = of r1] (r) {Race};
+
 
 
 
@@ -192,7 +200,7 @@ We look to be purchasing new tires for both the needs of the first two races, 32
       \node[mycircle, below =of u] (st){$st$};
 
 	\node[mycircle, right = of sc] (scot) {$scot$};
-      \node[mycircle, below =of scot] (uot){$u$};
+      \node[mycircle, below =of scot] (uot){$uot$};
       \node[mycircle, below =of uot] (stot){$stot$};
 
 	  \node[mycircle, right =of scot] (isc){$I_{sc}$};
