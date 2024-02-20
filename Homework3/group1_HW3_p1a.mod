@@ -1,4 +1,4 @@
-#Homework 1 Problem 1 Part A - Group 1
+#Homework 3 Problem 1 Part A - Group 1
 
 reset;
 option solver cplex;
