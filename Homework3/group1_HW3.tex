@@ -148,15 +148,15 @@
 
     \end{tikzpicture}
 
-Here is my model file:
+Here is our model file:
 
 {\small \VerbatimInput{group1_HW3_p3.mod}}
 
-Here is my data file:
+Here is our data file:
 
 {\small \VerbatimInput{group1_HW3_p3.dat}}
 
-Here is my output:
+Here is our output:
 
 \includegraphics[width = .9\textwidth]{output_p3.png}
 
@@ -209,6 +209,16 @@ We look to be purchasing new tires for both the needs of the first two races, 32
 
 	  \node[mycircle, right =of isc] (tg){$T_{g}, -1000$};
       \node[mycircle, below =of tg] (tfb){$T_{fb}, -600$};
+
+\node[above = of pgsc] (workers){Worker};
+\node[above = of pgvsc] (wtoprod){Product};
+\node[above = of sc] (loc){Location};
+\node[above = of scot](ot){Overtime};
+\node[above = of isc](inventory){Inventory};
+\node[above = of tg]{B2B Sales};
+\node[above = of vg]{Hired};
+\node[above = of g](w){Worker};
+\node[left = of w]{Unhired};
 
 	  %\node[mycircle, right =of tg] (dg){$D_{g},-1000$};
       %\node[mycircle, below =of dg] (dfb){$D_{fb},-600$};
@@ -267,13 +277,13 @@ ist/tfb/20/above}
 %\draw[myarrow] (tg) -- node[sloped, font = \tiny, above] {$(0,1000,\infty)$} (dg);
 %\draw[myarrow] (tfb) -- node[sloped, font = \tiny, above] {$(0,600,\infty)$} (dfb);
     \end{tikzpicture}
-Here is my model file:
+Here is our model file:
 
-{\small \VerbatimInput{group1_HW3_p4.mod}}
+{\tiny \VerbatimInput{group1_HW3_p4.mod}}
 
-Here is my data file:
+Here is our data file:
 
-{\small \VerbatimInput{group1_HW3_p4.dat}}
+{\tiny \VerbatimInput{group1_HW3_p4.dat}}
 
 Here is my output:
 
@@ -339,13 +349,15 @@ Here is my output:
 
     \end{tikzpicture}
 
-Here is my model file:
+Here is our model file:
 
-{\small \VerbatimInput{group1_HW3_p5.mod}}
+{\tiny\VerbatimInput{group1_HW3_p5.mod}}
 
-Here is my data file:
+Here is our data file:
 
-{\small \VerbatimInput{group1_HW3_p5.dat}}
+{\tiny \VerbatimInput{group1_HW3_p5.dat}}
+
+
 \end{enumerate}
 
 
