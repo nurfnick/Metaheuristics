@@ -164,6 +164,10 @@ We look to be purchasing new tires for both the needs of the first two races, 32
 
 \item Dunder Mifflin
 
+By far our most complicated model.  Unhired workers will flow to the worker pool, $wp$ and flow back out to the Workers with a weight of zero to maintain the flow.  $g$ and $s$ represent the available generalist and specialists.  If they are hired, they flow to the hired pool of each type.  They are then transported to each plant at the respective cost.  We then convert each worker into their number of products created with the weight.  Finally we combine the number of possible products they can create into each location.  Inventory is created with the regular cost but with limits on the maximums.  Overtime is represented in red and uses a different virtual node for each location.  Inventory is then shipped from each of the factories to the different businesses we serve, meeting the demand as represented inside the node.  We attempted to make the flow circular but do to the difference in weights based on employment categories, could never get it to create a balanced flow.
+
+This model provides labor for overtime but does not account for a premium the wage for the employee working outside of regular hours.  We see this as an assumption that there is not a bump in pay for working second shift but there is a 50\% increase in our overhead costs of production.
+
  \begin{tikzpicture}[rotate=270,transform shape,
       mycircle/.style={
          circle,
@@ -288,6 +292,8 @@ Here is our data file:
 Here is my output:
 
 \includegraphics[width = .9\textwidth]{output_p4.png}
+
+Solution is non-integer in employees which is unfortunate but can be the case with the generalized network flow problems.  All 100 specialists are hired, 40 generalists.  Scranton does use 60 products of OT, none of the other plants do but they max out production at each.
 
 \item Mud b Gone
 
