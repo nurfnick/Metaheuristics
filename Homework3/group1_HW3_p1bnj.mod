@@ -27,7 +27,7 @@ sum{j in NODES: (i,j) in ARCS} x[i,j] - sum{j in NODES: (j,i) in ARCS} x[j,i] = 
 
 subject to capacity {(i,j) in ARCS}: l[i,j] <= x[i,j] <= u[i,j];
 
-data group1_HW3_p1bnj.dat;
+data group1_HW3_p1bnj2.dat;
 
 solve;
 

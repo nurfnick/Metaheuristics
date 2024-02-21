@@ -78,7 +78,7 @@
     \end{tikzpicture}
 \item Race Car Tires
 
- Here is my flow model:
+ Here is my flow model:  All nodes have zero $b$ costs are displayed on arcs.  If minimums are needed, the ordered triple represents $(cost,lowerLimit,upperLimit)$.  The $v$ nodes are virtual to balance the flow.
 
 
  \begin{tikzpicture}[
@@ -357,6 +357,18 @@ Here is our data file:
 
 {\tiny \VerbatimInput{group1_HW3_p5.dat}}
 
+\begin{enumerate}
+\item We see a solution for our flow.  We sell 2000, 2500, 4220 and 2500 in each of the respective periods.  We remark on the infinite supply house obtained by creating a loop with a $\mu$ factor set to 5 but could be any value greater than 1.
+
+\includegraphics[width = .9\textwidth]{output_p5a.png}
+\item We next look at sensitivity of the capacity.  We see a value of -\$5.40 in the report, supply to b2.  We interpret this as having additional gallons of base will increase (recall minimizing) our income by \$5.40.  Both the up and the down are reported as 0.  We are unsure of how to interpret this as we clearly would use more of the base if it was available but are unsure why these values are all zero.  We even broke apart the upper and lower limit thinking this was the issue but did not change the up and down on the shadow price.  We do clearly see this as the bottle neck in our model.
+
+\includegraphics[width = .9\textwidth]{output_p5b.png}
+\item We see that the contribution to the cost is -\$40 on the flow from p2 to Sold.  This value can be modified up to -\$42 and not change the model at all.  
+
+
+\includegraphics[width = .9\textwidth]{output_p5c.png}
+\end{enumerate}
 
 \end{enumerate}
 

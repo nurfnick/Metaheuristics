@@ -7,6 +7,7 @@
 reset; 
 
 options solver cplex;
+option cplex_options 'sensitivity';
 
 set NODES;                        # nodes in the network
 set ARCS within {NODES, NODES};   # arcs in the network 
@@ -26,10 +27,16 @@ minimize cost: sum{(i,j) in ARCS} c[i,j] * x[i,j];  #objective: minimize arc flo
 subject to flow_balance {i in NODES}:
 sum{j in NODES: (i,j) in ARCS} x[i,j] - sum{j in NODES: (j,i) in ARCS} mu[j,i] * x[j,i] = b[i];
 
-subject to capacity {(i,j) in ARCS}: l[i,j] <= x[i,j] <= u[i,j];
+subject to upcapacity {(i,j) in ARCS}: x[i,j] <= u[i,j];
+
+subject to lowcapacity {(i,j) in ARCS}: l[i,j] <= x[i,j]; 
 
 data group1_HW3_p5.dat;
 
 solve;
 
 display x;
+
+display upcapacity,upcapacity.up, upcapacity.down;
+
+display x.current, x.up, x.down;
