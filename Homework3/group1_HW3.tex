@@ -21,29 +21,6 @@
 \begin{enumerate}
 \item Team Building
 \begin{enumerate}
-<<<<<<< Updated upstream
-Below is a table detailing the example compatibility scores we used to demonstrate the pairings.
-
-\begin{table}
-    \centering
-    \begin{tabular}{ccccccccc}
-         &  Pam&  Jim&  Dwight&  Michael&  Erin&  Oscar&  Andy& Creed\\
-         Pam&  -&  2&  7&  7&  7&  2&  2& 2\\
-         Jim&  2&  -&  10&  2&  7&  7&  2& 2\\
-         Dwight&  7&  10&  -&  2&  2&  2&  7& 2\\
-         Michael&  7&  2&  2&  -&  2&  2&  7& 2\\
-         Erin&  7&  7&  2&  2&  -&  2&  7& 2\\
-         Oscar&  2&  7&  2&  2&  2&  -&  2& 2\\
-         Andy&  2&  2&  7&  7&  7&  2&  -& 2\\
-         Creed&  2&  2&  2&  2&  2&  2&  2& -\\
-    \end{tabular}
-    \caption{Compatibility Scores of Employees}
-    \label{tab:label}
-\end{table}
-
-\item 
-\item
-=======
 \item English and French.  We give the English a positive weight and French a negative weight.  We have the costs on the arcs.  Here we slightly changed the model of the MCNFP by introducing a negative to the objective function.  This cause the minimizer to return a maximum.
 
 \includegraphics[width = .9\textwidth]{p1aflowdiagram.png}
@@ -63,10 +40,26 @@ Here is our output:
 For our example we see person 1 and 4 paired, 3 and 6 paired, etc.  We see this as fully generalizable.  This MCNFP is always balanced we have equal number of English and French so we always have even pairs with no left over in this model when solved.
 
 \item Office Team Building
+ 
+We attempt to build a model with the same idea as above.  We assign scores of 2 as not compatible, 7 with compatible and 10 with highly compatible.  We chose these values to represent the spread between not being compatible and being compatible as being `large'.  We attempted to create a virtual copy of each person and attach them to everyone else (not attached to yourself) and put those costs on the flow.  This is represented in our document below.  We end up running this with 8 people and getting a working solution but when we expanded to 16 we got some weirdness.
 
 
 \includegraphics[width = .8\textwidth]{p1bflowdiagram.png}
->>>>>>> Stashed changes
+
+Here is our model file:
+
+{\tiny \VerbatimInput{group1_HW3_p1bnj.mod}}
+
+Here is our data file:
+
+{\tiny \VerbatimInput{group1_HW3_p1bnj2.dat}}
+
+Here is our output:
+
+\includegraphics[width = .9\textwidth]{output1b.png}
+
+We see weirdness in our output here.  There are thruple couples and quintuplet room assignments.  We see 1 paired with 9 but 9 paired with 2 and then completing the loop with 2 paired with 1.  There is another group of 5 assigned to rooms that will not work.  We find this solution to not be generalizable even though in theory it might have worked.  The optimizer did too good of job without being able to distinguish that we needed the pairings to coincide.  If 1 was matched with v9 we needed 9 to be matched with v1.  This was not necessarily the case.
+
 \end{enumerate}
 \item Outdoor Grilling
 
