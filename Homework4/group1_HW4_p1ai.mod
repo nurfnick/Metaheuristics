@@ -76,30 +76,30 @@ for {k in 0..4} {
 printf "\n\EPSILON-CONSTRAINT METHOD ---------------------------------------------\n";
 
 #get upper and lower bounds for objectives
-param upperReturn;
-param lowerReturn;
+param upperRisk;
+param lowerRisk;
 
 #in this example, put Profits as the objective function and use epsilon contstraints on the labor
 
 #Let's get the lower and upper bounds for labor values by solving the independent problems
 solve minrisk;
-let lowerReturn:=totalReturn;
+let lowerRisk:= risk;
 
 solve maxreturn;
-let upperReturn:=totalReturn;
+let upperRisk:= risk;
 
 param epsilon;
-let epsilon := lowerReturn;
+let epsilon := lowerRisk;
 
-s.t. epsilsonReturn:  amountInvested['B'] + 1.4*amountInvested['E'] + 1.75*amountInvested['D'] + 1.06*amountInvested[3] <= epsilon;
-problem epsConst:  totalReturn, amountInvested, year1, year2, year3, epsilsonReturn; 
+s.t. epsilsonRisk: sum {a in projects} amountInvested[a]*risks[a] <= epsilon;
+problem epsConst:  totalReturn, amountInvested, year1, year2, year3, epsilsonRisk; 
 
 param steps = 20;
 
 printf "\n\nMultiple values for EPSILON-CONSTRAINT -------------------------------------------------\n";
 for {eps in 0..steps} {
 	
-	let epsilon := lowerReturn + eps*(upperReturn - lowerReturn)/(steps);
+	let epsilon := lowerRisk + eps*(upperRisk - lowerRisk)/(steps);
 	solve epsConst;
 	
 	display epsilon, totalReturn, risk;
