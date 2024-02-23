@@ -21,7 +21,7 @@ subject to onePairing {i in Nodes}: sum {(i,j) in Arcs} networkFlow[i,j] = 1; #o
 subject to netZero {i in Nodes}:sum {(i,j) in Arcs} networkFlow[i,j] - sum {(j,i) in Arcs} networkFlow[j,i] = 0; #constraint that flow in must equal flow out of each node
 
 #connect to the data file
-data Desktop/AMPL/group1_HW3_p1a.dat;
+data group1_HW3_p1a.dat;
 
 #solve to maximize objective function
 solve;

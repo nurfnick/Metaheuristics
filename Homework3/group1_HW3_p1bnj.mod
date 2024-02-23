@@ -32,3 +32,9 @@ data group1_HW3_p1bnj2.dat;
 solve;
 
 display x;
+
+printf "Total Compatibility Score: %f\n", cost;
+printf "Pairs:\n";
+for {(i, j) in ARCS: x[i,j] > 0} {
+    printf "%s - %s\n", i, j;
+}

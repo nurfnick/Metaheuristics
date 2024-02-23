@@ -21,6 +21,7 @@
 \begin{enumerate}
 \item Team Building
 \begin{enumerate}
+<<<<<<< Updated upstream
 Below is a table detailing the example compatibility scores we used to demonstrate the pairings.
 
 \begin{table}
@@ -42,6 +43,30 @@ Below is a table detailing the example compatibility scores we used to demonstra
 
 \item 
 \item
+=======
+\item English and French.  We give the English a positive weight and French a negative weight.  We have the costs on the arcs.  Here we slightly changed the model of the MCNFP by introducing a negative to the objective function.  This cause the minimizer to return a maximum.
+
+\includegraphics[width = .9\textwidth]{p1aflowdiagram.png}
+
+Here is our model file:
+
+{\small \VerbatimInput{group1_HW3_p1a.mod}}
+
+Here is our data file:
+
+{\small \VerbatimInput{group1_HW3_p1a.dat}}
+
+Here is our output:
+
+\includegraphics[width = .9\textwidth]{output1a.png}
+
+For our example we see person 1 and 4 paired, 3 and 6 paired, etc.  We see this as fully generalizable.  This MCNFP is always balanced we have equal number of English and French so we always have even pairs with no left over in this model when solved.
+
+\item Office Team Building
+
+
+\includegraphics[width = .8\textwidth]{p1bflowdiagram.png}
+>>>>>>> Stashed changes
 \end{enumerate}
 \item Outdoor Grilling
 
@@ -65,11 +90,13 @@ Below is our model diagram.
       \node[mycircle,below=of k1] (k2) {$k_2, 0$};
 	 \node[mycircle,below=of k2] (k3) {$k_3, 0$};
 	 \node[mycircle,below=of k3] (k4) {$k_4, 0$};
+	 \node[mycircle,below=of k4] (k5) {$k_5, 0$};
+	 
 	 \node[mycircle,right=of k1] (s1) {$s_1, 0$};
 	 \node[mycircle,below=of s1] (s2) {$s_2, 0$};
 	\node[mycircle,below=of s2] (s3) {$s_3, 0$};
 	\node[mycircle,below=of s3] (s4) {$s_4, 0$};
-	%\node[mycircle,below=of s4] (s5) {$s_5, 0$};
+	\node[mycircle,below=of s4] (s5) {$s_5, 0$};
 	
 	 \node[above = of k0](text){Maintain};
       \node[right = of text] {Sell};
@@ -79,13 +106,15 @@ Below is our model diagram.
     \foreach \i/\j/\txt/\p in {% start node/end node/text/position
       k0/k1/800/above,
       k1/k2/1250/above,
-      k2/k3/2900/above,
-      k3/k4/4800/above,
+      k2/k3/2000/above,
+      k3/k4/2900/above,
       k1/s1/-5000/above,
       k2/s2/-4100/above,
       k3/s3/-1500/above,
       k4/s4/-950/above,
-      %k4/s5/0/above,
+      k4/k5/4800/above,
+      k5/s5/0/above,
+      s5/buynew/7600/above,
 	 s1/buynew/7600/above,
 	 s2/buynew/7600/above,
 	 s3/buynew/7600/above,
@@ -106,7 +135,9 @@ Here is our data file:
 
 Here is our output:
 
-%\includegraphics[width = .9\textwidth]{output_p2.png}
+\includegraphics[width = .9\textwidth]{outputp2.png}
+
+Buy a new one every year seems to be our cost effective method.  It would cost us \$3400 each year to be a grill master.
 
 \item Race Car Tires
 
