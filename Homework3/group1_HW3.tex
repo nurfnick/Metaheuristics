@@ -21,7 +21,7 @@
 \begin{enumerate}
 \item Team Building
 \begin{enumerate}
-\item English and French.  We give the English a positive weight and French a negative weight.  We have the costs on the arcs.  Here we slightly changed the model of the MCNFP by introducing a negative to the objective function.  This cause the minimizer to return a maximum.
+\item English and French.  We give the English a positive weight of one and French a negative weight of one.  We have the costs on the arcs.  Here we slightly changed the model of the MCNFP by introducing a negative to the objective function.  We could have simply made the weights negative too.  This would have allowed us not to change the mod file at all.  This cause the minimizer to return a maximum.
 
 \includegraphics[width = .9\textwidth]{p1aflowdiagram.png}
 
@@ -352,6 +352,8 @@ Here is my output:
 Solution is non-integer in employees which is unfortunate but can be the case with the generalized network flow problems.  All 100 specialists are hired, 40 generalists.  Scranton does use 60 products of OT, none of the other plants do but they max out production at each.
 
 \item Mud b Gone
+
+This model has the coolest feature of the infinite supply house.  We used a multiplicative factor to create new product out of thin air.  We also reduce the product to 0 weight as we send it to the sell node to make the flow balance.  The weights on $p_1$ and $p_4$ were because of the statement in the problem about starting with product.  $b_i$ is connected with $p_{i+1}$ due to the base not being immediately ready for production.  We also have several $\mu$ values for creating the product and the product going bad as it sits. 
 
  \begin{tikzpicture}[transform shape,
       mycircle/.style={
