@@ -349,11 +349,11 @@ Here is my output:
 
 \includegraphics[width = .9\textwidth]{output_p4.png}
 
-Solution is non-integer in employees which is unfortunate but can be the case with the generalized network flow problems.  All 100 specialists are hired, 40 generalists.  Scranton does use 60 products of OT, none of the other plants do but they max out production at each.
+Solution is non-integer in employees which is unfortunate but can be the case with the generalized network flow problems.  All 100 specialists are hired, 40 generalists.  Scranton does use 60 products of OT, none of the other plants do but they max out production at each location.
 
 \item Mud b Gone
 
-This model has the coolest feature of the infinite supply house.  We used a multiplicative factor to create new product out of thin air.  We also reduce the product to 0 weight as we send it to the sell node to make the flow balance.  The weights on $p_1$ and $p_4$ were because of the statement in the problem about starting with product.  $b_i$ is connected with $p_{i+1}$ due to the base not being immediately ready for production.  We also have several $\mu$ values for creating the product and the product going bad as it sits. 
+Our network flow diagram for this problem is below. This model has the coolest feature of the infinite supply house.  We used a multiplicative factor to create new product out of thin air.  We also reduce the product to 0 weight as we send it to the sell node to make the flow balance.  The weights on $p_1$ and $p_4$ were because of the statement in the problem about starting with product.  $b_i$ is connected with $p_{i+1}$ due to the base not being immediately ready for production.  We also have several $\mu$ values for creating the product and the product going bad as it sits. 
 
  \begin{tikzpicture}[transform shape,
       mycircle/.style={
@@ -425,7 +425,7 @@ Here is our data file:
 \item We see a solution for our flow.  We sell 2000, 2500, 4220 and 2500 in each of the respective periods.  We remark on the infinite supply house obtained by creating a loop with a $\mu$ factor set to 5 but could be any value greater than 1.
 
 \includegraphics[width = .9\textwidth]{output_p5a.png}
-\item We next look at sensitivity of the capacity.  We see a value of -\$5.40 in the report, supply to b2.  We interpret this as having additional gallons of base will increase (recall minimizing) our income by \$5.40.  Both the up and the down are reported as 0.  We are unsure of how to interpret this as we clearly would use more of the base if it was available but are unsure why these values are all zero.  We even broke apart the upper and lower limit thinking this was the issue but did not change the up and down on the shadow price.  We do clearly see this as the bottle neck in our model.  We also note that when we moved the cap of 9000 to 9001 we earned another \$5.40.  We wonder if since the number is negative, we are getting 0 as an upper limit.
+\item We next look at the sensitivity of the capacity.  We see a value of -\$5.40 in the report, supply to b2.  We interpret this as having additional gallons of base will increase (recall minimizing) our income by \$5.40.  Both the up and the down are reported as 0.  We are unsure of how to interpret this as we clearly would use more of the base if it was available but are unsure why these values are all zero.  We even broke apart the upper and lower limit thinking this was the issue but did not change the up and down on the shadow price.  We do clearly see this as the bottle neck in our model.  We also note that when we moved the cap of 9000 to 9001 we earned another \$5.40.  We wonder if since the number is negative, we are getting 0 as an upper limit.
 
 \includegraphics[width = .9\textwidth]{output_p5b.png}
 \item We see that the contribution to the cost is -\$40 on the flow from p2 to Sold.  This value can be modified up to -\$42 and not change the model at all.  This means we could raise the price and earn more for our company keeping everything else the same. 
