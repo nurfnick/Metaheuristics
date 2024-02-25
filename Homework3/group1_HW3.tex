@@ -63,7 +63,7 @@ We see weirdness in our output here.  There are groups of three formed as well a
 \end{enumerate}
 \item Outdoor Grilling
 
-Below is our model diagram.  
+Below is our model diagram for this problem.  
 
  \begin{tikzpicture}[
       mycircle/.style={
@@ -216,13 +216,13 @@ Here is our output:
 
 \includegraphics[width = .9\textwidth]{output_p3.png}
 
-We look to be purchasing new tires for both the needs of the first two races, 320 and 200 respectively.  This is the maximum number of tires needed.  We use the normal service on 280 tires from the first race and quick on the other 40.  In second race we use the normal service on 120 but quick fix 120.  For the third race we quick fix all 400 tires used.  We end up with exactly the number of tires needed in the fourth race.  Total cost is \$490 000.
+We look to be purchasing new tires for both the needs of the first two races, 320 and 200 respectively.  This is the maximum number of tires needed.  We use the normal service on 280 tires from the first race and quick fix on the other 40.  In the second race, we used the normal service on 120 but quick fix on 120.  For the third race we quick fix all 400 tires used.  We end up with exactly the number of tires needed in the fourth race.  Total cost is \$490 000.
 
 \item Dunder Mifflin
 
-By far our most complicated model.  Unhired workers will flow to the worker pool, $wp$ and flow back out to the Workers with a weight of zero to maintain the flow.  $g$ and $s$ represent the available generalist and specialists.  If they are hired, they flow to the hired pool of each type.  They are then transported to each plant at the respective cost.  We then convert each worker into their number of products created with the weight.  Finally we combine the number of possible products they can create into each location.  Inventory is created with the regular cost but with limits on the maximums.  Overtime is represented in red and uses a different virtual node for each location.  Inventory is then shipped from each of the factories to the different businesses we serve, meeting the demand as represented inside the node.  We attempted to make the flow circular but do to the difference in weights based on employment categories, could never get it to create a balanced flow.
+This problem presents by far our most complicated model.  The network flow diagram is presented below and is described as follows: unhired workers will flow to the worker pool, $wp$ and flow back out to the Workers with a weight of zero to maintain the flow.  $g$ and $s$ represent the available generalist and specialists.  If they are hired, they flow to the hired pool of each type.  They are then transported to each plant at the respective cost.  We then convert each worker into the number of products they create with the weight.  Finally, we combine the number of possible products they can create in each location.  Inventory is created with the regular cost but with limits on the maximums.  Overtime is represented in red and uses a different virtual node for each location.  Inventory is then shipped from each of the factories to the different businesses we serve, meeting the demand as represented inside the node.  We attempted to make the flow circular, but due to the difference in weights based on employment categories, we could never get it to create a balanced flow.
 
-This model provides labor for overtime but does not account for a premium the wage for the employee working outside of regular hours.  We see this as an assumption that there is not a bump in pay for working second shift but there is a 50\% increase in our overhead costs of production.
+This model provides labor for overtime but does not account for a premium wage for the employee working outside of regular hours.  We see this as an assumption that there is not a bump in pay for working second shift, but there is a 50\% increase in our overhead costs of production.
 
  \begin{tikzpicture}[rotate=270,transform shape,
       mycircle/.style={
