@@ -36,7 +36,7 @@ printf "\nMaximize Profit...........\n";
 solve maxreturn;
 display amountInvested, totalReturn, risk;
 
-printf "\nMinimze Labor...........\n";
+printf "\nMinimze Risk...........\n";
 solve minrisk;
 display amountInvested, totalReturn, risk;
  
@@ -55,6 +55,7 @@ problem maxScalarized: objWeightedSum, amountInvested, year1, year2, year3;
 
 
 printf "\n\nMultiple values for SCALARIZATION -------------------------------------------------\n";
+printf "episode, gamma1, gamma2, A, B, C, D, E, 1, 2,3, totalReturn, risk\n" > "titanParetoS.txt";
 for {k in 0..4} {
 	let gamma1 := k/4;
 	let gamma2 := 1 - gamma1;
@@ -97,6 +98,7 @@ problem epsConst:  totalReturn, amountInvested, year1, year2, year3, epsilsonRis
 param steps = 20;
 
 printf "\n\nMultiple values for EPSILON-CONSTRAINT -------------------------------------------------\n";
+printf "episode, epsilon, A, B, C, D, E, 1, 2,3, totalReturn, risk\n" > "titanParetoEps.txt";
 for {eps in 0..steps} {
 	
 	let epsilon := lowerRisk + eps*(upperRisk - lowerRisk)/(steps);
@@ -104,6 +106,7 @@ for {eps in 0..steps} {
 	
 	display epsilon, totalReturn, risk;
 	
-	printf "%d, %7.4f, %7.4f, %7.4f\n", eps, epsilon, totalReturn, risk > "titanParetoEps.txt";
+	printf "%d, %3.2f, %7.4f,%7.4f,%7.4f,%7.4f,%7.4f,%7.4f,%7.4f, %7.4f, %7.4f, %7.4f\n", eps, epsilon,amountInvested['A'], amountInvested['B'], amountInvested['C'], amountInvested['D'], amountInvested['E'], 
+    		amountInvested[1], amountInvested[2], amountInvested[3], totalReturn, risk > "titanParetoEps.txt";
 	
 }
