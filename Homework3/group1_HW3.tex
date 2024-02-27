@@ -21,9 +21,9 @@
 \begin{enumerate}
 \item Team Building
 \begin{enumerate}
-\item English and French.  We give the English a positive weight of one and French a negative weight of one.  We have the costs on the arcs.  Here we slightly changed the model of the MCNFP by introducing a negative to the objective function.  We could have simply made the weights negative too.  This would have allowed us not to change the mod file at all.  This cause the minimizer to return a maximum.
+\item Pairing English and French children.  Our network flow diagram is below. We give the nodes representing English children a positive weight of one and nodes representing French children a negative weight of one.  We have the costs labeled on each arc.  Here we slightly changed the model of the MCNFP by introducing a negative to the objective function.  We could have simply made the weights negative instead to correct for this, which would have allowed us not to change the mod file at all.  This causes the minimizer to return a maximum solution to the objective function, which in this context is the maximum compatibility of the pairs.
 
-\includegraphics[width = .9\textwidth]{p1aflowdiagram.png}
+\includegraphics[width = .9\textwidth]{p1a_flow_diagram.png}
 
 Here is our model file:
 
@@ -37,11 +37,11 @@ Here is our output:
 
 \includegraphics[width = .9\textwidth]{output1a.png}
 
-For our example we see person 1 and 4 paired, 3 and 6 paired, etc.  We see this as fully generalizable.  This MCNFP is always balanced we have equal number of English and French so we always have even pairs with no left over in this model when solved.
+For our example, we see persons 1 and 4 paired, 3 and 6 paired, etc.  We see this answer as fully generalizable. This MCNFP is always balanced - we have an equal number of English and French, so we always have even pairs with no leftovers in this model when solved.
 
 \item Office Team Building
  
-We attempt to build a model with the same idea as above.  We assign scores of 2 as not compatible, 7 with compatible and 10 with highly compatible.  We chose these values to represent the spread between not being compatible and being compatible as being `large'.  We attempted to create a virtual copy of each person and attach them to everyone else (not attached to yourself) and put those costs on the flow.  This is represented in our document below.  We end up running this with 8 people and getting a working solution but when we expanded to 16 we got some weirdness.
+We attempt to build a model with the same idea as above. Our network flow diagram is below. We assign scores of 2 as not compatible, 7 with compatible and 10 with highly compatible. We chose these values to represent the spread between not being compatible and being compatible as being `large'. We attempted to create a virtual copy of each person and attach them to everyone else (not attached to yourself) and put those costs on the flow.  This is represented in our document below.  We end up running this with 8 people and getting a working solution but when we expanded to 16 we got some weirdness.
 
 
 \includegraphics[width = .8\textwidth]{p1bflowdiagram.png}
@@ -58,12 +58,12 @@ Here is our output:
 
 \includegraphics[width = .9\textwidth]{output1b.png}
 
-We see weirdness in our output here.  There are thruple couples and quintuplet room assignments.  We see 1 paired with 9 but 9 paired with 2 and then completing the loop with 2 paired with 1.  There is another group of 5 assigned to rooms that will not work.  We find this solution to not be generalizable even though in theory it might have worked.  The optimizer did too good of job without being able to distinguish that we needed the pairings to coincide.  If 1 was matched with v9 we needed 9 to be matched with v1.  This was not necessarily the case.
+We see weirdness in our output here.  There are groups of three formed as well as quintuplet room assignments.  We see 1 paired with 9 but 9 paired with 2 and then completing the loop with 2 paired with 1.  There is another group of 5 assigned to rooms that will not work.  We find this solution to not be generalizable even though in theory it might have worked.  The optimizer did too good of job without being able to distinguish that we needed the pairings to coincide.  If 1 was matched with v9 we needed 9 to be matched with v1.  This was not necessarily the case.
 
 \end{enumerate}
 \item Outdoor Grilling
 
-Below is our model diagram.  
+Below is our model diagram for this problem.  
 
  \begin{tikzpicture}[
       mycircle/.style={
@@ -130,7 +130,7 @@ Here is our output:
 
 \includegraphics[width = .9\textwidth]{outputp2.png}
 
-Buy a new one every year seems to be our cost effective method.  It would cost us \$3400 each year to be a grill master.
+Buying a new grill every year seems to be our most cost-effective method, as evidenced by our AMPL output.  It would cost us \$3400 each year to be a grill master.
 
 \item Race Car Tires
 
@@ -216,13 +216,13 @@ Here is our output:
 
 \includegraphics[width = .9\textwidth]{output_p3.png}
 
-We look to be purchasing new tires for both the needs of the first two races, 320 and 200 respectively.  This is the maximum number of tires needed.  We use the normal service on 280 tires from the first race and quick on the other 40.  In second race we use the normal service on 120 but quick fix 120.  For the third race we quick fix all 400 tires used.  We end up with exactly the number of tires needed in the fourth race.  Total cost is \$490 000.
+We look to be purchasing new tires for both the needs of the first two races, 320 and 200 respectively.  This is the maximum number of tires needed.  We use the normal service on 280 tires from the first race and quick fix on the other 40.  In the second race, we used the normal service on 120 but quick fix on 120.  For the third race we quick fix all 400 tires used.  We end up with exactly the number of tires needed in the fourth race.  Total cost is \$490 000.
 
 \item Dunder Mifflin
 
-By far our most complicated model.  Unhired workers will flow to the worker pool, $wp$ and flow back out to the Workers with a weight of zero to maintain the flow.  $g$ and $s$ represent the available generalist and specialists.  If they are hired, they flow to the hired pool of each type.  They are then transported to each plant at the respective cost.  We then convert each worker into their number of products created with the weight.  Finally we combine the number of possible products they can create into each location.  Inventory is created with the regular cost but with limits on the maximums.  Overtime is represented in red and uses a different virtual node for each location.  Inventory is then shipped from each of the factories to the different businesses we serve, meeting the demand as represented inside the node.  We attempted to make the flow circular but do to the difference in weights based on employment categories, could never get it to create a balanced flow.
+This problem presents by far our most complicated model.  The network flow diagram is presented below and is described as follows: unhired workers will flow to the worker pool, $wp$ and flow back out to the Workers with a weight of zero to maintain the flow.  $g$ and $s$ represent the available generalist and specialists.  If they are hired, they flow to the hired pool of each type.  They are then transported to each plant at the respective cost.  We then convert each worker into the number of products they create with the weight.  Finally, we combine the number of possible products they can create in each location.  Inventory is created with the regular cost but with limits on the maximums.  Overtime is represented in red and uses a different virtual node for each location.  Inventory is then shipped from each of the factories to the different businesses we serve, meeting the demand as represented inside the node.  We attempted to make the flow circular, but due to the difference in weights based on employment categories, we could never get it to create a balanced flow.
 
-This model provides labor for overtime but does not account for a premium the wage for the employee working outside of regular hours.  We see this as an assumption that there is not a bump in pay for working second shift but there is a 50\% increase in our overhead costs of production.
+This model provides labor for overtime but does not account for a premium wage for the employee working outside of regular hours.  We see this as an assumption that there is not a bump in pay for working second shift, but there is a 50\% increase in our overhead costs of production.
 
  \begin{tikzpicture}[rotate=270,transform shape,
       mycircle/.style={
@@ -349,11 +349,11 @@ Here is my output:
 
 \includegraphics[width = .9\textwidth]{output_p4.png}
 
-Solution is non-integer in employees which is unfortunate but can be the case with the generalized network flow problems.  All 100 specialists are hired, 40 generalists.  Scranton does use 60 products of OT, none of the other plants do but they max out production at each.
+Solution is non-integer in employees which is unfortunate but can be the case with the generalized network flow problems.  All 100 specialists are hired, 40 generalists.  Scranton does use 60 products of OT, none of the other plants do but they max out production at each location.
 
 \item Mud b Gone
 
-This model has the coolest feature of the infinite supply house.  We used a multiplicative factor to create new product out of thin air.  We also reduce the product to 0 weight as we send it to the sell node to make the flow balance.  The weights on $p_1$ and $p_4$ were because of the statement in the problem about starting with product.  $b_i$ is connected with $p_{i+1}$ due to the base not being immediately ready for production.  We also have several $\mu$ values for creating the product and the product going bad as it sits. 
+Our network flow diagram for this problem is below. This model has the coolest feature of the infinite supply house.  We used a multiplicative factor to create new product out of thin air.  We also reduce the product to 0 weight as we send it to the sell node to make the flow balance.  The weights on $p_1$ and $p_4$ were because of the statement in the problem about starting with product.  $b_i$ is connected with $p_{i+1}$ due to the base not being immediately ready for production.  We also have several $\mu$ values for creating the product and the product going bad as it sits. 
 
  \begin{tikzpicture}[transform shape,
       mycircle/.style={
@@ -425,7 +425,7 @@ Here is our data file:
 \item We see a solution for our flow.  We sell 2000, 2500, 4220 and 2500 in each of the respective periods.  We remark on the infinite supply house obtained by creating a loop with a $\mu$ factor set to 5 but could be any value greater than 1.
 
 \includegraphics[width = .9\textwidth]{output_p5a.png}
-\item We next look at sensitivity of the capacity.  We see a value of -\$5.40 in the report, supply to b2.  We interpret this as having additional gallons of base will increase (recall minimizing) our income by \$5.40.  Both the up and the down are reported as 0.  We are unsure of how to interpret this as we clearly would use more of the base if it was available but are unsure why these values are all zero.  We even broke apart the upper and lower limit thinking this was the issue but did not change the up and down on the shadow price.  We do clearly see this as the bottle neck in our model.  We also note that when we moved the cap of 9000 to 9001 we earned another \$5.40.  We wonder if since the number is negative, we are getting 0 as an upper limit.
+\item We next look at the sensitivity of the capacity.  We see a value of -\$5.40 in the report, supply to b2.  We interpret this as having additional gallons of base will increase (recall minimizing) our income by \$5.40.  Both the up and the down are reported as 0.  We are unsure of how to interpret this as we clearly would use more of the base if it was available but are unsure why these values are all zero.  We even broke apart the upper and lower limit thinking this was the issue but did not change the up and down on the shadow price.  We do clearly see this as the bottle neck in our model.  We also note that when we moved the cap of 9000 to 9001 we earned another \$5.40.  We wonder if since the number is negative, we are getting 0 as an upper limit.
 
 \includegraphics[width = .9\textwidth]{output_p5b.png}
 \item We see that the contribution to the cost is -\$40 on the flow from p2 to Sold.  This value can be modified up to -\$42 and not change the model at all.  This means we could raise the price and earn more for our company keeping everything else the same. 
