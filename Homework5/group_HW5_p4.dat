@@ -1,0 +1,10 @@
+set toys:= SR	Z;
+
+param: 	revenue	plastic	labor:=
+	SR	8		2		3
+	Z	5		1		4
+;
+
+param maxplastic = 1000;
+param maxlabor = 2400;
+param maxproduct = 700;
