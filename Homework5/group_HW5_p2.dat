@@ -1,0 +1,14 @@
+set animals :=  a	b	c	d	e	f	g	h	i	j;
+;
+
+set edges := (a,*)	b	e	j
+			(b,*)	a	d	g
+			(c,*)	h	j
+			(d,*)	b	f
+			(e,*)	a	i
+			(f,*)	d	j
+			(g,*)	b
+			(h,*)	c	i
+			(i,*)	e	h	j
+			(j,*)	a	c	f	i
+			;

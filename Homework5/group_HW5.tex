@@ -1,0 +1,48 @@
+\documentclass[11pt]{article}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{ wasysym }
+\usepackage{fancyvrb}
+\usetikzlibrary{arrows.meta,positioning}
+
+
+\newtheorem{example}{Example}
+
+
+\author{Group : Nicholas Jacob}
+\title{Homework 5 Advanced Analytics and Metaheuristics}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item To attack this problem, you will want to minimize the cost.  This is the objective.  There are two tricky items in the formulation, the ramp fee will only turn on if no or a limited amount of fuel is taken and extra fuel must be carried as a matter of precaution.  We deal with the first as a indicator of whether we are paying the fee or not at each airport, $\delta_i$.  We identify the other variable of importance as the amount of fuel taken on at each of the airport, $x_i$.  We also add a variable for the total fuel in the jet for ease of computation, $f_i$.
+\begin{eqnarray}
+\min \sum_{i}\frac{x_i}{6.7}\cdot price_i + \delta_i\cdot rampfee_i\\
+minfuel_i\cdot\delta_i\leq x_i\quad \forall i\in {1,\dots ,5}\\
+f_0 = 7000\\
+f_1 = x_1 + f_0\\
+f_2 = x_2 + f_1 - fuelburn_1\\
+\vdots\\
+2500 + fuelburn_i \leq f_i \leq 14000\quad \forall i \in {1,\dots ,5}
+\end{eqnarray}
+
+Still need max take off weight and touchdown weights to be accounted for including passengers.
+
+\item Following the outline \href{https://math.stackexchange.com/questions/4594715/vertex-coloring-approximation-algorithm-using-linear-programming}{here}, 
+we let $H$ be the total number of exhibits possibly available.  Here we set $H = 10$ with the assumption that we will need much less. Define $w_i$ means we used that particular exhibit to house animals.  $x_{v,i}$ means we used $i$ exhibit to house $v$ animal.  Then our goal is to:
+\begin{eqnarray}
+\min &\sum_{i=1}^H w_i\\
+s.t.& \sum_{i=1}^Hx_{i,v} = 1\quad \forall v\\
+& x_{i,v} + x_{i,u} \leq w_i\quad \forall (v,u)\in Table, \ i\leq H\\
+&x_{i,v},w_i\in \{0,1\}
+\end{eqnarray}
+
+\end{enumerate}
+
+
+
+\end{document}
