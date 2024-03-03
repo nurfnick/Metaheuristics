@@ -40,6 +40,36 @@ s.t.& \sum_{i=1}^Hx_{i,v} = 1\quad \forall v\\
 & x_{i,v} + x_{i,u} \leq w_i\quad \forall (v,u)\in Table, \ i\leq H\\
 &x_{i,v},w_i\in \{0,1\}
 \end{eqnarray}
+\item
+\item 
+\item 
+
+ \begin{tikzpicture}[
+      mycircle/.style={
+         circle,
+         draw=black,
+         fill=gray,
+         fill opacity = 0.3,
+         text opacity=1,
+         inner sep=0pt,
+         minimum size=30pt,
+         font=\small},
+      myarrow/.style={-Stealth},
+      node distance=1.2cm and 1.2cm
+      ]
+      \node[mycircle] (0) {$(0.714,1,0,1) \\z_{LP} = 166.28$};
+      \node[mycircle,below left=of 0] (1) {$(0,1,0,1) z_{LP} = 102$}
+      \node[mycircle,below right=of 0] (2) {$(0,1,0,\frac13) z_{LP} = 160\frac23$};
+      
+
+    \foreach \i/\j/\txt/\p in {% start node/end node/text/position
+      0/1/x1=0/above}
+	 %s5/buynew/7600/above}
+       \draw [myarrow] (\i) -- node[sloped,font=\small,\p] {\txt} (\j);
+
+
+    \end{tikzpicture}
+
 
 \end{enumerate}
 

@@ -1,0 +1,10 @@
+set legs:= 0	1	2	3	4	5;
+
+param: fuelburn fuelprice minGallonsToWaiveFee	fee	numPass:=
+	0	0		4			0					0	0
+	1	5100	8.32		600					800	2
+	2	2200	8.99		500					750	4
+	3	4700	6.48		650					600	8
+	4	3800	9.27		500					800	8
+	5	3600	4			0					0	8
+;
