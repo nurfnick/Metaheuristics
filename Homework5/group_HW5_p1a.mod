@@ -35,9 +35,15 @@ s.t. maxFuel{i in legs}: fuelAtLanding[i] + fuel[i] <= 14000;
 
 s.t. readyToGo: fuelAtLanding[5] + fuel[5] = 7000;
 
+s.t. computeFuelAtLanding1e: fuelAtLanding[1] = 2500;
+s.t. computeFuelAtLanding2e: fuelAtLanding[2] = 2500;
+s.t. computeFuelAtLanding3e: fuelAtLanding[3] = 2500;
+s.t. computeFuelAtLanding4e: fuelAtLanding[4] = 2500;
+s.t. computeFuelAtLanding5e: fuelAtLanding[5] = 2500;
+
+
 data group_HW5_p1.dat;
 
 solve;
 
 display fuel, fuelAtLanding, delta;
-

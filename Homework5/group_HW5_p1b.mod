@@ -14,6 +14,7 @@ param numPass{legs};
 var fuel{legs}>=0;
 var delta{legs} binary;
 var fuelAtLanding{legs}>= 2500;
+var delta2{legs} binary;
 
 minimize cost: sum{i in legs} (fuel[i]*fuelprice[i]/6.7 + delta[i]*fee[i]);
 
@@ -35,9 +36,11 @@ s.t. maxFuel{i in legs}: fuelAtLanding[i] + fuel[i] <= 14000;
 
 s.t. readyToGo: fuelAtLanding[5] + fuel[5] = 7000;
 
+s.t. buyAnyMoreThan200{i in legs}: 1340*delta2[i] <= fuel[i]; 
+s.t. buyAnyMoreThan200getturnedOn{i in legs}: fuel[i]<= 14000*delta2[i];
+
 data group_HW5_p1.dat;
 
 solve;
 
-display fuel, fuelAtLanding, delta;
-
+display fuel, fuelAtLanding, delta, delta2;
