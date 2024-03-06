@@ -126,7 +126,33 @@ We see the output here:
 \includegraphics[width = .9\textwidth]{outputp3.png}
 
 We see the total cost of \$320.  We use tank 1 and 4 for type A fuel, tank 5 for type B, tank 3 for type C, tanks 2, 7, and 8 for type D and tank 6 for type E.  This is quite the haphazard plan.  I could only imagine the field agents complaining about how the engineers have no idea what they are doing.  We see an important assumption here that labour was not considered here in this plan.    Someone will have to run this storage plan and then later undo it.  This could cost the company more than if we had implemented a simpler plan.
-\item 
+\item We code the piecewise linear cost function in the method described in the modules and text.  Each piece of the cost function gets a variable representing it and the total is forced by the some of each.  We force them to turn on in order by careful use of binary variables associated with when each of the levels has been filled.  For spacerays we do this with 4 levels ($sr$) and three binaries ($srb$).  They are related as
+\begin{equation}
+\begin{array}{cl}
+s.t. & 125srb1\leq sr1\leq 125\\
+& 100 srb2\leq sr2\leq 100\cdot srb1\\
+&150 srb2\leq sr3 \leq 150\cdot srb2\\
+& sr4\leq 700\cdot srb3
+\end{array}
+\end{equation}
+Each of the binaries will allow the next to turn on only after the level variable has completely filled.
+We also ask that $SR = sr1+ sr2 +sr3 +sr4$ be integer.  We do the same thing for zappers.  Details are in the AMPL model file.  We also consider a plastic, labour, and total production restriction.  Lastly we demand that the number of zappers plus 350 is greater that the number of space rays.
+
+Here is the model file:
+
+{\tiny \VerbatimInput{group_HW5_p4.mod}}
+
+Here is the data file:
+
+{\tiny \VerbatimInput{group_HW5_p4.dat}}
+
+Here is the output:
+
+
+\includegraphics[width = .9\textwidth]{outputp4.png}
+
+We create 437 space rays, 126 zappers, making \$3534.25  There is no remaining plastic but there are some more labour hours available.
+   
 \item To approach this problem, we first coded into AMPL the LP problem without the binary restrictions on $x_i$.  We instead insisted that $0\leq x_i\leq 1$.  We then solved the full LP problem and observed the output.  In the first bubble, we see the general solution.  Next we pick $x_1$ and force it to be binary.  We do this by adding the condition that $x_1 = 0$ and then also $x_1 = 1$.  We solve both of those with the full LP method.  We arrive at a binary solution for $x_1 = 0$ and a non-binary solution for $x_1 = 1$.  We repeat this process for $x_4$, picking $x_4$ since it was not binary in the current solution.  We find a non-binary solution and an infeasible solution.  We do not continue on the infeasible tree but do continue down the branch that gave an LP solution.  This time we examine $x_3$.  Again an infeasible solution and a solution that beats our original other binary solution.  Having no more branches to continue on, we terminate the algorithm.  We also run the algorithm in AMPL and see we did indeed find the maximum under the binary assumption.
 
  \begin{tikzpicture}[
