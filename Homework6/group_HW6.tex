@@ -1,0 +1,59 @@
+\documentclass[11pt]{article}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{ wasysym }
+\usepackage{fancyvrb}
+\usetikzlibrary{arrows.meta,positioning}
+
+
+\newtheorem{example}{Example}
+
+
+\author{Group 16: Nicholas Jacob}
+\title{Homework 6 Advanced Analytics and Metaheuristics}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item Strategies for the problem
+\begin{enumerate}
+\item Two differing initialization solutions for the knapsack could be random or all zeros.  
+\begin{enumerate}
+\item Random:  Random has the benefit of being just that but it also has the serious issue of not being in the feasible set (nor any where close to the feasible set).  This could be dealt with by re-seeding the random until it was inside the feasible regime.  
+\begin{verbatim}
+    for i in range(n):
+        x.append(myPRNG.randint(0,1))  #initial seeding
+
+  i = myPRNG.randint(0,n-1)
+  while evaluate(x)[1] > maxWeight: #winnowing down while not in feasible set done randomly
+    x[i] = 0
+    i=myPRNG.randint(0,n-1)
+\end{verbatim}
+\item Empty:  We could also just ask that initially your knapsack is empty.  We simply make the initial all zeros.  We know this will be in the feasible set initially!
+\begin{verbatim}
+    for i in range(n):
+        x.append(0)
+\end{verbatim}
+\end{enumerate}
+\item Neighborhood
+
+\item Infeasible
+\begin{enumerate}
+\item Small Value:  If the weight is outside of allowed, simply make the value small (negative). While this works, the infeasible will match and end the while loop in the infeasible region.
+\begin{verbatim}
+    if totalWeight > maxWeight:
+         totalValue = -1000
+\end{verbatim}
+\item Something Else
+
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+
+
+
+\end{document}
