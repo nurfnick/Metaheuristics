@@ -23,23 +23,30 @@
 \begin{enumerate}
 \item Two differing initialization solutions for the knapsack could be random or all zeros.  
 \begin{enumerate}
-\item Random:  Random has the benefit of being just that but it also has the serious issue of not being in the feasible set (nor any where close to the feasible set).  This could be dealt with by re-seeding the random until it was inside the feasible regime.  
-\begin{verbatim}
-    for i in range(n):
-        x.append(myPRNG.randint(0,1))  #initial seeding
-
-  i = myPRNG.randint(0,n-1)
-  while evaluate(x)[1] > maxWeight: #winnowing down while not in feasible set done randomly
-    x[i] = 0
-    i=myPRNG.randint(0,n-1)
-\end{verbatim}
 \item Empty:  We could also just ask that initially your knapsack is empty.  We simply make the initial all zeros.  We know this will be in the feasible set initially!
 \begin{verbatim}
     for i in range(n):
         x.append(0)
 \end{verbatim}
+\item Random:  Random has the benefit of being just that but it also has the serious issue of not being in the feasible set (nor any where close to the feasible set).  This could be dealt with by re-seeding the random until it was inside the feasible regime.  
+\begin{verbatim}
+    for i in range(n):
+        x.append(myPRNG.randint(0,1))  #initial seeding
+
+  i = myPRNG.randint(0,n-1) #random index to make zero if needed
+  while evaluate(x)[1] > maxWeight: #winnowing down randomly
+    x[i] = 0
+    i=myPRNG.randint(0,n-1)
+\end{verbatim}
+
 \end{enumerate}
 \item Neighborhood
+\begin{enumerate}
+\item Permutation
+\item $+1$ Permutation
+\item Sliding window
+\item Slide and Flip?
+\end{enumerate}
 
 \item Infeasible
 \begin{enumerate}
@@ -48,6 +55,7 @@
     if totalWeight > maxWeight:
          totalValue = -1000
 \end{verbatim}
+This did not work well.  Tried random value, that didn't work either.  Maybe something with making the Value the opposite of its value so it will continue to decrease when you are out of the feasible region.
 \item Something Else
 
 \end{enumerate}
