@@ -1,0 +1,64 @@
+\documentclass[11pt]{article}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{ wasysym }
+\usepackage{fancyvrb}
+\usetikzlibrary{arrows.meta,positioning}
+
+
+\newtheorem{example}{Example}
+
+
+\author{Group 20: Nicholas Jacob}
+\title{Homework 7 Advanced Analytics and Metaheuristics}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item Simulated Annealing
+
+\begin{description}
+\item[Initial Temperature]  Looking at our original knapsack problem, we see that the best increase we could expect in the value is 1000.  We test with that value as our initial temperature extensively.
+\item[Cooling]  We use both an exponential and Cauchy   
+
+
+\end{description}
+\begin{verbatim}
+        if evaluate(s)[0] > f_curr[0]:#compare to current not best
+            improvements.append(s[:])                 #add to list
+            improvements.append(evaluate(s)[:])       #and store its evaluation
+
+    if len(improvements)>0:
+      w = []
+      for i in range(int(len(improvements)/2)):
+        w.append(improvements[2*i +1][0])
+
+
+      whichone = myPRNG.choices(range(int(len(improvements)/2)), weights = w, k = 1)[0] #randomly choose one of the improvements
+      x_best = improvements[2*whichone]
+      f_best = improvements[2*whichone +1]
+\end{verbatim}
+\begin{tabular}{lrrrr}
+Algorithm&Iterations&\# Items Selected&Weight&Objective\\ \hline
+Local Search (Best Improvement)&581100&25&2331.3&16654.5\\ 
+Local Search (First Improvement)&37268&29&2497.9&15583.1\\
+RR (Truly Random, FI, $k=20$) & 157279&34&2485.4&16366.8\\
+RR (Random but Feasible, FI, $k = 20$)& 26964&33&2496.1&17304.9\\
+RR (Random but Feasible, FI, $k = 50$)& 95386&33&2476&17442.7\\
+Random Walk ($p = 0.90$) & 630000&31&2497&22337.1\\
+Random Walk ($p = 0.75$) & 540000&29&2498.6&20423.3\\
+Random Walk ($p = 0.5$) & 405000&34&2490.0&16676.8\\
+Stochastic (random by index) &945000&33&2498.7&15959.7\\
+Stochastic (random value as weight)&742500&32&2492.7&16712.2\\
+\hline
+\end{tabular}
+
+\end{enumerate}
+
+
+
+\end{document}
