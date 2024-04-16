@@ -47,7 +47,96 @@ We compared this to a random value between 0 and 1.  We see that if the x (which
 
 \item Genetic Algorithm
 \begin{description}
-\item[createChromosome()]
+\item[createChromosome]  I originally thought about creating random but keeping the solutions in the feasible set.  I decided against this as I would just punish those outside of the feasible set in my evaluation.  The literature makes it clear that since the optimal solutions should occur near the boundary, it is best to consider those values in some way.  To do this random process the code is very simply repeated below.
+\begin{verbatim}
+def createChromosome(n):
+
+    x = []   #i recommend creating the solution as a list
+    for i in range(n):
+      x.append(myPRNG.randint(0,1)) #pick a random 1 or 0 until you fill the list
+
+    return x
+\end{verbatim}
+
+\item[crossover] For the crossover, I implemented two random processes.  One determines if you mate at all.  This utilizes the crossOverRate.  If you do not mate, you just go into the offspring pool as is.  If you do mate, I slice you at a random index.  I insist this index is between 1 and 2 less than the length so that you are indeed sliced.
+\begin{verbatim}
+def crossover(x1,x2):
+  p = myPRNG.random()
+  if p>crossOverRate: #just go back into the gene pool as is
+    offspring1 = x1[:]
+    offspring2 = x2[:]
+  else: #have some children
+    cutIndex = myPRNG.randint(1,n-2) #cut at a place where you indeed make new arrays. 
+    offspring1 = x1[0:cutIndex] + x2[cutIndex:]
+    offspring2 = x2[0:cutIndex] + x1[cutIndex:]
+
+
+  return offspring1, offspring2  #two offspring are returned
+\end{verbatim}
+\item[evaluate]  We modified this from our earlier assignments.  With the strength of near the edge solutions, we wanted them to be considered even if overweight but penalized.  We decided on a penalty of 100 in value for each pound overweight.  We expected we might get some optimal solutions that were outside of the feasible set but did not observe any so long as the number of generations was high enough.
+\begin{verbatim}
+def evaluate(x):
+
+    a=np.array(x)
+    b=np.array(value)
+
+    totalValue = np.dot(a,b)     #compute the value of the knapsack selection
+    totalWeight = calcWeight(x) #compute the total weight
+
+    fitness  = totalValue
+
+    if totalWeight > maxWeight:
+      fitness = fitness - 100*(totalWeight - maxWeight)#penalty of 100 per pound over weight
+
+    return fitness   #returns the chromosome fitness
+\end{verbatim}
+\item[rouletteWheel] This was by far my favorite part of the code.  I utilized rank as I do believe that survival of the fittest is about ranking rather than evaluating potential mates.  I created a list of the ranks (starting from the largest number $n$ and counting down).  I then divided by the sum of all those digits $\sum_{i = 1}^n i = \frac{n(n+1)}2$.  Next a did a cummulative of that array (using numpy cumsum).  This gives me the steps of the probability.  Then I jump into the first while loop that will continue until I fill the mating pool.  The second while loop finds the index where the random number falls.  Now that we have the index, we add that chromosome into the matingPool.
+
+\begin{verbatim}
+def rouletteWheel(pop):
+
+    matingPool = [] #initialize an empty array
+    rank = [i/(len(pop)*(len(pop)+1)/2) for i in range(len(pop),0,-1)] #get a probability based on rank
+    cumrank = np.cumsum(rank) #needed cummulative probability of those ranks.
+    
+    while len(matingPool)<populationSize: #fill up the whole mating pool
+      p = myPRNG.random() #get a rando between 0 and 1
+      i = 0 #start with the most likely
+      while p>cumrank[i]: #grab the random int when finally surpass the p value
+        i+=1
+      matingPool.append(pop[i]) #add it into the pool
+
+
+    return matingPool
+\end{verbatim}
+
+\item[mutate] For mutate, I chose to simply change 1 bit.  If you get a random low enough, you will randomly change one index to a different value.
+\begin{verbatim}
+def mutate(x):
+
+    p = myPRNG.random() #p is random
+
+    if mutationRate > p: #only go here if you are lower than the small number of mutationRate
+      i = myPRNG.randint(0,n-1)
+      if(x[i]==0):#change one random bit
+        x[i] = 1
+      else:
+        x[i] = 0
+
+    return x
+\end{verbatim}
+\item[insert] I simply kept the best solutions from the previous generation by appending them onto the kids.
+\begin{verbatim}
+def insert(pop,kids):
+
+    kids = kids[:]
+
+    for i in range(eliteSolutions):
+      kids.append(pop[i]) #these have been ordered so keep the first few
+
+
+    return kids
+\end{verbatim}
 \end{description}
 
 
@@ -62,7 +151,13 @@ SA&$T_0$&Cooling, $t_k$&$M_k$& \# of temps&Iterations&Items&Weight&Value\\ \hlin
 &1000&$\frac{T_0}{1+k}$&50&1000&170655&41&2494.5&23247\\
 &2000&$\frac{T_0}{1+k}$&100&1000&106265&45&2498.2&22999.4\\
 &2000&$\frac{T_0}{1+k}$&100&1000&231663&45&2496.1&24459.5\\
-&3000&$\frac{T_0}{1+k}$&100&500&244890&42&2498.3&24147.5\\
+&3000&$\frac{T_0}{1+k}$&100&500&244890&42&2498.3&24147.5\\ \hline
+GA&Gens&PopSize&CrosOvr&Mutation& Elitism &Items&Weight&Value\\ \hline
+&100&150&0.8&0.05&top 10&29&2487.8&28852.9\\
+&50&100&0.8&0.05&top 10&29&2496.8&27670.9\\
+&50&200&0.8&0.25&top 20&33&2499.4&32342.3\\
+&100&200&0.95&0.25&top 5&32&2468.9&33976.1\\
+&100&200&0.95&0.50&top 25&32&2487.5&38201.4\\
 
 \hline
 \end{tabular}
