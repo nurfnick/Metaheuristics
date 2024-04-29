@@ -12,7 +12,7 @@
 \newtheorem{example}{Example}
 
 
-\author{Group 8: Nicholas Jacob}
+\author{Group 10: Nicholas Jacob}
 \title{Homework 8 Advanced Analytics and Metaheuristics}
 
 \begin{document}
@@ -78,6 +78,100 @@ def evaluate(x):
   x = np.array(x)
   return 418.982887272443*n -sum(x*np.sin(np.sqrt(np.abs(x))))
 \end{verbatim}
+\end{enumerate}
+\item For parameters, I played around with the code a lot.  I noticed for the small dimensional and chromosome, it was important to have higher mutation rate.  I found very good results with the following parameters 
+\begin{verbatim}
+#number of dimensions in a solution
+n = 2
+
+Generations = 300   #number of GA generations
+
+crossOverRate = 0.8  #whether the couple breeds or just continues into next generation
+mutationRate = 0.25  #rate at which mutation can occur
+eliteSolutions = 10  #number of elite solutions form previous generation that continue on unchanged
+mutationFactor = 50 # the largest number by which the mutation can change a random entry
+populationSize = 80 #size of GA population
+\end{verbatim}
+
+For the higher dimensions, we used 
+
+\begin{verbatim}
+#number of dimensions in a solution
+n = 200
+
+Generations = 1000   #number of GA generations
+
+crossOverRate = 0.8  #whether the couple breeds or just continues into next generation
+mutationRate = 0.25  #rate at which mutation can occur
+eliteSolutions = 100  #number of elite solutions form previous generation that continue on unchanged
+mutationFactor = 100 # the largest number by which the mutation can change a random entry
+populationSize = 1000 #size of GA population
+\end{verbatim}
+
+\begin{enumerate}
+\item Here is my visualization of 8 chromosomes.  We see some genes splicing and we see some repeats.  It is also possible we see some mutations.
+
+\includegraphics{plot.png}
+\item This had Best solution:  [420.9337473832483, 421.0086992961223] as the best solution, accurate to three decimal places, 0.0003559856297670194 
+\end{enumerate}
+\item This was quite challenging.  At 1000 generations, we were still seeing slight improvements.  This is with an initial population of 1000 and keeping 100 elite solutions.  We saw the value go as low as 18666.  While this is nowhere as good as the 2D solution, we do see many entries with a value near the 420 optimal.  The execution of this code was slow and with the generations not showing much improvement, do not think expanding beyond 1000 generations will improve the result by much.  This problem is hard!
+\end{enumerate}
+\item Particle Swarm Optimization
+\begin{enumerate}
+\item Code Basics
+\begin{enumerate}
+\item Particle Tracking:
+\begin{verbatim}
+def pbestUpdate(): #update the best lists
+  particleUpdate = 0 #how many particles have been updated?
+  globalUpdate = 0 #did the global best update
+  global pbestestVal, pbestest #get these variables from global environment not local
+  for i in range(swarmSize): #iterate through swarm
+    if curValue[i]< pbestVal[i]: #is the current better than current best
+      pbest[i] = pos[i][:] #since yes, change it up
+      pbestVal[i] = curValue[i]
+      particleUpdate +=1 #increment the counter
+      if curValue[i]<pbestestVal: #since this is better than before, check if it is the new best
+        pbestestVal = curValue[i] #since it is, update
+        pbestest = pos[i][:]
+        globalUpdate +=1
+  return particleUpdate, globalUpdate #return counts for stopping criteria
+\end{verbatim}
+\item Velocity and Position updates
+\begin{verbatim}
+
+def velocityUpdate(): #update velocities
+  for i in range(swarmSize): #iterate through swarm
+    for j in range(dimensions): #iterate through dimensions
+      vel[i][j] = w*vel[i][j]+phi1*myPRNG.random()*(pbest[i][j]-pos[i][j])+phi2*myPRNG.random()*(pbestest[j]-pos[i][j]) #follow formula
+      if vel[i][j] >maxVelocity: #check if outside of allowed values
+        vel[i][j] = maxVelocity #just return max/min allowed
+      if vel[i][j] <-1*maxVelocity:
+        vel[i][j] = -1*maxVelocity
+
+def positionUpdate():#must be called after velocity update
+  for i in range(swarmSize): #iterate through swarm
+    for j in range(dimensions): #update all dimensions
+      pos[i][j] = pos[i][j] + vel[i][j] #follow basic PSO
+
+      if pos[i][j] > upperBound: #check if outside of feasible
+        pos[i][j] = upperBound #if so, put on edge
+      if pos[i][j] < lowerBound: #outside feasible?
+        pos[i][j] = lowerBound
+    curValue[i] = evaluate(pos[i]) #update currentvalue too
+\end{verbatim}
+\item Limits on particle positions are included in the position update.  I only allow getting on the boundary
+\item Limits on velocity are included in velocityUpdate.  Max velocity is a parameter that can be tweaked later.
+\end{enumerate}
+\item 2D Schwefel
+\begin{enumerate}
+\item Here is a plot with just positions and velocities
+
+\includegraphics{plot2.png}
+
+\item Here is a plot that includes the global best on each iteration
+
+\includegraphics{plot2Best.png}
 \end{enumerate}
 \end{enumerate}
 \end{enumerate}
