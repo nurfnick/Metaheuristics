@@ -83,18 +83,27 @@ We also note that the random generator with utilizing the randomness to get us i
 \item Local Search with Best Improvement:  We apply this method using the all zero's as the initial, the Negative of Total Value to deal with in-feasibility, and the Slide and Flip neighbors.
 We include the details of this run in the table at the end of the document.
 
-\item Local Search with First Improvement:  We repeat the methods from above (zeros, negative, and slide/flip).  We report results below in table.  Only change in logic was introduction of the `break' command to the for loop.  This allowed the exit of the for loop when the first improvement of the model was found. 
+\item Local Search with First Improvement:  
+\begin{enumerate}
+\item We repeat the methods from above (zeros, negative, and slide/flip).  We report results below in table.  Only change in logic was introduction of the `break' command to the for loop.  This allowed the exit of the for loop when the first improvement of the model was found. 
+
+\item 
 \begin{verbatim}
 if evaluate(s)[0] > f_best[0]:
             x_best = s[:]                 #find the best member and keep track of that solution
             f_best = evaluate(s)[:]       #and store its evaluation
             break
 \end{verbatim}
-We include the results at the end of the document.
+ \item We include the results at the end of the document.
+\end{enumerate}
 
-\item Random Restarts Best Improvements:  To implement this we had to use one of our random initializers. We used the truly random one, knowing that the first objective would be to get into the feasible regime.  This did not preform very quickly.  We attempted again with the initializer that guaranteed a solution in feasible region to start.  We used first improvement to juice the runtime a bit. We kept the neighbors to be the flip and slide. 
+\item Random Restarts Best Improvements:  
+\begin{enumerate}
+\item To implement this we had to use one of our random initializers. We used the truly random one, knowing that the first objective would be to get into the feasible regime.  This did not preform very quickly.  We attempted again with the initializer that guaranteed a solution in feasible region to start.  We used first improvement to juice the runtime a bit. We kept the neighbors to be the flip and slide. 
 
+\item We include results with multiple $k$ values in the table at the end of the document.
 
+\item 
 \begin{verbatim}
 k = 50
 solns = [] #array for storing solutions values
@@ -129,8 +138,14 @@ print ("Total number of items selected: ", solns[5*iter+3])
 print ("Best solution: ", solns[5*iter+4])
 \end{verbatim}
 Three results are included in the table, shortened to be called `RR'
+\end{enumerate}
+\item Local Search with Random Walk: 
+\begin{enumerate}
+\item To implement this, we needed a $p$ to compare to and a $ptest$ that is randomly generated in each iteration of the while loop.  We use the all zero initial solution and the slide and flip neighborhood.  
+\item The results with multiple $p$ values are included in the table below
 
-\item Local Search with Random Walk:  To implement this, we needed a $p$ to compare to and a $ptest$ that is randomly generated in each iteration of the while loop.  We use the all zero initial solution and the slide and flip neighborhood.  The code that give us this result is a simple modification after the Neighborhood has been generated,
+\item 
+The code that give us this result is a simple modification after the Neighborhood has been generated,
 \begin{verbatim}
     if p>ptest: #do the normal thing
       for s in Neighborhood:                #evaluate every member in the neighborhood of x_curr
@@ -147,7 +162,15 @@ Three results are included in the table, shortened to be called `RR'
 
 We saw the best results yet for $p = 90\%$.  We did test some other values in this area about 90\% but none came out better than our reported result.
 
-\item Stochastic Hill Climb:  We start with empty and used the flip and slide.  This is neither best nor first improvement as we record all improvements and then make a random choice in which we choose (This may have been a copy/pasta error in the assignment document).  First I create a list of all the improvements that occur in the neighborhood (I compare to the current not the best!).  Then we attempt two executions of random.  In the first we do a totally random draw based solely on index.  This returned marginal results.  Next we took the same idea of recording the improvements in a list but utilized the weight functionality in random.choices.  This gave use away to still be random and improving and weight our decision on how much we were improving. The results here were also marginal.
+\end{enumerate}
+
+\item Stochastic Hill Climb:  
+\begin{enumerate}
+\item We start with empty and used the flip and slide.  This is neither best nor first improvement as we record all improvements and then make a random choice in which we choose (This may have been a copy/pasta error in the assignment document).  
+
+\item First I create a list of all the improvements that occur in the neighborhood (I compare to the current not the best!).  Then we attempt two executions of random.  In the first we do a totally random draw based solely on index.  This returned marginal results.  Next we took the same idea of recording the improvements in a list but utilized the weight functionality in random.choices.  This gave use away to still be random and improving and weight our decision on how much we were improving. The results here were also marginal.
+
+\item 
 \begin{verbatim}
         if evaluate(s)[0] > f_curr[0]:#compare to current not best
             improvements.append(s[:])                 #add to list
@@ -163,6 +186,7 @@ We saw the best results yet for $p = 90\%$.  We did test some other values in th
       x_best = improvements[2*whichone]
       f_best = improvements[2*whichone +1]
 \end{verbatim}
+\end{enumerate}
 \begin{tabular}{lrrrr}
 Algorithm&Iterations&\# Items Selected&Weight&Objective\\ \hline
 Local Search (Best Improvement)&581100&25&2331.3&16654.5\\ 
