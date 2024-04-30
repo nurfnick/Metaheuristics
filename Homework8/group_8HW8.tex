@@ -165,17 +165,67 @@ def positionUpdate():#must be called after velocity update
 \end{enumerate}
 \item 2D Schwefel
 \begin{enumerate}
-\item Here is a plot with just positions and velocities
+\item Here is a plot with just positions and velocities.  I don't think those $quiver$ arrows are perfect from $matplotlib$ but they were what was easily available for graphing.
 
 \includegraphics{plot2.png}
 
-\item Here is a plot that includes the global best on each iteration
+\item Here is a plot that includes the global best on each iteration.  Some times the global best was repeated, so that is not reported here.
 
 \includegraphics{plot2Best.png}
 \end{enumerate}
-\end{enumerate}
-\end{enumerate}
+\item 200D:  Results are tabulated below.  I really have no theory on what would make this work better.  It felt as though I should be just using random numbers for these parameters as I could not suss out a pattern.  In any case, they are reported here. 
 
+\begin{tabular}{|c|c|c|c|c|c|}\hline
+Swarm Size &Time Length & Inertial Weight, $w$ &$\phi_1$ & $\phi_2$& Value\\ \hline
+100&1000&1&3&1&44,375\\
+10,000&20&1&3&1&71,645\\
+1000&200&2&2&2&67,307\\
+500&400&0.5&1.5&2.5&48,858\\
+750&400&1&1.25&2.75& 67,111\\
+100&1000&0&1.25&2.75&57,403
+\\ \hline
+\end{tabular}
+\item Local Best:  I attempted the star topology with all particles being compared to the first of the list.  The modifications to the code base were fairly straight forward.  I needed to make the global best a list and update it by comparing both to the particle at hand and the first particle.  I only make this comparison when I have updated the bestVal already.  The code for doing that is quoted here.  There was also minor changes to the initializers and velocity updates.
+\begin{verbatim}
+def pbestUpdateLocalStar(): #update the best lists
+  particleUpdate = 0 #how many particles have been updated?
+  globalUpdate = 0 #did the global best update
+  global pbestestVal, pbestest #get these variables from global environment not local
+  for i in range(swarmSize): #iterate through swarm
+    if curValue[i]< pbestVal[i]: #is the current better than current best
+      pbest[i] = pos[i][:] #since yes, change it up
+      pbestVal[i] = curValue[i]
+      particleUpdate +=1 #increment the counter
+      if min(curValue[i],pbestestVal[0])<pbestestVal[i]: #since this is better than before, check if it is a new local best
+        if curValue[i] < pbestestVal[i]:
+          pbestestVal[i] = curValue[i] #since it is, update
+          pbestest[i] = pos[i][:]
+          globalUpdate +=1
+        else:
+          pbestestVal[i] = pbestestVal[0] #since it is, update
+          pbestest[i] = pbestest[0][:]
+          globalUpdate +=1
+
+  return particleUpdate, globalUpdate #return counts for stopping criteria
+
+\end{verbatim}
+\item Test with Local:  Lastly I repeat the code a bunch of times and add to the table now with the local star topology.  I attempted to reuse the values from before so this table looks a lot like the one above.
+
+\begin{tabular}{|c|c|c|c|c|c|}\hline
+Swarm Size &Time Length & Inertial Weight, $w$ &$\phi_1$ & $\phi_2$& Value\\ \hline
+100&1000&1&3&1&68,874\\
+10,000&20&1&3&1&72,464\\
+1000&200&2&2&2&73,569\\
+50&400&0.5&1.5&2.5&78,151\\
+750&400&1&1.25&2.75& 69,092\\
+100&1000&0&1.25&2.75& 77,421
+\\ \hline
+\end{tabular}
+
+Overall, I do not see marked improvement based on the star topology.  Seems like leaderless swarms are better, since this one clearly has a leader and you are always checking only if you did better than them.  Also making the inertial weight 0 was a bad choice as it did not explore...  
+\end{enumerate}
+\end{enumerate}
+Overall I much preferred the genetic algorithm.  It felt more natural for this problem but perchance I just didn't play around enough to get this one tweaked to work well...
 
 
 \end{document}
